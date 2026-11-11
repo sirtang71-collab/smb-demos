@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ID Photo Maker — Passport & ID Photos at Exact Size, In Your Browser</title>
+<meta name="description" content="Make passport and ID photos at the exact pixel size for US, UK, EU, India, Pakistan, Indonesia, Malaysia, Singapore and China specs. Free, private: everything runs locally in your browser, nothing is uploaded.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1>ID Photo Maker</h1>
+  <p class="tagline">Passport &amp; ID photos at the exact official size — cropped, exported and laid out for printing, right in your browser.</p>
+</header>
+
+<main class="layout">
+  <section class="panel controls">
+    <h2>1 · Choose a spec</h2>
+    <div id="presetGrid" class="preset-grid" role="listbox" aria-label="Photo specifications"></div>
+    <p id="presetDetail" class="preset-detail"></p>
+
+    <h2>2 · Your photo</h2>
+    <label id="dropZone" class="drop-zone" for="fileInput">
+      <input type="file" id="fileInput" accept="image/*" hidden>
+      <span class="dz-title">Tap to choose a photo</span>
+      <span class="dz-sub">or drop an image here · JPG / PNG / WebP</span>
+    </label>
+
+    <div class="sliders">
+      <label>Zoom <input type="range" id="zoomRange" min="1" max="3.5" step="0.01" value="1"></label>
+      <label>Brightness <input type="range" id="brightRange" min="0.5" max="1.5" step="0.01" value="1"></label>
+      <label>Contrast <input type="range" id="contrastRange" min="0.5" max="1.5" step="0.01" value="1"></label>
+    </div>
+    <p class="hint">Drag the photo to position it. Line up the top of the head with the upper line and the chin with the lower line, inside the oval.</p>
+
+    <h2>3 · Export</h2>
+    <label class="kb-row">Max file size (optional)
+      <span><input type="number" id="maxKbInput" min="0" step="1" placeholder="e.g. 200"> KB</span>
+    </label>
+    <div class="btn-row">
+      <button id="downloadSingle" class="btn primary" disabled>Download photo (JPG)</button>
+      <button id="downloadSheet" class="btn" disabled>Download 4×6 print sheet</button>
+    </div>
+    <p id="sheetInfo" class="hint"></p>
+    <p id="exportMsg" class="export-msg" role="status"></p>
+  </section>
+
+  <section class="panel stage-panel">
+    <div id="stageWrap" class="stage-wrap">
+      <canvas id="stage" width="720" height="720"></canvas>
+      <p id="stageEmpty" class="stage-empty">Your photo will appear here.<br>Nothing is uploaded — editing happens on this device.</p>
+    </div>
+    <p class="stage-caption" id="stageCaption"></p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><strong>100% local processing.</strong> Your photo never leaves your device — there is no upload and no server. Background colour is guidance only: this tool does not replace backgrounds, so shoot against a plain backdrop in the colour your spec asks for. Always double-check the current rules of the authority you are applying to.</p>
+</footer>
+
+<pre id="autotest-results" hidden></pre>
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
