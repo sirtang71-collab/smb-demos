@@ -1,0 +1,93 @@
+:root{
+  --wa-green:#25d366;
+  --wa-dark:#075e54;
+  --ink:#14202a;
+  --muted:#5b6b76;
+  --card:#ffffff;
+  --bg:#eef3f1;
+  --line:#d8e2de;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.5;
+}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px}
+.site-header{background:var(--wa-dark);color:#fff}
+.site-header .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:14px;padding-bottom:14px;gap:12px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:20px}
+.brand-sub{font-weight:400;font-size:14px;opacity:.85}
+.privacy-badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 12px;font-size:13px}
+.hero{padding:28px 0 6px}
+.hero h1{font-size:30px;margin:0 0 8px;line-height:1.2}
+.hero-sub{color:var(--muted);margin:0;font-size:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin:18px 0;box-shadow:0 1px 3px rgba(20,32,42,.05)}
+.card h2{font-size:18px;margin:20px 0 10px}
+.card h2:first-child{margin-top:0}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.field{display:block;flex:1 1 auto}
+.field>span{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px}
+.field-cc{flex:0 1 240px}
+.field-phone{flex:1 1 260px}
+input[type="tel"],input[type="text"],select,textarea{
+  width:100%;padding:11px 12px;font-size:16px;color:var(--ink);
+  border:1.5px solid var(--line);border-radius:10px;background:#fbfdfc;
+}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--wa-green);box-shadow:0 0 0 3px rgba(37,211,102,.18)}
+textarea{resize:vertical}
+.hint{color:var(--muted);font-size:13.5px;margin:8px 0 0}
+.lang-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px}
+.lang-tab{
+  border:1.5px solid var(--line);background:#fbfdfc;color:var(--ink);
+  border-radius:999px;padding:7px 16px;font-size:14.5px;cursor:pointer;font-weight:600;
+}
+.lang-tab.active{background:var(--wa-dark);border-color:var(--wa-dark);color:#fff}
+.tpl-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.tpl-btn{
+  text-align:left;border:1.5px solid var(--line);background:#f4f9f6;border-radius:10px;
+  padding:11px 13px;font-size:14.5px;cursor:pointer;color:var(--ink);font-weight:600;
+}
+.tpl-btn:hover{border-color:var(--wa-green)}
+.tpl-btn.active{border-color:var(--wa-dark);background:#e3f2ec}
+.output-row{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start}
+.link-box{flex:1 1 300px;min-width:0}
+.qr-box{flex:0 1 264px;text-align:center}
+.qr-box canvas{width:264px;height:264px;border:1.5px solid var(--line);border-radius:10px;background:#fff}
+.btn{
+  display:inline-block;border:none;cursor:pointer;text-decoration:none;
+  border-radius:10px;padding:11px 18px;font-size:15px;font-weight:700;
+}
+.btn-primary{background:var(--wa-green);color:#07351d}
+.btn-primary:hover{background:#1fb857}
+.btn-ghost{background:#fff;color:var(--wa-dark);border:1.5px solid var(--wa-dark)}
+.btn-ghost.disabled{opacity:.4;pointer-events:none}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.qr-box .btn{margin-top:12px;width:100%}
+#linkOut{font-size:14px;word-break:break-all}
+.use-ideas ul.cols{columns:2;column-gap:28px;margin:0;padding-left:20px}
+.use-ideas li{margin-bottom:6px;break-inside:avoid}
+.services-sub{color:var(--muted);margin-top:0}
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.service-card{
+  display:block;text-decoration:none;color:var(--ink);
+  border:1.5px solid var(--line);border-radius:12px;padding:18px;background:#fbfdfc;
+}
+.service-card:hover{border-color:var(--wa-green)}
+.service-title{font-weight:700;font-size:16.5px;margin-bottom:6px}
+.service-card p{color:var(--muted);font-size:14.5px;margin:0 0 10px}
+.service-cta{color:var(--wa-dark);font-weight:700;font-size:14.5px}
+.site-footer{color:var(--muted);font-size:14.5px;padding:10px 0 34px;text-align:center}
+.foot-small{font-size:12.5px}
+@media (max-width:640px){
+  .hero h1{font-size:24px}
+  .tpl-grid{grid-template-columns:1fr}
+  .service-grid{grid-template-columns:1fr}
+  .use-ideas ul.cols{columns:1}
+  .qr-box{flex:1 1 100%}
+  .qr-box canvas{width:240px;height:240px}
+  .field-cc,.field-phone{flex:1 1 100%}
+}
