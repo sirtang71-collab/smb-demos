@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Government Portal Photo KB Sizer — Hit the Exact KB Range (BPSC, NIS, eCitizen)</title>
+<meta name="description" content="Resize your photo to the exact pixel size AND file-size window government portals demand — Bangladesh BPSC 50–100 KB, BPSC signature 30–60 KB, Nigeria NIS 600×800 under 2 MB, Kenya eCitizen under 120 KB. Free, 100% in your browser — your photo never leaves your device.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1>🛂 Government Portal Photo — Exact KB Range Sizer</h1>
+  <p class="tagline">Some portals reject photos that are too small, not just too big. This tool lands your file <strong>inside the required KB window</strong>, at the exact pixel size.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">Presets checked against the portals' published specs on 2026-11-11: <strong>BPSC photo 300×300 px · 50–100 KB</strong> · <strong>BPSC signature 300×80 px · 30–60 KB</strong> · <strong>Nigeria NIS 600×800 px · under 2 MB</strong> · <strong>Kenya eCitizen ≥207×207 px · under 120 KB</strong>. Always confirm against the current official notice for your application.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Choose your portal</h2>
+    <div id="preset-list" class="preset-list"></div>
+    <div id="custom-fields" class="custom-fields" hidden>
+      <label class="field">Width (px) <input type="number" id="cu-w" min="10" max="4000" value="300"></label>
+      <label class="field">Height (px) <input type="number" id="cu-h" min="10" max="4000" value="300"></label>
+      <label class="field">Minimum KB <input type="number" id="cu-min" min="0" max="10240" value="50"> <span class="field-hint">(0 = no minimum)</span></label>
+      <label class="field">Maximum KB <input type="number" id="cu-max" min="1" max="10240" value="100"></label>
+    </div>
+    <p class="hint" id="preset-note"></p>
+
+    <h2>2 · Add your photo</h2>
+    <label class="drop">
+      <input type="file" id="pp-file" accept="image/*">
+      <span>Tap to choose a photo or signature image</span>
+    </label>
+    <p class="file-name" id="pp-info"></p>
+    <label class="field">Zoom <input type="range" id="pp-zoom" min="1" max="3.5" step="0.01" value="1"></label>
+    <div class="stage-wrap" id="stage-wrap">
+      <canvas id="pp-stage" width="360" height="360"></canvas>
+      <p id="pp-stage-empty" class="stage-empty">Your photo will appear here. Drag to reposition.</p>
+    </div>
+
+    <h2>3 · Export inside the range</h2>
+    <button id="pp-btn" class="action" disabled>Export JPG in range</button>
+    <p class="status" id="pp-status"></p>
+    <div id="pp-result-wrap" hidden>
+      <img id="pp-result-img" class="result-img" alt="Exported portal photo">
+      <p class="result-info" id="pp-result-info"></p>
+      <a id="pp-download" class="download" download="portal-photo.jpg">⬇ Download portal-photo.jpg</a>
+    </div>
+    <p class="hint small">How the minimum is reached honestly: first JPEG quality is raised to the maximum that fits. If the file is still below the portal's minimum, standard JPEG padding data is added — your picture itself is never altered, blurred or noised. If a file would need absurd amounts of padding (a tiny thumbnail instead of a real photo), the tool refuses and tells you why, instead of handing you a file the portal would reject.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your photo never leaves this device.</strong> Everything runs locally in your browser. No uploads, no accounts, no tracking.</p>
+  <p class="small">Portal Photo KB Range Sizer · Atang Lab · free · specs as published by the portals, checked 2026-11-11 — always verify against the current official notice; this tool sizes your file, it cannot guarantee a portal accepts your application.</p>
+  <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a></p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
