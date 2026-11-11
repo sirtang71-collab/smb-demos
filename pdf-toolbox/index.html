@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF Toolbox — Merge, Split, Rotate, Images to PDF (100% Local)</title>
+<meta name="description" content="Free PDF tools that run entirely in your browser. Merge, split, rotate PDFs and turn images into PDF. Files never leave your device.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1>📄 PDF Toolbox</h1>
+  <p class="tagline">Merge, split, rotate and convert — right in your browser.</p>
+  <p class="privacy-badge">🔒 100% private: everything runs locally on your device. No uploads, no servers, no tracking.</p>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button class="tab active" data-tool="merge" role="tab">Merge PDF</button>
+  <button class="tab" data-tool="split" role="tab">Split / Extract</button>
+  <button class="tab" data-tool="images" role="tab">Images → PDF</button>
+  <button class="tab" data-tool="rotate" role="tab">Rotate PDF</button>
+</nav>
+
+<main>
+  <!-- MERGE -->
+  <section id="tool-merge" class="tool active">
+    <h2>Merge PDFs</h2>
+    <p class="hint">Add 2 or more PDF files, arrange them in the order you want, then merge them into one PDF.</p>
+    <label class="drop">
+      <input type="file" id="merge-input" accept="application/pdf,.pdf" multiple>
+      <span>Tap to choose PDF files</span>
+    </label>
+    <ul id="merge-list" class="file-list"></ul>
+    <button id="merge-btn" class="action" disabled>Merge PDFs</button>
+    <p class="status" id="merge-status"></p>
+    <a id="merge-download" class="download" hidden download="merged.pdf">⬇ Download merged.pdf</a>
+  </section>
+
+  <!-- SPLIT -->
+  <section id="tool-split" class="tool">
+    <h2>Split / Extract Pages</h2>
+    <p class="hint">Pick one PDF and extract only the pages you need into a new PDF. Example: <code>1-3,5,8-10</code> keeps pages 1, 2, 3, 5, 8, 9 and 10, in that order.</p>
+    <label class="drop">
+      <input type="file" id="split-input" accept="application/pdf,.pdf">
+      <span>Tap to choose a PDF file</span>
+    </label>
+    <p class="file-name" id="split-name"></p>
+    <p class="file-name" id="split-pages"></p>
+    <label class="field">Pages to extract
+      <input type="text" id="split-ranges" placeholder="e.g. 1-3,5" inputmode="text">
+    </label>
+    <button id="split-btn" class="action" disabled>Extract Pages</button>
+    <p class="status" id="split-status"></p>
+    <a id="split-download" class="download" hidden download="extracted.pdf">⬇ Download extracted.pdf</a>
+  </section>
+
+  <!-- IMAGES -->
+  <section id="tool-images" class="tool">
+    <h2>Images → PDF</h2>
+    <p class="hint">Turn JPG and PNG images into a single PDF. One image per page, in the order shown.</p>
+    <label class="drop">
+      <input type="file" id="images-input" accept="image/jpeg,image/png,.jpg,.jpeg,.png" multiple>
+      <span>Tap to choose JPG / PNG images</span>
+    </label>
+    <ul id="images-list" class="file-list"></ul>
+    <button id="images-btn" class="action" disabled>Create PDF</button>
+    <p class="status" id="images-status"></p>
+    <a id="images-download" class="download" hidden download="images.pdf">⬇ Download images.pdf</a>
+  </section>
+
+  <!-- ROTATE -->
+  <section id="tool-rotate" class="tool">
+    <h2>Rotate PDF</h2>
+    <p class="hint">Rotate every page, or only selected pages, by 90°, 180° or 270°. Leave the page box empty to rotate all pages.</p>
+    <label class="drop">
+      <input type="file" id="rotate-input" accept="application/pdf,.pdf">
+      <span>Tap to choose a PDF file</span>
+    </label>
+    <p class="file-name" id="rotate-name"></p>
+    <p class="file-name" id="rotate-pages"></p>
+    <label class="field">Pages (empty = all)
+      <input type="text" id="rotate-ranges" placeholder="e.g. 1,3-4 — empty means all pages">
+    </label>
+    <label class="field">Rotation
+      <select id="rotate-angle">
+        <option value="90">90° clockwise</option>
+        <option value="180">180°</option>
+        <option value="270">270° clockwise (90° counter-clockwise)</option>
+      </select>
+    </label>
+    <button id="rotate-btn" class="action" disabled>Rotate PDF</button>
+    <p class="status" id="rotate-status"></p>
+    <a id="rotate-download" class="download" hidden download="rotated.pdf">⬇ Download rotated.pdf</a>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Files never leave your device.</strong> All processing happens in your browser using pdf-lib — nothing is uploaded anywhere.</p>
+  <p class="small">PDF Toolbox · free to use · works offline once loaded</p>
+</footer>
+
+<script src="assets/vendor/pdf-lib.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
