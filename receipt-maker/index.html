@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Receipt &amp; Invoice Maker for Small Sellers — Free, Private, No Sign-up</title>
+<meta name="description" content="Make a clean receipt or invoice for your Shopee, Tokopedia or WhatsApp sales in under a minute. Download as a PNG image or PDF. Free, no sign-up — your data never leaves your browser. English & Bahasa Indonesia.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧾</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1>🧾 <span data-i18n="h1">Receipt &amp; Invoice Maker</span></h1>
+  <p class="tagline" data-i18n="tagline">A proper receipt for every sale — made in under a minute, sent as a picture or PDF.</p>
+  <p class="privacy-badge" data-i18n="privacy_badge">🔒 Runs 100% in your browser. Your data is saved only on this device — nothing is uploaded, no account, no tracking.</p>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button type="button" id="lang-en" class="lang-btn active">EN</button>
+    <button type="button" id="lang-id" class="lang-btn">Bahasa Indonesia</button>
+  </div>
+</header>
+
+<main>
+  <section class="tool">
+    <h2 data-i18n="sec_shop">1 · Your shop</h2>
+    <div class="grid2">
+      <label class="field"><span data-i18n="f_shop">Shop name</span>
+        <input type="text" id="shop-name" data-i18n-ph="ph_shop" placeholder="e.g. Berkah Coffee" autocomplete="off"></label>
+      <label class="field"><span data-i18n="f_phone">Phone / WhatsApp (optional)</span>
+        <input type="text" id="shop-phone" placeholder="08xx xxxx xxxx" autocomplete="off"></label>
+      <label class="field"><span data-i18n="f_buyer">Buyer name</span>
+        <input type="text" id="buyer-name" data-i18n-ph="ph_buyer" placeholder="e.g. Sari" autocomplete="off"></label>
+      <label class="field"><span data-i18n="f_date">Date</span>
+        <input type="date" id="doc-date"></label>
+      <label class="field"><span data-i18n="f_currency">Currency</span>
+        <select id="currency">
+          <option value="IDR" selected>IDR — Rupiah (Rp)</option>
+          <option value="USD">USD — Dollar ($)</option>
+          <option value="PHP">PHP — Peso (₱)</option>
+        </select></label>
+      <label class="field"><span data-i18n="f_invno">Receipt number</span>
+        <span class="invno-row"><input type="text" id="inv-no" readonly><button type="button" id="inv-regen" class="mini-btn" data-i18n="btn_newno">↻ New</button></span></label>
+    </div>
+
+    <h2 data-i18n="sec_items">2 · Items</h2>
+    <div class="items-head" aria-hidden="true">
+      <span data-i18n="col_item">Item</span><span data-i18n="col_qty">Qty</span><span data-i18n="col_price">Price</span><span data-i18n="col_amount">Amount</span><span></span>
+    </div>
+    <div id="items"></div>
+    <button type="button" id="add-item" class="mini-btn add-btn" data-i18n="btn_add">＋ Add item</button>
+
+    <div class="grid2 totals-inputs">
+      <label class="field"><span data-i18n="f_shipping">Shipping</span>
+        <input type="text" id="shipping" inputmode="decimal" placeholder="0" autocomplete="off"></label>
+      <label class="field"><span data-i18n="f_discount">Discount</span>
+        <input type="text" id="discount" inputmode="decimal" placeholder="0" autocomplete="off"></label>
+    </div>
+
+    <div class="totals-box" aria-live="polite">
+      <div class="trow"><span data-i18n="t_subtotal">Subtotal</span><strong id="t-subtotal">Rp 0</strong></div>
+      <div class="trow"><span data-i18n="t_shipping">Shipping</span><strong id="t-shipping">Rp 0</strong></div>
+      <div class="trow"><span data-i18n="t_discount">Discount</span><strong id="t-discount">−Rp 0</strong></div>
+      <div class="trow grand"><span data-i18n="t_total">TOTAL</span><strong id="t-total">Rp 0</strong></div>
+    </div>
+
+    <h2 data-i18n="sec_out">3 · Get your receipt</h2>
+    <div class="out-actions">
+      <button type="button" id="dl-png" class="action" data-i18n="btn_png">⬇ Download image (PNG)</button>
+      <button type="button" id="dl-pdf" class="action secondary" data-i18n="btn_pdf">⬇ Download PDF</button>
+      <button type="button" id="clear-all" class="mini-btn danger" data-i18n="btn_clear">Start over</button>
+    </div>
+    <p class="status" id="status"></p>
+
+    <h3 data-i18n="sec_preview">Preview</h3>
+    <div class="preview-wrap"><canvas id="preview" width="840" height="600"></canvas></div>
+    <p class="hint small" data-i18n="hint_local">Everything you type is stored only in this browser (local storage) so it is still here when you come back. Nothing is sent to a server.</p>
+  </section>
+
+  <section class="tool services">
+    <p class="services-sub"><strong>Atang Lab</strong> · <span data-i18n="svc_text">Sending receipts by hand is fine — until the orders pile up. Our WhatsApp auto-reply &amp; order assistant answers buyers, takes orders and sends the details while you sleep.</span>
+      <a href="http://www.fiverr.com/s/Bb83K0d" target="_blank" rel="noopener" data-i18n="svc_link">See the service on Fiverr →</a></p>
+  </section>
+</main>
+
+<footer>
+  <p><strong data-i18n="foot_strong">Your data never leaves this device.</strong> <span data-i18n="foot_text">Everything runs locally in your browser. No uploads, no accounts, no tracking.</span></p>
+  <p class="small">Receipt &amp; Invoice Maker · Atang Lab · free · <span data-i18n="foot_note">The preview is exactly what the PNG shows; the PDF carries the same content in text form.</span></p>
+  <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a></p>
+</footer>
+
+<script src="assets/vendor/pdf-lib.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
