@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Sticker Maker — 512×512 WebP under 100 KB, Free in Your Browser</title>
+<meta name="description" content="Turn any photo into a WhatsApp-ready sticker: 512×512 WebP ≤100 KB with optional AI background removal, plus the 96×96 tray icon. Free, 100% on-device — files never leave your phone or computer.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1>💬 WhatsApp Sticker Maker</h1>
+  <p class="tagline">Turn any photo into a WhatsApp-ready sticker — exact size, transparent background.</p>
+  <p class="tagline-id">Buat stiker WhatsApp dari foto apa pun — ukuran pas, latar transparan.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No uploads, no server. · Semua diproses di perangkat Anda.</p>
+  <p class="spec-strip">WhatsApp's official sticker spec: <strong>stickers 512×512 WebP, ≤ 100 KB each</strong> · <strong>tray icon 96×96 PNG, ≤ 50 KB</strong>. This tool exports exactly that.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Add photos</h2>
+    <p class="hint">Pick one photo or a whole batch — each becomes one sticker. Portraits work best with AI cutout; logos and memes usually look best kept as-is.</p>
+    <label class="drop" id="drop-zone">
+      <input type="file" id="file-input" accept="image/*" multiple>
+      <span>Tap to choose photos · Ketuk untuk memilih foto</span>
+    </label>
+
+    <h2>2 · Options</h2>
+    <div class="row-options">
+      <span class="opt-label">Background:</span>
+      <label><input type="radio" name="mode" value="cutout" checked> AI cutout (transparent) · <span class="id-sub">Potong latar AI</span></label>
+      <label><input type="radio" name="mode" value="original"> Keep photo as-is · <span class="id-sub">Foto asli</span></label>
+    </div>
+    <label class="field">Margin around the subject · Jarak tepi
+      <input type="range" id="padding" min="0" max="0.2" step="0.01" value="0.08">
+      <span id="padding-val">8%</span>
+    </label>
+
+    <h2>3 · Make stickers</h2>
+    <button id="make-btn" class="action" disabled>Make stickers</button>
+    <p class="status" id="status"></p>
+
+    <ul id="item-list" class="item-list"></ul>
+
+    <div id="zip-wrap" hidden>
+      <a id="zip-download" class="download" download="whatsapp-stickers.zip">⬇ Download all as .zip</a>
+      <p class="hint">The zip contains every sticker plus <strong>tray-icon.png</strong> (made from the first photo) — one tray icon per sticker pack.</p>
+    </div>
+
+    <div class="note-box">
+      <strong>How to get them into WhatsApp:</strong> this tool makes the sticker <em>files</em> in WhatsApp's exact format — no website can add stickers to WhatsApp directly. Save the files to your phone, then use any sticker-importer app (search your app store for “WhatsApp sticker maker”), create a pack from the files, and tap “Add to WhatsApp” in that app. That's the official route for personal stickers.
+      <br><span class="id-sub"><strong>Cara memasukkan ke WhatsApp:</strong> unduh berkasnya ke ponsel, lalu pakai aplikasi pembuat stiker apa pun dari app store untuk membuat paket dan mengetuk “Add to WhatsApp”.</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your photos never leave this device.</strong> Everything — including the AI cutout — runs locally in your browser (MediaPipe). No uploads, no tracking.</p>
+  <p>More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; websites</a></p>
+  <p class="small">WhatsApp Sticker Maker · Atang Lab · free · not affiliated with WhatsApp LLC or Meta</p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
