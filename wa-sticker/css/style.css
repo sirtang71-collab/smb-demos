@@ -1,0 +1,84 @@
+/* WhatsApp Sticker Maker — style (skeleton follows cpns-kit, WhatsApp green) */
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #f0f2ee;
+  color: #1d2733;
+  line-height: 1.5;
+}
+.site-header {
+  background: linear-gradient(135deg, #128c7e, #075e54);
+  color: #fff;
+  padding: 28px 18px 20px;
+  text-align: center;
+}
+.site-header h1 { margin: 0 0 6px; font-size: 1.7rem; }
+.tagline { margin: 2px 0; font-size: 1.02rem; }
+.tagline-id { margin: 2px 0 10px; font-size: .88rem; opacity: .85; }
+.privacy-badge {
+  display: inline-block; background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.45); border-radius: 999px;
+  padding: 4px 14px; font-size: .85rem; margin: 4px 0 10px;
+}
+.spec-strip { max-width: 760px; margin: 6px auto 0; font-size: .9rem; background: rgba(0,0,0,.18); border-radius: 10px; padding: 8px 12px; }
+
+main { max-width: 820px; margin: 0 auto; padding: 14px 14px 30px; }
+.tool { background: #fff; border-radius: 14px; padding: 20px 18px 24px; box-shadow: 0 2px 10px rgba(20,40,30,.08); margin-top: 14px; }
+.tool h2 { margin: 14px 0 6px; font-size: 1.18rem; }
+.tool h2:first-child { margin-top: 0; }
+.hint { color: #48525e; font-size: .93rem; margin: 4px 0 14px; }
+.id-sub { color: #6b7683; font-size: .88em; }
+
+.drop {
+  display: block; border: 2px dashed #128c7e; border-radius: 12px;
+  background: #eafaf1; color: #075e54; text-align: center;
+  padding: 22px 12px; cursor: pointer; font-weight: 600; margin-bottom: 12px;
+}
+.drop input { display: none; }
+.drop.dragover { background: #c8f2da; }
+
+.row-options { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin: 10px 0; font-size: .95rem; }
+.opt-label { font-weight: 600; }
+.field { display: block; margin: 10px 0; font-size: .95rem; }
+.field input[type="range"] { width: 220px; vertical-align: middle; }
+
+.action {
+  background: #128c7e; color: #fff; border: none; border-radius: 10px;
+  font-size: 1rem; font-weight: 700; padding: 12px 22px; cursor: pointer; margin-top: 8px;
+}
+.action:disabled { background: #c9cdd3; cursor: not-allowed; }
+.status { min-height: 1.4em; font-size: .95rem; margin: 10px 0 4px; }
+.status.error { color: #b3122e; font-weight: 600; }
+.download {
+  display: inline-block; background: #25d366; color: #07332a; text-decoration: none;
+  font-weight: 700; border-radius: 10px; padding: 11px 20px; margin-top: 6px;
+}
+.download.small { padding: 7px 13px; font-size: .9rem; margin-top: 0; }
+.download.tray { background: #d9fdd3; }
+
+.item-list { list-style: none; margin: 12px 0; padding: 0; }
+.item-list li {
+  display: flex; align-items: center; gap: 14px;
+  background: #f3f6f2; border-radius: 10px; padding: 10px 12px; margin-bottom: 8px;
+}
+.item-list .thumb {
+  width: 84px; height: 84px; flex: none; border-radius: 8px; border: 1px solid #cfd8cf;
+  background: repeating-conic-gradient(#e3e8e3 0% 25%, #ffffff 0% 50%) 0 0 / 16px 16px;
+  object-fit: contain;
+}
+.item-list .meta { flex: 1; min-width: 0; font-size: .92rem; }
+.item-list .meta .fname { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.item-list .meta .finfo { color: #48525e; }
+.item-list .links { display: flex; flex-direction: column; gap: 6px; flex: none; }
+.item-list .warn { color: #b3122e; font-weight: 600; }
+
+.note-box {
+  background: #fff8e1; border: 1.5px solid #d9a400; color: #5f4b00;
+  border-radius: 10px; padding: 12px 14px; font-size: .93rem; margin: 16px 0 6px;
+}
+
+footer { max-width: 820px; margin: 0 auto; padding: 6px 16px 34px; color: #48525e; font-size: .9rem; text-align: center; }
+footer .small { font-size: .8rem; color: #84909c; }
+footer a { color: #128c7e; font-weight: 600; }
