@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paket Berkas CPNS &amp; PPPK — Pas Foto, KTP &amp; PDF Pas Ukuran SSCASN</title>
+<meta name="description" content="Buat pas foto 4x6 latar merah ≤200 KB, kompres pindai KTP ≤200 KB, dan gabung ijazah jadi PDF ≤800 KB untuk SSCASN. Gratis, 100% diproses di browser Anda — berkas tidak pernah diunggah.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1>📋 Paket Berkas CPNS &amp; PPPK</h1>
+  <p class="tagline">Pas foto, pindai KTP &amp; PDF ijazah — pas ukuran untuk SSCASN, langsung di browser.</p>
+  <p class="tagline-en">CPNS &amp; PPPK application file kit — exact sizes for SSCASN, right in your browser.</p>
+  <p class="privacy-badge">🔒 100% diproses di perangkat Anda. Tidak ada unggahan, tidak ada server. · Files never leave your device.</p>
+  <p class="spec-strip">Ketentuan umum SSCASN: <strong>pas foto 4×6 latar merah ≤ 200 KB</strong> · <strong>pindai KTP ≤ 200 KB</strong> · <strong>ijazah &amp; transkrip PDF ≤ 800 KB</strong>. Selalu cek pengumuman instansi yang Anda lamar.</p>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button class="tab active" data-tool="pasfoto" role="tab">Pas Foto</button>
+  <button class="tab" data-tool="kompres" role="tab">Kompres KTP</button>
+  <button class="tab" data-tool="fotopdf" role="tab">Foto → PDF</button>
+  <button class="tab" data-tool="gabung" role="tab">Gabung PDF</button>
+</nav>
+
+<main>
+  <!-- PAS FOTO -->
+  <section id="tool-pasfoto" class="tool active">
+    <h2>Pas Foto 4×6 — Ganti Latar Otomatis, ≤ 200 KB</h2>
+    <p class="hint">Unggah foto Anda: latar diganti otomatis oleh AI di perangkat, dipotong tepat 4×6 (472×709 px), lalu disimpan sebagai JPG ≤ 200 KB. Seret foto untuk mengatur posisi, gunakan penggeser untuk zoom.</p>
+    <label class="drop">
+      <input type="file" id="pf-file" accept="image/*">
+      <span>Ketuk untuk memilih foto · Tap to choose a photo</span>
+    </label>
+    <div class="row-options">
+      <span class="opt-label">Latar:</span>
+      <label><input type="radio" name="pf-bg" value="red" checked> Merah (CPNS/PPPK)</label>
+      <label><input type="radio" name="pf-bg" value="blue"> Biru</label>
+      <label class="opt-skip"><input type="checkbox" id="pf-nobg"> Lewati ganti latar</label>
+    </div>
+    <label class="field">Zoom <input type="range" id="pf-zoom" min="1" max="3.5" step="0.01" value="1"></label>
+    <div class="stage-wrap">
+      <canvas id="pf-stage" width="360" height="540"></canvas>
+      <p id="pf-stage-empty" class="stage-empty">Foto Anda akan tampil di sini.</p>
+    </div>
+    <button id="pf-btn" class="action" disabled>Buat Pas Foto (≤ 200 KB)</button>
+    <p class="status" id="pf-status"></p>
+    <div id="pf-result-wrap" hidden>
+      <img id="pf-result-img" class="result-img" alt="Hasil pas foto">
+      <p class="result-info" id="pf-result-info"></p>
+      <a id="pf-download" class="download" download="pas-foto-4x6.jpg">⬇ Unduh pas-foto-4x6.jpg</a>
+    </div>
+  </section>
+
+  <!-- KOMPRES KTP -->
+  <section id="tool-kompres" class="tool">
+    <h2>Kompres Pindai KTP / Dokumen</h2>
+    <p class="hint">Pindai KTP atau dokumen lain (JPG/PNG) akan dikompres ke batas yang Anda pilih, tetap sebagai JPG yang jelas dibaca.</p>
+    <label class="drop">
+      <input type="file" id="kc-file" accept="image/*">
+      <span>Ketuk untuk memilih gambar pindai · Tap to choose a scan</span>
+    </label>
+    <p class="file-name" id="kc-info"></p>
+    <div class="row-options">
+      <span class="opt-label">Batas ukuran:</span>
+      <label><input type="radio" name="kc-cap" value="100"> ≤ 100 KB</label>
+      <label><input type="radio" name="kc-cap" value="200" checked> ≤ 200 KB (KTP SSCASN)</label>
+      <label><input type="radio" name="kc-cap" value="300"> ≤ 300 KB</label>
+    </div>
+    <button id="kc-btn" class="action" disabled>Kompres Gambar</button>
+    <p class="status" id="kc-status"></p>
+    <div id="kc-result-wrap" hidden>
+      <img id="kc-result-img" class="result-img wide" alt="Hasil kompres">
+      <p class="result-info" id="kc-result-info"></p>
+      <a id="kc-download" class="download" download="ktp-kompres.jpg">⬇ Unduh ktp-kompres.jpg</a>
+    </div>
+  </section>
+
+  <!-- FOTO KE PDF -->
+  <section id="tool-fotopdf" class="tool">
+    <h2>Foto Dokumen → Satu PDF ≤ 800 KB</h2>
+    <p class="hint">Untuk ijazah, transkrip, SKCK, dan dokumen lain yang dipindai dengan kamera. Semua foto digabung menjadi satu PDF dengan total ≤ 800 KB — kualitas disesuaikan otomatis agar pas.</p>
+    <label class="drop">
+      <input type="file" id="fp-file" accept="image/*" multiple>
+      <span>Ketuk untuk memilih foto dokumen · Tap to choose document photos</span>
+    </label>
+    <ul id="fp-list" class="file-list"></ul>
+    <button id="fp-btn" class="action" disabled>Buat PDF (≤ 800 KB)</button>
+    <p class="status" id="fp-status"></p>
+    <p class="result-info" id="fp-result"></p>
+    <a id="fp-download" class="download" hidden download="dokumen-scan.pdf">⬇ Unduh dokumen-scan.pdf</a>
+  </section>
+
+  <!-- GABUNG PDF -->
+  <section id="tool-gabung" class="tool">
+    <h2>Gabungkan PDF — Cek Batas 800 KB</h2>
+    <p class="hint">Gabungkan beberapa PDF (mis. ijazah + transkrip) menjadi satu. Alat ini <strong>tidak mengompres PDF</strong> — jika hasil gabungan melebihi 800 KB, Anda akan diberi peringatan dengan jelas.</p>
+    <label class="drop">
+      <input type="file" id="gp-file" accept="application/pdf,.pdf" multiple>
+      <span>Ketuk untuk memilih file PDF · Tap to choose PDF files</span>
+    </label>
+    <ul id="gp-list" class="file-list"></ul>
+    <button id="gp-btn" class="action" disabled>Gabungkan PDF</button>
+    <p class="status" id="gp-status"></p>
+    <div id="gp-warning" class="warn-box" hidden>⚠️ <strong>Ukuran melebihi batas 800 KB!</strong> <span id="gp-warning-detail"></span> SSCASN kemungkinan akan menolak berkas ini. Alat ini tidak mengompres PDF — coba pindai ulang dokumen sebagai foto lalu gunakan tab <strong>Foto → PDF</strong> agar totalnya pas ≤ 800 KB.</div>
+    <p class="result-info" id="gp-result"></p>
+    <a id="gp-download" class="download" hidden download="gabungan.pdf">⬇ Unduh gabungan.pdf</a>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Berkas Anda tidak pernah meninggalkan perangkat ini.</strong> Semua proses — termasuk AI ganti latar — berjalan lokal di browser dengan MediaPipe &amp; pdf-lib. Tidak ada unggahan, tidak ada pelacakan.</p>
+  <p class="small">Paket Berkas CPNS &amp; PPPK · Atang Lab · gratis · batas ukuran mengikuti ketentuan umum SSCASN, selalu periksa pengumuman resmi instansi Anda</p>
+</footer>
+
+<script src="assets/vendor/pdf-lib.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
