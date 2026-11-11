@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23221c15%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 fill=%22%23e19a2f%22 font-family=%22Georgia%22 font-weight=%22bold%22>O</text></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olive &amp; Ember — Mediterranean Kitchen, Old Town</title>
+<meta name="description" content="Olive & Ember: wood-fired Mediterranean food in Old Town. See the menu, check opening hours, reserve a table or order on WhatsApp.">
+<style>
+:root{
+  --char:#221c15; --char2:#2e2620; --amber:#e19a2f; --amber-dark:#b97a1d;
+  --cream:#faf5ec; --paper:#fffdf8; --ink:#2b2118; --muted:#7d6f5f;
+  --line:#eadfc9; --wa:#25d366; --wa-dark:#1eb85a;
+  --radius:14px; --shadow:0 12px 32px rgba(34,28,21,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:var(--paper);line-height:1.65}
+.sans{font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(34,28,21,.97);color:var(--cream)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+.logo{font-size:1.35rem;font-weight:700;letter-spacing:.02em}
+.logo em{color:var(--amber);font-style:normal}
+nav.links{display:flex;gap:26px;font-size:.93rem}
+nav.links a{color:#d9cdb8;font-family:"Segoe UI",system-ui,sans-serif;font-weight:600}
+nav.links a:hover{color:var(--amber)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 22px;font-weight:700;font-size:.93rem;transition:.2s;border:0;cursor:pointer;font-family:"Segoe UI",system-ui,sans-serif}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 6px 18px rgba(37,211,102,.35)}
+.btn-wa:hover{background:var(--wa-dark)}
+.btn-amber{background:var(--amber);color:#221c15}
+.btn-amber:hover{background:var(--amber-dark);color:#fff}
+.menu-btn{display:none;background:none;border:0;font-size:1.5rem;color:var(--cream);cursor:pointer}
+
+/* hero */
+.hero{background:radial-gradient(1000px 480px at 85% -10%,#57452a 0%,transparent 60%),linear-gradient(140deg,#221c15 30%,#3a2d1e 100%);color:var(--cream)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding-top:64px;padding-bottom:64px}
+.eyebrow{display:inline-block;border:1px solid rgba(225,154,47,.6);color:var(--amber);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:20px;font-family:"Segoe UI",system-ui,sans-serif}
+h1{font-size:2.9rem;line-height:1.12;font-weight:700}
+h1 .hl{color:var(--amber)}
+.hero p.lead{color:#d9cdb8;font-size:1.13rem;margin:20px 0 30px;max-width:33rem;font-family:"Segoe UI",system-ui,sans-serif}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:26px;margin-top:32px;flex-wrap:wrap;font-family:"Segoe UI",system-ui,sans-serif}
+.hero-meta div{font-size:.9rem;color:#bfae8f}
+.hero-meta b{display:block;font-size:1.2rem;color:var(--cream)}
+.hero-card{background:var(--paper);color:var(--ink);border-radius:20px;box-shadow:var(--shadow);padding:28px}
+.hero-card h3{font-size:1.1rem;margin-bottom:2px}
+.hero-card .sub{color:var(--muted);font-size:.9rem;margin-bottom:16px;font-family:"Segoe UI",system-ui,sans-serif}
+.dish{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-top:1px dashed var(--line)}
+.dish:first-of-type{border-top:0}
+.dish b{font-size:.99rem}
+.dish p{color:var(--muted);font-size:.87rem;font-family:"Segoe UI",system-ui,sans-serif}
+.dish .amt{font-weight:800;color:var(--amber-dark);white-space:nowrap}
+
+/* sections */
+section{padding:72px 0}
+section.cream{background:var(--cream)}
+.sec-head{max-width:660px;margin-bottom:36px}
+.sec-head h2{font-size:2.05rem;line-height:1.25;margin-bottom:10px}
+.sec-head p{color:var(--muted);font-family:"Segoe UI",system-ui,sans-serif}
+.kicker{color:var(--amber-dark);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.76rem;margin-bottom:10px;font-family:"Segoe UI",system-ui,sans-serif}
+
+/* story tiles */
+.grid{display:grid;gap:20px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.tile{border-radius:18px;padding:30px;color:#fff;min-height:190px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:var(--shadow)}
+.tile h3{font-size:1.2rem;margin-bottom:6px}
+.tile p{font-size:.92rem;color:rgba(255,255,255,.85);font-family:"Segoe UI",system-ui,sans-serif}
+.t1{background:linear-gradient(160deg,rgba(34,28,21,.25),rgba(34,28,21,.78)),linear-gradient(135deg,#c96f2e,#8a4b1d)}
+.t2{background:linear-gradient(160deg,rgba(34,28,21,.25),rgba(34,28,21,.78)),linear-gradient(135deg,#5d7031,#39491d)}
+.t3{background:linear-gradient(160deg,rgba(34,28,21,.25),rgba(34,28,21,.78)),linear-gradient(135deg,#a03d2d,#6e271b)}
+
+/* menu */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.tab{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:9px 20px;font-weight:700;font-size:.92rem;cursor:pointer;font-family:"Segoe UI",system-ui,sans-serif;color:var(--muted)}
+.tab.active{background:var(--char);color:var(--cream);border-color:var(--char)}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 44px}
+.item{display:flex;justify-content:space-between;gap:16px;padding:15px 4px;border-bottom:1px dashed var(--line)}
+.item h4{font-size:1.04rem;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.item p{color:var(--muted);font-size:.9rem;font-family:"Segoe UI",system-ui,sans-serif;max-width:26rem}
+.item .amt{font-weight:800;color:var(--amber-dark);font-size:1.02rem;white-space:nowrap}
+.badge{background:#f3e3c2;color:#8a5a12;font-size:.68rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 9px;border-radius:999px;font-family:"Segoe UI",system-ui,sans-serif}
+.menu-note{margin-top:22px;color:var(--muted);font-size:.9rem;font-family:"Segoe UI",system-ui,sans-serif}
+
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.info-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+.info-card h3{font-size:1.2rem;margin-bottom:16px}
+.hours{display:flex;justify-content:space-between;padding:9px 0;border-top:1px dashed var(--line);font-size:.95rem;font-family:"Segoe UI",system-ui,sans-serif}
+.hours:first-of-type{border-top:0}
+.hours b{font-weight:700}
+.hours .today{color:var(--amber-dark);font-weight:800}
+.map-card{border-radius:18px;background:linear-gradient(150deg,#e8dfc9,#d8c9a3);position:relative;overflow:hidden;min-height:300px;border:1px solid var(--line)}
+.map-card svg{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:absolute;left:50%;top:44%;transform:translate(-50%,-100%);text-align:center}
+.pin .bubble{background:var(--char);color:var(--cream);font-family:"Segoe UI",system-ui,sans-serif;font-weight:700;font-size:.85rem;padding:8px 14px;border-radius:10px;white-space:nowrap;box-shadow:var(--shadow)}
+.pin .dot{width:14px;height:14px;background:#c33;border:3px solid #fff;border-radius:50%;margin:6px auto 0;box-shadow:0 2px 8px rgba(0,0,0,.35)}
+
+/* reserve band */
+.band{background:var(--char);color:var(--cream);border-radius:24px;padding:44px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.band h2{font-size:1.9rem;line-height:1.3;margin-bottom:12px}
+.band p{color:#d9cdb8;font-family:"Segoe UI",system-ui,sans-serif;max-width:30rem}
+.band .actions{display:flex;flex-direction:column;gap:12px}
+.band .actions .btn{justify-content:center}
+
+/* footer */
+footer{background:#171310;color:#a89880;padding:52px 0 30px;font-size:.92rem;font-family:"Segoe UI",system-ui,sans-serif}
+footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px;margin-bottom:34px}
+footer h4{color:var(--cream);margin-bottom:12px;font-family:Georgia,serif}
+footer ul{list-style:none}
+footer li{margin-bottom:7px}
+.demo-note{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;font-size:.82rem;color:#77694f;text-align:center}
+
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(37,211,102,.45)}
+.wa-float:hover{background:var(--wa-dark)}
+
+@media (max-width:900px){
+  .grid-3{grid-template-columns:1fr}
+  .hero .wrap{grid-template-columns:1fr}
+  .menu-grid{grid-template-columns:1fr}
+  .visit{grid-template-columns:1fr}
+  .band{grid-template-columns:1fr;padding:32px}
+  footer .cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  nav.links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--char);flex-direction:column;padding:16px 20px;gap:14px}
+  nav.links.open{display:flex}
+  .menu-btn{display:block}
+  .nav .btn{display:none}
+  h1{font-size:2.1rem}
+  .hero .wrap{padding-top:44px;padding-bottom:92px}
+  section{padding:52px 0}
+  footer .cols{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <a class="logo" href="#">Olive <em>&amp;</em> Ember</a>
+  <nav class="links" id="navLinks">
+    <a href="#menu">Menu</a><a href="#story">Our story</a><a href="#visit">Hours &amp; location</a><a href="#reserve">Reserve</a>
+  </nav>
+  <a class="btn btn-wa" href="https://wa.me/15550147733?text=Hi%20Olive%20%26%20Ember%2C%20I%27d%20like%20to%20reserve%20a%20table." target="_blank" rel="noopener">Reserve on WhatsApp</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow">Wood-fired · Old Town</span>
+    <h1>Food from the fire,<br>stories from the <span class="hl">Mediterranean</span>.</h1>
+    <p class="lead">Handmade pasta, charcoal-grilled meats and bread baked through the night — served in a 120-year-old stone house on Harbor Lane.</p>
+    <div class="hero-cta">
+      <a class="btn btn-wa" href="https://wa.me/15550147733?text=Hi%20Olive%20%26%20Ember%2C%20I%27d%20like%20to%20reserve%20a%20table." target="_blank" rel="noopener">Reserve a table</a>
+      <a class="btn btn-amber" href="#menu">See the menu</a>
+    </div>
+    <div class="hero-meta">
+      <div><b>4.8 ★</b>940+ reviews</div>
+      <div><b>Tue – Sun</b>12:00 – 23:00</div>
+      <div><b>Since 2009</b>family-run</div>
+    </div>
+  </div>
+  <div class="hero-card">
+    <h3>Tonight's specials</h3>
+    <div class="sub">From the chef's board — while they last</div>
+    <div class="dish"><div><b>Charred Octopus</b><p>Smoked paprika oil, crispy capers, lemon</p></div><span class="amt">$18</span></div>
+    <div class="dish"><div><b>Lamb Shoulder Tagine</b><p>Slow-cooked 6 hours, apricot &amp; almond couscous</p></div><span class="amt">$29</span></div>
+    <div class="dish"><div><b>Fig &amp; Honey Panna Cotta</b><p>Fresh figs, thyme honey, almond crumble</p></div><span class="amt">$11</span></div>
+  </div>
+</div></div>
+
+<section id="story"><div class="wrap">
+  <div class="sec-head"><div class="kicker">Our story</div>
+    <h2>Three generations, one wood oven</h2>
+    <p>Everything we serve starts the night before — dough proving, marinades resting, the oven lit at dawn.</p></div>
+  <div class="grid grid-3">
+    <div class="tile t1"><h3>Baked at dawn</h3><p>Our sourdough and pitta are baked fresh every morning in the original stone oven.</p></div>
+    <div class="tile t2"><h3>From the market</h3><p>Vegetables arrive daily from Old Town market; olive oil comes from our family's grove.</p></div>
+    <div class="tile t3"><h3>Over real fire</h3><p>No gas shortcuts — oak and olive-wood charcoal give every dish its signature smoke.</p></div>
+  </div>
+</div></section>
+
+<section class="cream" id="menu"><div class="wrap">
+  <div class="sec-head"><div class="kicker">The menu</div>
+    <h2>Eat well, know what it costs</h2>
+    <p>Full menu with prices — the same one you will find on the table. Ask on WhatsApp about today's off-menu dishes.</p></div>
+  <div class="tabs" id="menuTabs">
+    <button class="tab active" data-cat="starters">Starters</button>
+    <button class="tab" data-cat="mains">Mains</button>
+    <button class="tab" data-cat="grill">From the grill</button>
+    <button class="tab" data-cat="desserts">Desserts &amp; drinks</button>
+  </div>
+  <div class="menu-grid" id="menuGrid"></div>
+  <p class="menu-note">Vegetarian and gluten-free options marked on request. A 10% service charge is shared with the whole team. Prices in USD.</p>
+</div></section>
+
+<section id="visit"><div class="wrap">
+  <div class="sec-head"><div class="kicker">Visit us</div>
+    <h2>Find us in Old Town</h2></div>
+  <div class="visit">
+    <div class="info-card">
+      <h3>Opening hours</h3>
+      <div class="hours"><span>Tuesday – Thursday</span><b>12:00 – 22:00</b></div>
+      <div class="hours"><span>Friday – Saturday</span><b>12:00 – 23:00</b></div>
+      <div class="hours"><span class="today">Sunday</span><b>12:00 – 21:00</b></div>
+      <div class="hours"><span>Monday</span><b>Closed</b></div>
+      <h3 style="margin-top:26px">Good to know</h3>
+      <p class="sans" style="color:var(--muted);font-size:.94rem">Two minutes from Harbor Lane parking. Step-free entrance, high chairs and a kids' menu. Groups of 8+ please reserve a day ahead.</p>
+    </div>
+    <div class="map-card" aria-label="Map showing restaurant location">
+      <svg viewBox="0 0 600 400" preserveAspectRatio="none">
+        <path d="M0 90 C150 70 260 130 600 100 L600 0 L0 0 Z" fill="#c9d6c0"/>
+        <path d="M0 400 L0 300 C180 280 320 330 600 290 L600 400 Z" fill="#b9cba9"/>
+        <g stroke="#fffdf8" stroke-width="16" fill="none"><path d="M-10 210 H610"/><path d="M140 -10 V410"/><path d="M330 -10 C330 140 420 260 400 410"/><path d="M-10 330 C170 310 430 350 610 320"/></g>
+        <g stroke="#e5d9bd" stroke-width="2"><path d="M-10 210 H610"/><path d="M140 -10 V410"/></g>
+        <g font-family="Segoe UI,sans-serif" font-size="15" fill="#6b5f45"><text x="18" y="200">HARBOR LANE</text><text x="150" y="30">MARKET ST</text><text x="430" y="200">STONE BRIDGE RD</text></g>
+      </svg>
+      <div class="pin"><div class="bubble">Olive &amp; Ember · 7 Harbor Lane</div><div class="dot"></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section style="padding-top:0" id="reserve"><div class="wrap">
+  <div class="band">
+    <div>
+      <h2>Reserve, or get it delivered to your door</h2>
+      <p>Message us on WhatsApp: tell us the day, time and party size for a table — or send your takeaway order and we will have it hot and ready for pickup in 25 minutes.</p>
+    </div>
+    <div class="actions">
+      <a class="btn btn-wa" href="https://wa.me/15550147733?text=Hi%20Olive%20%26%20Ember%2C%20I%27d%20like%20to%20reserve%20a%20table." target="_blank" rel="noopener">Reserve a table</a>
+      <a class="btn btn-amber" href="https://wa.me/15550147733?text=Hi%20Olive%20%26%20Ember%2C%20I%27d%20like%20to%20place%20a%20takeaway%20order." target="_blank" rel="noopener">Order takeaway</a>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div><h4>Olive &amp; Ember</h4><p>Wood-fired Mediterranean kitchen, family-run since 2009. 7 Harbor Lane, Old Town.</p></div>
+    <div><h4>Hours</h4><ul><li>Tue – Thu: 12:00 – 22:00</li><li>Fri – Sat: 12:00 – 23:00</li><li>Sun: 12:00 – 21:00</li><li>Mon: Closed</li></ul></div>
+    <div><h4>Contact</h4><ul><li>(555) 014-7733</li><li>table@oliveandember.example</li><li>Private room for up to 20</li><li>Gift cards in store</li></ul></div>
+  </div>
+  <div class="demo-note">Demo website built by Atang Lab. Olive &amp; Ember is a fictional business; names, prices and contact details are illustrative only.</div>
+</div></footer>
+
+<a class="wa-float" href="https://wa.me/15550147733?text=Hi%20Olive%20%26%20Ember%2C%20I%27d%20like%20to%20reserve%20a%20table." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.2 1.6 1.9 1.1.9 2 1.2 2.3 1.3.3.1.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2Z"/></svg></a>
+
+<script>
+var MENU = {
+  starters: [
+    ["Whipped Feta & Hot Honey","Sourdough crisps, thyme, chilli crunch",11,"House favourite"],
+    ["Charred Octopus","Smoked paprika oil, crispy capers, lemon",18,""],
+    ["Burrata & Heirloom Tomato","Basil oil, aged balsamic, grilled bread",14,""],
+    ["Soup of the Day","Ask your server — always vegetarian",8,""],
+    ["Ember Flatbread","Garlic, rosemary, flaked sea salt",7,""],
+    ["Stuffed Vine Leaves","Herbed rice, pine nuts, lemon yoghurt",10,""]
+  ],
+  mains: [
+    ["Handmade Tagliatelle","Slow beef ragù, pecorino, basil",21,"House favourite"],
+    ["Lamb Shoulder Tagine","Apricot & almond couscous, harissa yoghurt",29,""],
+    ["Pan-Seared Sea Bass","Fennel, orange, green olive salsa",27,""],
+    ["Wild Mushroom Risotto","Truffle oil, parmesan crisp (vegetarian)",19,""],
+    ["Chicken Shawarma Plate","Garlic sauce, pickles, warm pitta, fries",18,""],
+    ["Aubergine Parmigiana","Layered, baked in the wood oven (vegetarian)",17,""]
+  ],
+  grill: [
+    ["Mixed Grill for Two","Lamb kofta, chicken skewers, merguez, sides",46,"For sharing"],
+    ["Ribeye, Oak-Smoked","300g, ember onions, herb butter",34,""],
+    ["Lamb Kofta Skewers","Flatbread, sumac onion, tahini",22,""],
+    ["Whole Grilled Branzino","Charred lemon, salsa verde",31,""],
+    ["Halloumi & Vegetable Skewers","Chermoula marinade (vegetarian)",16,""],
+    ["Harissa Half Chicken","Grilled over olive wood, jus, greens",23,""]
+  ],
+  desserts: [
+    ["Fig & Honey Panna Cotta","Fresh figs, thyme honey, almond crumble",11,"House favourite"],
+    ["Basque Cheesecake","Burnt top, macerated plums",10,""],
+    ["Dark Chocolate & Olive Oil Cake","Sea salt, whipped ricotta",10,""],
+    ["Turkish Coffee", "Thick, traditional, with lokum",5,""],
+    ["Fresh Mint Tea","Poured at the table, pine nuts",5,""],
+    ["House Lemonade","Charred lemon, rosemary syrup",6,""]
+  ]
+};
+var grid = document.getElementById('menuGrid');
+function render(cat){
+  grid.innerHTML = MENU[cat].map(function(d){
+    return '<div class="item"><div><h4>'+d[0]+(d[3]?' <span class="badge">'+d[3]+'</span>':'')+'</h4><p>'+d[1]+'</p></div><span class="amt">$'+d[2]+'</span></div>';
+  }).join('');
+}
+render('starters');
+document.getElementById('menuTabs').addEventListener('click', function(e){
+  if(e.target.tagName !== 'BUTTON') return;
+  var tabs = this.querySelectorAll('.tab');
+  for(var i=0;i<tabs.length;i++) tabs[i].classList.remove('active');
+  e.target.classList.add('active');
+  render(e.target.getAttribute('data-cat'));
+});
+document.getElementById('menuBtn').addEventListener('click', function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+</script>
+</body>
+</html>

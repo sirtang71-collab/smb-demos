@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230e7c86%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22>B</text></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrightSmile Dental Clinic — Gentle Dentistry in Riverdale</title>
+<meta name="description" content="BrightSmile Dental Clinic: check-ups, implants, braces and whitening. Transparent prices, gentle care. Book on WhatsApp in under a minute.">
+<style>
+:root{
+  --teal:#0e7c86; --teal-dark:#0a5a62; --teal-light:#e6f4f5;
+  --ink:#16323a; --muted:#5b7178; --line:#dcebee;
+  --bg:#ffffff; --soft:#f6fafa; --wa:#25d366; --wa-dark:#1eb85a;
+  --radius:14px; --shadow:0 10px 30px rgba(14,124,134,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue","PingFang SC","Microsoft YaHei","Noto Sans SC","Source Han Sans SC",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* top bar */
+.topbar{background:var(--teal-dark);color:#dff3f4;font-size:.86rem}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:7px;padding-bottom:7px;flex-wrap:wrap}
+.topbar b{color:#fff}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;color:var(--teal-dark)}
+.logo .mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--teal),#39b5ae);display:flex;align-items:center;justify-content:center}
+nav.links{display:flex;gap:26px;font-weight:600;font-size:.95rem}
+nav.links a{color:var(--muted)}
+nav.links a:hover{color:var(--teal)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 22px;font-weight:700;font-size:.95rem;transition:.2s;border:0;cursor:pointer}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 6px 18px rgba(37,211,102,.35)}
+.btn-wa:hover{background:var(--wa-dark)}
+.btn-ghost{background:#fff;color:var(--teal-dark);border:1.5px solid var(--teal)}
+.btn-ghost:hover{background:var(--teal-light)}
+.menu-btn{display:none;background:none;border:0;font-size:1.5rem;color:var(--teal-dark);cursor:pointer}
+.nav-actions{display:flex;align-items:center;gap:12px}
+
+/* language switch */
+.lang-sw{display:inline-flex;border:1.5px solid var(--teal);border-radius:999px;overflow:hidden;background:#fff;flex:0 0 auto}
+.lang-sw button{border:0;background:transparent;padding:7px 13px;font-weight:700;font-size:.84rem;color:var(--teal-dark);cursor:pointer;font-family:inherit;line-height:1.2}
+.lang-sw button.on{background:var(--teal);color:#fff}
+
+/* hero */
+.hero{background:linear-gradient(120deg,#eaf7f7 0%,#f7fcfc 55%,#fff 100%);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:56px}
+.eyebrow{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--teal-dark);font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+h1{font-size:2.7rem;line-height:1.15;letter-spacing:-.01em}
+h1 .hl{color:var(--teal)}
+.hero p.lead{color:var(--muted);font-size:1.12rem;margin:18px 0 28px;max-width:34rem}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.hero-points{display:flex;gap:22px;margin-top:30px;flex-wrap:wrap}
+.hero-points div{font-size:.9rem;color:var(--muted)}
+.hero-points b{display:block;font-size:1.25rem;color:var(--ink)}
+.hero-art{position:relative}
+.hero-card{background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:26px;border:1px solid var(--line)}
+.hero-card h3{font-size:1.05rem;margin-bottom:4px}
+.hero-card p{color:var(--muted);font-size:.92rem}
+.slot{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-top:12px;font-size:.92rem;gap:8px}
+.slot b{color:var(--teal-dark)}
+.slot span.tag{background:var(--teal-light);color:var(--teal-dark);font-weight:700;font-size:.75rem;padding:3px 10px;border-radius:999px;white-space:nowrap}
+
+/* sections */
+section{padding:72px 0}
+section.soft{background:var(--soft)}
+.sec-head{max-width:640px;margin-bottom:38px}
+.sec-head h2{font-size:2rem;line-height:1.25;margin-bottom:10px}
+.sec-head p{color:var(--muted)}
+.kicker{color:var(--teal);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;margin-bottom:10px}
+
+/* services */
+.grid{display:grid;gap:20px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.2s}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.card .icon{width:52px;height:52px;border-radius:14px;background:var(--teal-light);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.card h3{font-size:1.08rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.94rem;margin-bottom:14px}
+.price{font-weight:800;color:var(--teal-dark)}
+.price small{color:var(--muted);font-weight:600}
+
+/* doctors */
+.doc{display:flex;gap:18px;align-items:flex-start}
+.avatar{width:76px;height:76px;flex:0 0 76px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.3rem;color:#fff}
+.doc h3{font-size:1.05rem}
+.doc .role{color:var(--teal);font-weight:700;font-size:.85rem;margin-bottom:6px}
+.doc p{color:var(--muted);font-size:.92rem}
+
+/* prices */
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+th,td{padding:15px 18px;text-align:left;font-size:.96rem}
+th{background:var(--teal-dark);color:#fff}
+td:last-child,th:last-child{text-align:right}
+tbody tr{border-top:1px solid var(--line)}
+tbody tr:nth-child(even){background:var(--soft)}
+td.amt{font-weight:800;color:var(--teal-dark);white-space:nowrap}
+.note{color:var(--muted);font-size:.88rem;margin-top:14px}
+
+/* testimonials */
+.quote{font-size:.98rem;color:var(--ink)}
+.stars{color:#f5a623;letter-spacing:2px;margin-bottom:10px}
+.who{margin-top:14px;font-weight:700;font-size:.9rem}
+.who span{display:block;color:var(--muted);font-weight:500;font-size:.82rem}
+
+/* booking */
+.book{background:linear-gradient(135deg,var(--teal-dark),var(--teal));border-radius:24px;color:#eaf7f7;padding:44px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.book h2{color:#fff;font-size:1.9rem;line-height:1.3;margin-bottom:12px}
+.book p{max-width:30rem}
+.book .steps{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:22px}
+.book .steps div{display:flex;gap:12px;margin-bottom:14px;font-size:.95rem}
+.book .steps div:last-child{margin-bottom:0}
+.book .n{width:26px;height:26px;flex:0 0 26px;border-radius:50%;background:#fff;color:var(--teal-dark);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+
+/* footer */
+footer{background:#0d2b31;color:#b9d4d8;padding:52px 0 30px;font-size:.92rem}
+footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px;margin-bottom:34px}
+footer h4{color:#fff;margin-bottom:12px;font-size:1rem}
+footer p,footer li{color:#b9d4d8}
+footer ul{list-style:none}
+footer li{margin-bottom:7px}
+.demo-note{border-top:1px solid rgba(255,255,255,.14);padding-top:18px;font-size:.82rem;color:#7fa3ab;text-align:center}
+
+/* floating WA */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(37,211,102,.45)}
+.wa-float:hover{background:var(--wa-dark)}
+
+@media (max-width:900px){
+  .grid-3{grid-template-columns:repeat(2,1fr)}
+  .hero .wrap{grid-template-columns:1fr}
+  .book{grid-template-columns:1fr;padding:32px}
+  footer .cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  nav.links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 20px;gap:14px;border-bottom:1px solid var(--line)}
+  nav.links.open{display:flex}
+  .menu-btn{display:block}
+  .nav .btn{display:none}
+  .logo{font-size:1.08rem}
+  .logo .mark{width:34px;height:34px}
+  .lang-sw button{padding:6px 10px;font-size:.8rem}
+  h1{font-size:2.05rem}
+  .hero .wrap{padding-top:40px;padding-bottom:92px}
+  .hero-points{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  section{padding:52px 0}
+  .grid-3{grid-template-columns:1fr}
+  footer .cols{grid-template-columns:1fr}
+  .topbar .wrap{justify-content:center;text-align:center}
+  th,td{padding:12px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div data-i18n="topbar_left">📍 128 Riverdale Avenue, Springfield &nbsp;·&nbsp; <b>Open today until 8:00 PM</b></div>
+  <div>☎ (555) 014-2288 &nbsp;·&nbsp; ✉ hello@brightsmile.example</div>
+</div></div>
+
+<header><div class="wrap nav">
+  <a class="logo" href="#"><span class="mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3C9 3 8 4.6 5.9 4.6 3.9 4.6 3 6.3 3 8.2c0 3.4 1.9 4.6 2.5 7.3.4 1.9.7 5.5 2.4 5.5 1.5 0 1.3-4.1 4.1-4.1s2.6 4.1 4.1 4.1c1.7 0 2-3.6 2.4-5.5.6-2.7 2.5-3.9 2.5-7.3 0-1.9-.9-3.6-2.9-3.6C16 4.6 15 3 12 3Z" fill="#fff"/></svg></span>BrightSmile</a>
+  <nav class="links" id="navLinks">
+    <a href="#services" data-i18n="nav_services">Services</a><a href="#doctors" data-i18n="nav_doctors">Doctors</a><a href="#prices" data-i18n="nav_prices">Prices</a><a href="#reviews" data-i18n="nav_reviews">Reviews</a><a href="#visit" data-i18n="nav_visit">Visit us</a>
+  </nav>
+  <div class="nav-actions">
+    <div class="lang-sw" role="group" aria-label="Language">
+      <button type="button" id="langEn" class="on">EN</button><button type="button" id="langZh">中文</button>
+    </div>
+    <a class="btn btn-wa wa" href="#" target="_blank" rel="noopener" data-i18n="book_btn">Book on WhatsApp</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow" data-i18n="eyebrow">Now accepting new patients</span>
+    <h1 data-i18n="h1">A healthier smile,<br>without the <span class="hl">guesswork</span>.</h1>
+    <p class="lead" data-i18n="lead">Gentle, honest dentistry in Riverdale. You see the price before we start, you meet the doctor who treats you, and you book in under a minute on WhatsApp.</p>
+    <div class="hero-cta">
+      <a class="btn btn-wa wa" href="#" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.2 1.6 1.9 1.1.9 2 1.2 2.3 1.3.3.1.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2Z"/></svg><span data-i18n="cta_book">Book an appointment</span></a>
+      <a class="btn btn-ghost" href="#prices" data-i18n="cta_prices">See price list</a>
+    </div>
+    <div class="hero-points">
+      <div><b>4.9 ★</b><span data-i18n="pt1">from 620+ patient reviews</span></div>
+      <div><b data-i18n="pt2n">15 yrs</b><span data-i18n="pt2">serving Riverdale families</span></div>
+      <div><b>0%</b><span data-i18n="pt3">interest payment plans</span></div>
+    </div>
+  </div>
+  <div class="hero-art"><div class="hero-card">
+    <h3 data-i18n="hc_title">Next available appointments</h3>
+    <p data-i18n="hc_sub">Real-time slots — tap one to reserve it on WhatsApp.</p>
+    <div class="slot"><span><b data-i18n="s1d">Today</b> · <span data-i18n="s1t">4:30 PM</span></span><span>Dr. Rahman</span><span class="tag" data-i18n="s1tag">2 left</span></div>
+    <div class="slot"><span><b data-i18n="s2d">Tomorrow</b> · <span data-i18n="s2t">9:00 AM</span></span><span>Dr. Osei</span><span class="tag" data-i18n="s2tag">4 left</span></div>
+    <div class="slot"><span><b data-i18n="s3d">Tomorrow</b> · <span data-i18n="s3t">2:15 PM</span></span><span>Dr. Rahman</span><span class="tag" data-i18n="s3tag">1 left</span></div>
+    <div class="slot"><span><b data-i18n="s4d">Sat</b> · <span data-i18n="s4t">10:00 AM</span></span><span>Dr. Lindqvist</span><span class="tag" data-i18n="s4tag">3 left</span></div>
+  </div></div>
+</div></div>
+
+<section id="services"><div class="wrap">
+  <div class="sec-head"><div class="kicker" data-i18n="sv_kicker">Our services</div>
+    <h2 data-i18n="sv_h2">Everything your smile needs, under one roof</h2>
+    <p data-i18n="sv_sub">From six-month check-ups to full smile makeovers. Every treatment starts with a clear plan and a fixed quote — no surprises at the till.</p></div>
+  <div class="grid grid-3">
+    <div class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0e7c86" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg></div>
+      <h3 data-i18n="sv1t">Check-up &amp; Clean</h3><p data-i18n="sv1d">Full examination, digital X-rays, scale and polish, and a personal care plan.</p><div class="price" data-i18n="sv1p">$59 <small>· 45 min</small></div></div>
+    <div class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0e7c86" stroke-width="1.8"><path d="M12 3v18M5 8c0 5 3 7 7 13 4-6 7-8 7-13"/></svg></div>
+      <h3 data-i18n="sv2t">Dental Implants</h3><p data-i18n="sv2d">Permanent, natural-feeling replacements for missing teeth, with a 10-year guarantee.</p><div class="price" data-i18n="sv2p">from $1,450 <small>· per tooth</small></div></div>
+    <div class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0e7c86" stroke-width="1.8"><path d="M4 14c2.5 2 5.5 3 8 3s5.5-1 8-3M4 10c2.5-2 5.5-3 8-3s5.5 1 8 3"/></svg></div>
+      <h3 data-i18n="sv3t">Braces &amp; Aligners</h3><p data-i18n="sv3d">Discreet clear aligners and modern braces for teens and adults. Free first assessment.</p><div class="price" data-i18n="sv3p">from $2,900 <small>· plans available</small></div></div>
+    <div class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0e7c86" stroke-width="1.8"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/></svg></div>
+      <h3 data-i18n="sv4t">Teeth Whitening</h3><p data-i18n="sv4d">One-visit professional whitening, up to 8 shades brighter, enamel-safe.</p><div class="price" data-i18n="sv4p">$149 <small>· 60 min</small></div></div>
+    <div class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0e7c86" stroke-width="1.8"><path d="M7 4h10v16l-2-1.5L13 20l-2-1.5L9 20l-2-1.5V4Z"/></svg></div>
+      <h3 data-i18n="sv5t">Fillings &amp; Crowns</h3><p data-i18n="sv5d">Tooth-coloured fillings and same-week crowns that match your natural teeth.</p><div class="price" data-i18n="sv5p">from $120 <small>· per tooth</small></div></div>
+    <div class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0e7c86" stroke-width="1.8"><path d="M12 21s-7-4.6-9.3-9A5.4 5.4 0 0 1 12 6.4 5.4 5.4 0 0 1 21.3 12C19 16.4 12 21 12 21Z"/></svg></div>
+      <h3 data-i18n="sv6t">Kids' Dentistry</h3><p data-i18n="sv6d">Friendly, fear-free visits for children, with parent coaching and fluoride care.</p><div class="price" data-i18n="sv6p">$39 <small>· under 12s</small></div></div>
+  </div>
+</div></section>
+
+<section class="soft" id="doctors"><div class="wrap">
+  <div class="sec-head"><div class="kicker" data-i18n="doc_kicker">Meet the team</div>
+    <h2 data-i18n="doc_h2">The doctors who will actually treat you</h2>
+    <p data-i18n="doc_sub">No rotating strangers. You book a named doctor, and that is who you see — every visit.</p></div>
+  <div class="grid grid-3">
+    <div class="card doc"><div class="avatar" style="background:linear-gradient(135deg,#0e7c86,#39b5ae)">AR</div>
+      <div><h3>Dr. Amina Rahman</h3><div class="role" data-i18n="doc1r">Principal Dentist · Implants</div>
+      <p data-i18n="doc1b">15 years in restorative dentistry, 2,000+ implants placed. Known for painless injections and straight answers.</p></div></div>
+    <div class="card doc"><div class="avatar" style="background:linear-gradient(135deg,#e08a3c,#f2b25c)">KO</div>
+      <div><h3>Dr. Kwame Osei</h3><div class="role" data-i18n="doc2r">Orthodontist · Aligners</div>
+      <p data-i18n="doc2b">Specialist in clear aligners and teen braces. Offers evening slots for school and work schedules.</p></div></div>
+    <div class="card doc"><div class="avatar" style="background:linear-gradient(135deg,#5b7fb8,#87a8d8)">SL</div>
+      <div><h3>Dr. Sara Lindqvist</h3><div class="role" data-i18n="doc3r">Family &amp; Kids' Dentist</div>
+      <p data-i18n="doc3b">Turns nervous first-timers into regulars. Leads our children's programme and preventive care plans.</p></div></div>
+  </div>
+</div></section>
+
+<section id="prices"><div class="wrap">
+  <div class="sec-head"><div class="kicker" data-i18n="pr_kicker">Transparent pricing</div>
+    <h2 data-i18n="pr_h2">Our full price list — the same one we use at the desk</h2>
+    <p data-i18n="pr_sub">If your treatment needs something extra, we quote it in writing before we begin. Always.</p></div>
+  <table>
+    <thead><tr><th data-i18n="th1">Treatment</th><th data-i18n="th2">What's included</th><th data-i18n="th3">Price</th></tr></thead>
+    <tbody>
+      <tr><td data-i18n="r1a">New patient check-up</td><td data-i18n="r1b">Exam, 2 X-rays, clean &amp; polish</td><td class="amt" data-i18n="r1c">$59</td></tr>
+      <tr><td data-i18n="r2a">Emergency visit</td><td data-i18n="r2b">Same-day assessment &amp; pain relief</td><td class="amt" data-i18n="r2c">$45</td></tr>
+      <tr><td data-i18n="r3a">Tooth-coloured filling</td><td data-i18n="r3b">Per tooth, 2-year guarantee</td><td class="amt" data-i18n="r3c">from $120</td></tr>
+      <tr><td data-i18n="r4a">Root canal treatment</td><td data-i18n="r4b">Per tooth, incl. follow-up X-ray</td><td class="amt" data-i18n="r4c">from $390</td></tr>
+      <tr><td data-i18n="r5a">Porcelain crown</td><td data-i18n="r5b">Lab-made, colour-matched</td><td class="amt" data-i18n="r5c">from $680</td></tr>
+      <tr><td data-i18n="r6a">Professional whitening</td><td data-i18n="r6b">Single visit, take-home kit included</td><td class="amt" data-i18n="r6c">$149</td></tr>
+      <tr><td data-i18n="r7a">Dental implant</td><td data-i18n="r7b">Implant + crown, 10-year guarantee</td><td class="amt" data-i18n="r7c">from $1,450</td></tr>
+      <tr><td data-i18n="r8a">Clear aligners</td><td data-i18n="r8b">Full course, retainers included</td><td class="amt" data-i18n="r8c">from $2,900</td></tr>
+    </tbody>
+  </table>
+  <p class="note" data-i18n="pr_note">We accept all major insurance plans and offer 0% interest instalments on treatments over $500. Prices in USD.</p>
+</div></section>
+
+<section class="soft" id="reviews"><div class="wrap">
+  <div class="sec-head"><div class="kicker" data-i18n="rv_kicker">Patient reviews</div>
+    <h2 data-i18n="rv_h2">Rated 4.9 out of 5 by your neighbours</h2></div>
+  <div class="grid grid-3">
+    <div class="card"><div class="stars">★★★★★</div><p class="quote" data-i18n="rv1q">"Booked on WhatsApp at 9am, seen at 4:30 the same day. Dr. Rahman showed me the price before touching a single tooth. This is how dentistry should work."</p><div class="who">Melissa T.<span data-i18n="rv1w">Implant patient</span></div></div>
+    <div class="card"><div class="stars">★★★★★</div><p class="quote" data-i18n="rv2q">"My daughter used to cry at the dentist. After two visits with Dr. Lindqvist she asks when she gets to go back. Worth every cent."</p><div class="who">Daniel K.<span data-i18n="rv2w">Dad of two</span></div></div>
+    <div class="card"><div class="stars">★★★★★</div><p class="quote" data-i18n="rv3q">"Aligners were $400 cheaper than the quote I got downtown, and the evening appointments meant I never missed work."</p><div class="who">Priya S.<span data-i18n="rv3w">Aligner patient</span></div></div>
+  </div>
+</div></section>
+
+<section id="visit"><div class="wrap">
+  <div class="book">
+    <div>
+      <h2 data-i18n="bk_h2">Book in under a minute — no phone queues, no forms</h2>
+      <p data-i18n="bk_p">Send us a WhatsApp message and we confirm your slot right away. Running late or need to reschedule? Just reply to the same chat.</p>
+      <p style="margin-top:16px" data-i18n="bk_info">📍 128 Riverdale Avenue, Springfield<br>🕐 Mon–Fri 8:00–20:00 · Sat 9:00–17:00 · Sun closed</p>
+    </div>
+    <div class="steps">
+      <div><span class="n">1</span><span data-i18n="st1">Tap the green button and say hello</span></div>
+      <div><span class="n">2</span><span data-i18n="st2">Tell us what you need and pick a time</span></div>
+      <div><span class="n">3</span><span data-i18n="st3">Get a confirmation + a reminder the day before</span></div>
+      <a class="btn btn-wa wa" style="margin-top:8px;background:#fff;color:#128c4b;box-shadow:none" href="#" target="_blank" rel="noopener" data-i18n="bk_btn">Start WhatsApp booking</a>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div><h4>BrightSmile Dental Clinic</h4><p data-i18n="ft_desc">Gentle, transparent dentistry for the whole family. Serving Riverdale and Springfield since 2010.</p></div>
+    <div><h4 data-i18n="ft_h">Opening hours</h4><ul><li data-i18n="fh1">Mon – Fri: 8:00 AM – 8:00 PM</li><li data-i18n="fh2">Saturday: 9:00 AM – 5:00 PM</li><li data-i18n="fh3">Sunday: Closed</li><li data-i18n="fh4">Emergencies: WhatsApp anytime</li></ul></div>
+    <div><h4 data-i18n="ft_c">Contact</h4><ul><li>128 Riverdale Avenue</li><li>(555) 014-2288</li><li>hello@brightsmile.example</li><li data-i18n="fc4">Free parking behind the clinic</li></ul></div>
+  </div>
+  <div class="demo-note" data-i18n="demo_note">Demo website built by Atang Lab. BrightSmile Dental Clinic is a fictional business; names, prices and contact details are illustrative only.</div>
+</div></footer>
+
+<a class="wa-float wa" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.2 1.6 1.9 1.1.9 2 1.2 2.3 1.3.3.1.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2Z"/></svg></a>
+
+<script>
+var WA_NUMBER='15550142288';
+var I18N={
+en:{wa_msg:"Hi BrightSmile, I'd like to book a dental appointment.",
+doc_title:"BrightSmile Dental Clinic — Gentle Dentistry in Riverdale",
+topbar_left:'📍 128 Riverdale Avenue, Springfield &nbsp;·&nbsp; <b>Open today until 8:00 PM</b>',
+nav_services:"Services",nav_doctors:"Doctors",nav_prices:"Prices",nav_reviews:"Reviews",nav_visit:"Visit us",
+book_btn:"Book on WhatsApp",
+eyebrow:"Now accepting new patients",
+h1:'A healthier smile,<br>without the <span class="hl">guesswork</span>.',
+lead:"Gentle, honest dentistry in Riverdale. You see the price before we start, you meet the doctor who treats you, and you book in under a minute on WhatsApp.",
+cta_book:"Book an appointment",cta_prices:"See price list",
+pt1:"from 620+ patient reviews",pt2n:"15 yrs",pt2:"serving Riverdale families",pt3:"interest payment plans",
+hc_title:"Next available appointments",hc_sub:"Real-time slots — tap one to reserve it on WhatsApp.",
+s1d:"Today",s1t:"4:30 PM",s1tag:"2 left",s2d:"Tomorrow",s2t:"9:00 AM",s2tag:"4 left",s3d:"Tomorrow",s3t:"2:15 PM",s3tag:"1 left",s4d:"Sat",s4t:"10:00 AM",s4tag:"3 left",
+sv_kicker:"Our services",sv_h2:"Everything your smile needs, under one roof",
+sv_sub:"From six-month check-ups to full smile makeovers. Every treatment starts with a clear plan and a fixed quote — no surprises at the till.",
+sv1t:"Check-up & Clean",sv1d:"Full examination, digital X-rays, scale and polish, and a personal care plan.",sv1p:"$59 <small>· 45 min</small>",
+sv2t:"Dental Implants",sv2d:"Permanent, natural-feeling replacements for missing teeth, with a 10-year guarantee.",sv2p:"from $1,450 <small>· per tooth</small>",
+sv3t:"Braces & Aligners",sv3d:"Discreet clear aligners and modern braces for teens and adults. Free first assessment.",sv3p:"from $2,900 <small>· plans available</small>",
+sv4t:"Teeth Whitening",sv4d:"One-visit professional whitening, up to 8 shades brighter, enamel-safe.",sv4p:"$149 <small>· 60 min</small>",
+sv5t:"Fillings & Crowns",sv5d:"Tooth-coloured fillings and same-week crowns that match your natural teeth.",sv5p:"from $120 <small>· per tooth</small>",
+sv6t:"Kids' Dentistry",sv6d:"Friendly, fear-free visits for children, with parent coaching and fluoride care.",sv6p:"$39 <small>· under 12s</small>",
+doc_kicker:"Meet the team",doc_h2:"The doctors who will actually treat you",doc_sub:"No rotating strangers. You book a named doctor, and that is who you see — every visit.",
+doc1r:"Principal Dentist · Implants",doc1b:"15 years in restorative dentistry, 2,000+ implants placed. Known for painless injections and straight answers.",
+doc2r:"Orthodontist · Aligners",doc2b:"Specialist in clear aligners and teen braces. Offers evening slots for school and work schedules.",
+doc3r:"Family & Kids' Dentist",doc3b:"Turns nervous first-timers into regulars. Leads our children's programme and preventive care plans.",
+pr_kicker:"Transparent pricing",pr_h2:"Our full price list — the same one we use at the desk",pr_sub:"If your treatment needs something extra, we quote it in writing before we begin. Always.",
+th1:"Treatment",th2:"What's included",th3:"Price",
+r1a:"New patient check-up",r1b:"Exam, 2 X-rays, clean & polish",r1c:"$59",
+r2a:"Emergency visit",r2b:"Same-day assessment & pain relief",r2c:"$45",
+r3a:"Tooth-coloured filling",r3b:"Per tooth, 2-year guarantee",r3c:"from $120",
+r4a:"Root canal treatment",r4b:"Per tooth, incl. follow-up X-ray",r4c:"from $390",
+r5a:"Porcelain crown",r5b:"Lab-made, colour-matched",r5c:"from $680",
+r6a:"Professional whitening",r6b:"Single visit, take-home kit included",r6c:"$149",
+r7a:"Dental implant",r7b:"Implant + crown, 10-year guarantee",r7c:"from $1,450",
+r8a:"Clear aligners",r8b:"Full course, retainers included",r8c:"from $2,900",
+pr_note:"We accept all major insurance plans and offer 0% interest instalments on treatments over $500. Prices in USD.",
+rv_kicker:"Patient reviews",rv_h2:"Rated 4.9 out of 5 by your neighbours",
+rv1q:"\"Booked on WhatsApp at 9am, seen at 4:30 the same day. Dr. Rahman showed me the price before touching a single tooth. This is how dentistry should work.\"",rv1w:"Implant patient",
+rv2q:"\"My daughter used to cry at the dentist. After two visits with Dr. Lindqvist she asks when she gets to go back. Worth every cent.\"",rv2w:"Dad of two",
+rv3q:"\"Aligners were $400 cheaper than the quote I got downtown, and the evening appointments meant I never missed work.\"",rv3w:"Aligner patient",
+bk_h2:"Book in under a minute — no phone queues, no forms",
+bk_p:"Send us a WhatsApp message and we confirm your slot right away. Running late or need to reschedule? Just reply to the same chat.",
+bk_info:"📍 128 Riverdale Avenue, Springfield<br>🕐 Mon–Fri 8:00–20:00 · Sat 9:00–17:00 · Sun closed",
+st1:"Tap the green button and say hello",st2:"Tell us what you need and pick a time",st3:"Get a confirmation + a reminder the day before",bk_btn:"Start WhatsApp booking",
+ft_desc:"Gentle, transparent dentistry for the whole family. Serving Riverdale and Springfield since 2010.",
+ft_h:"Opening hours",fh1:"Mon – Fri: 8:00 AM – 8:00 PM",fh2:"Saturday: 9:00 AM – 5:00 PM",fh3:"Sunday: Closed",fh4:"Emergencies: WhatsApp anytime",
+ft_c:"Contact",fc4:"Free parking behind the clinic",
+demo_note:"Demo website built by Atang Lab. BrightSmile Dental Clinic is a fictional business; names, prices and contact details are illustrative only."},
+zh:{wa_msg:"您好，我想预约牙科看诊，请问最近有什么时段？",
+doc_title:"BrightSmile 牙科诊所 — 收费透明的温和牙科",
+topbar_left:'📍 128 Riverdale Avenue, Springfield &nbsp;·&nbsp; <b>今日营业至晚上 8 点</b>',
+nav_services:"服务项目",nav_doctors:"医生团队",nav_prices:"收费表",nav_reviews:"患者评价",nav_visit:"联系我们",
+book_btn:"WhatsApp 预约",
+eyebrow:"欢迎新患者预约",
+h1:'健康的笑容，<br>收费透明<span class="hl">不含糊</span>。',
+lead:"温和、老实的牙科诊所。动手治疗之前先看清楚收费，为你看诊的就是你预约的那位医生，一分钟内用 WhatsApp 就能完成预约。",
+cta_book:"立即预约",cta_prices:"查看收费表",
+pt1:"来自 620+ 则患者好评",pt2n:"15 年",pt2:"服务本地家庭",pt3:"免息分期付款",
+hc_title:"最近可预约时段",hc_sub:"即时时段——点选即可通过 WhatsApp 预留。",
+s1d:"今天",s1t:"下午 4:30",s1tag:"剩 2 个",s2d:"明天",s2t:"上午 9:00",s2tag:"剩 4 个",s3d:"明天",s3t:"下午 2:15",s3tag:"剩 1 个",s4d:"星期六",s4t:"上午 10:00",s4tag:"剩 3 个",
+sv_kicker:"我们的服务",sv_h2:"牙齿需要的服务，一间诊所全搞定",
+sv_sub:"从每半年一次的例行检查，到牙齿矫正与植牙。每个疗程都先给方案和固定报价，收费清清楚楚，账单不会有惊喜。",
+sv1t:"检查与洗牙",sv1d:"全面检查、数码 X 光、洗牙与抛光，附个人护理建议。",sv1p:"RM90 <small>· 约 45 分钟</small>",
+sv2t:"植牙",sv2d:"以植牙取代缺牙，外观与感觉如同真牙，10 年保修。",sv2p:"RM5,800 起 <small>· 每颗</small>",
+sv3t:"牙套与隐形矫正",sv3d:"隐形牙套与新式牙套，适合青少年与成人，首次评估免费。",sv3p:"RM4,800 起 <small>· 可分期</small>",
+sv4t:"牙齿美白",sv4d:"一次诊疗专业美白，最多亮白 8 个色阶，不伤牙釉质。",sv4p:"RM899 <small>· 60 分钟</small>",
+sv5t:"补牙与牙冠",sv5d:"与真牙同色的补牙物料，牙冠一周内完成，颜色配合真牙。",sv5p:"RM150 起 <small>· 每颗</small>",
+sv6t:"儿童牙科",sv6d:"友善、无压力的儿童看诊，附家长指导与涂氟护理。",sv6p:"RM60 <small>· 12 岁以下</small>",
+doc_kicker:"医生团队",doc_h2:"为你看诊的，就是这几位医生",doc_sub:"不会每次换陌生人。你预约哪位医生，就由哪位医生为你看诊，每次都一样。",
+doc1r:"院长牙医 · 植牙专科",doc1b:"15 年修复牙科经验，完成超过 2,000 颗植牙。以无痛注射、有话直说出名。",
+doc2r:"矫正专科 · 隐形牙套",doc2b:"专攻隐形矫正与青少年牙套，设有晚间时段，配合上学与上班时间。",
+doc3r:"家庭与儿童牙科",doc3b:"让紧张的小朋友变成常客。主理儿童牙科与预防护理计划。",
+pr_kicker:"透明收费",pr_h2:"完整收费表——和柜台用的是同一份",pr_sub:"若疗程需要额外项目，我们必先书面报价，经你确认才动手。一向如此。",
+th1:"治疗项目",th2:"包含内容",th3:"收费",
+r1a:"新患者检查",r1b:"检查、2 张 X 光、洗牙抛光",r1c:"RM90",
+r2a:"急诊",r2b:"当日评估与止痛处理",r2c:"RM70",
+r3a:"同色补牙",r3b:"每颗，2 年保修",r3c:"RM150 起",
+r4a:"根管治疗（杜牙根）",r4b:"每颗，含复诊 X 光",r4c:"RM950 起",
+r5a:"瓷牙冠",r5b:"牙科实验室订制，颜色配合真牙",r5c:"RM1,200 起",
+r6a:"专业美白",r6b:"一次诊疗，附居家美白套装",r6c:"RM899",
+r7a:"植牙",r7b:"植体 + 牙冠，10 年保修",r7c:"RM5,800 起",
+r8a:"隐形矫正",r8b:"全程疗程，附固定器",r8c:"RM4,800 起",
+pr_note:"我们接受主要保险计划，RM2,000 以上的疗程可享 0% 免息分期。价格以令吉（RM）标示。",
+rv_kicker:"患者评价",rv_h2:"邻居们给我们 4.9 分（满分 5 分）",
+rv1q:"“早上 9 点用 WhatsApp 预约，下午 4 点半就看到医生。Rahman 医生动手之前先把收费讲清楚。看牙就应该这样。”",rv1w:"植牙患者",
+rv2q:"“我女儿以前一看牙医就哭。跟 Lindqvist 医生看了两次之后，现在会主动问几时再去。值得。”",rv2w:"两位孩子的爸爸",
+rv3q:"“隐形牙套比市中心另一家便宜了 RM1,500，还有晚间时段，一天工都没耽误。”",rv3w:"矫正患者",
+bk_h2:"一分钟完成预约——不用打电话排队，不用填表格",
+bk_p:"发一则 WhatsApp 讯息给我们，我们马上确认你的时段。迟到或要改期？在同一个对话里回复就行。",
+bk_info:"📍 128 Riverdale Avenue, Springfield<br>🕐 星期一至五 上午 8 点 – 晚上 8 点 · 星期六 上午 9 点 – 下午 5 点 · 星期日休息",
+st1:"点绿色按钮，跟我们打个招呼",st2:"告诉我们你的需求，选个时间",st3:"收到确认讯息，前一天再提醒你",bk_btn:"开始 WhatsApp 预约",
+ft_desc:"为全家提供温和、透明的牙科服务，2010 年起服务本地社区。",
+ft_h:"营业时间",fh1:"星期一至五：上午 8 点 – 晚上 8 点",fh2:"星期六：上午 9 点 – 下午 5 点",fh3:"星期日：休息",fh4:"急诊：随时 WhatsApp 联系",
+ft_c:"联系方式",fc4:"诊所后方设有免费停车位",
+demo_note:"本网站由 Atang Lab 制作的演示站。BrightSmile 牙科诊所为虚构商家；名称、价格与联系方式仅供示意。"}
+};
+function setLang(lang){
+  var d=I18N[lang]||I18N.en;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(d[k]!==undefined){el.innerHTML=d[k];}
+  });
+  var href='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(d.wa_msg);
+  document.querySelectorAll('a.wa').forEach(function(a){a.setAttribute('href',href);});
+  document.documentElement.lang=(lang==='zh')?'zh-Hans-MY':'en';
+  document.title=d.doc_title;
+  document.getElementById('langEn').classList.toggle('on',lang==='en');
+  document.getElementById('langZh').classList.toggle('on',lang==='zh');
+  try{localStorage.setItem('bs-lang',lang);}catch(e){}
+  window.__lang=lang;
+}
+document.getElementById('langEn').addEventListener('click',function(){setLang('en');});
+document.getElementById('langZh').addEventListener('click',function(){setLang('zh');});
+document.getElementById('menuBtn').addEventListener('click',function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+var saved='en';
+try{saved=localStorage.getItem('bs-lang')||'en';}catch(e){}
+setLang(saved==='zh'?'zh':'en');
+</script>
+</body>
+</html>

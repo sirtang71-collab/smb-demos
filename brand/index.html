@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230c0e12%22/><path d=%22M55 12 26 56h16l-6 32 30-46H49z%22 fill=%22%23f5b301%22/></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOLTIQ — Smart Charging & Audio, Engineered in Shenzhen</title>
+<meta name="description" content="VOLTIQ designs GaN fast chargers, power banks and ANC audio for Southeast Asia. Official brand site: products, certifications, wholesale & distributor enquiries.">
+<style>
+:root{
+  --ink:#0c0e12; --ink2:#161a21; --paper:#ffffff; --soft:#f4f5f7;
+  --muted:#5c6470; --muted-d:#9aa3b0; --line:#e4e7ec; --line-d:#262c37;
+  --amber:#f5b301; --amber-d:#d99e00; --wa:#25d366; --wa-dark:#1eb85a;
+  --radius:16px; --shadow:0 14px 40px rgba(12,14,18,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(12,14,18,.97);color:#fff;border-bottom:1px solid var(--line-d)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:15px 0;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.3rem;letter-spacing:.14em}
+.logo .mark{width:38px;height:38px;border-radius:10px;background:var(--amber);display:flex;align-items:center;justify-content:center}
+nav.links{display:flex;gap:28px;font-weight:600;font-size:.93rem}
+nav.links a{color:var(--muted-d)}
+nav.links a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 22px;font-weight:700;font-size:.93rem;transition:.2s;border:0;cursor:pointer}
+.btn-amber{background:var(--amber);color:var(--ink)}
+.btn-amber:hover{background:var(--amber-d)}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-wa:hover{background:var(--wa-dark)}
+.btn-line{background:transparent;color:#fff;border:1.5px solid #3a4252}
+.btn-line:hover{border-color:#fff}
+.menu-btn{display:none;background:none;border:0;font-size:1.5rem;color:#fff;cursor:pointer}
+
+/* hero */
+.hero{background:radial-gradient(900px 480px at 85% -10%,#2a2f1a 0%,transparent 55%),linear-gradient(160deg,#0c0e12 55%,#141922 100%);color:#fff;overflow:hidden}
+.hero .wrap{padding-top:78px;padding-bottom:78px;max-width:1140px}
+.eyebrow{display:inline-block;border:1px solid #3a4252;color:var(--amber);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:22px}
+h1{font-size:3.1rem;line-height:1.08;letter-spacing:-.01em;max-width:15ch}
+h1 .hl{color:var(--amber)}
+.hero p.lead{color:var(--muted-d);font-size:1.14rem;margin:20px 0 30px;max-width:36rem}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:38px;margin-top:52px;flex-wrap:wrap;border-top:1px solid var(--line-d);padding-top:28px}
+.hero-stats div{font-size:.88rem;color:var(--muted-d)}
+.hero-stats b{display:block;font-size:1.55rem;color:#fff;letter-spacing:.01em}
+
+/* trust strip */
+.trust{background:var(--ink2);color:var(--muted-d)}
+.trust .wrap{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding-top:16px;padding-bottom:16px;font-size:.88rem}
+.trust b{color:#fff;font-weight:700}
+.badge{border:1px solid #343c4b;border-radius:8px;padding:4px 11px;font-weight:700;color:#dfe4ec;font-size:.82rem;letter-spacing:.03em}
+
+/* sections */
+section{padding:76px 0}
+section.soft{background:var(--soft)}
+.sec-head{max-width:680px;margin-bottom:40px}
+.sec-head h2{font-size:2.05rem;line-height:1.22;margin-bottom:10px;letter-spacing:-.01em}
+.sec-head p{color:var(--muted)}
+.kicker{color:var(--amber-d);font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;margin-bottom:10px}
+
+/* products */
+.grid{display:grid;gap:20px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.prod{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.2s}
+.prod:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.prod .art{height:170px;display:flex;align-items:center;justify-content:center;position:relative}
+.prod .tag{position:absolute;top:12px;left:12px;background:var(--ink);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:999px;text-transform:uppercase}
+.prod .body{padding:22px}
+.prod h3{font-size:1.06rem;margin-bottom:6px}
+.prod p{color:var(--muted);font-size:.92rem;margin-bottom:14px}
+.prod .spec{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:13px}
+.prod .msrp{font-weight:800}
+.prod .msrp small{color:var(--muted);font-weight:600}
+.prod .cat{font-size:.82rem;color:var(--amber-d);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+
+/* story */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.story p{color:var(--muted);margin-bottom:16px}
+.story p b{color:var(--ink)}
+.timeline{border-left:2px solid var(--line);padding-left:24px;display:grid;gap:22px}
+.timeline div{position:relative}
+.timeline div::before{content:"";position:absolute;left:-31px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--amber);border:2px solid #fff;box-shadow:0 0 0 2px var(--line)}
+.timeline b{display:block;font-size:.95rem}
+.timeline span{color:var(--muted);font-size:.9rem}
+
+/* quality */
+.qual{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.qcard h3{font-size:1.02rem;margin-bottom:8px}
+.qcard p,.qcard li{color:var(--muted);font-size:.93rem}
+.qcard ul{list-style:none}
+.qcard li{margin-bottom:6px;padding-left:18px;position:relative}
+.qcard li::before{content:"✓";position:absolute;left:0;color:var(--amber-d);font-weight:800}
+
+/* partners */
+.partner{background:linear-gradient(150deg,#0c0e12,#171d29);border-radius:24px;color:#e8ecf2;padding:46px;display:grid;grid-template-columns:.9fr 1.1fr;gap:38px}
+.partner h2{color:#fff;font-size:1.85rem;line-height:1.3;margin-bottom:12px}
+.partner p{color:var(--muted-d);font-size:.96rem}
+.partner ul{list-style:none;margin-top:18px}
+.partner li{margin-bottom:10px;font-size:.95rem;padding-left:24px;position:relative}
+.partner li::before{content:"—";position:absolute;left:0;color:var(--amber)}
+form.inq{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+form.inq label{font-size:.8rem;font-weight:700;letter-spacing:.04em;color:var(--muted-d);display:block;margin-bottom:5px;text-transform:uppercase}
+form.inq input,form.inq select,form.inq textarea{width:100%;background:#0f1319;border:1px solid #333c4d;border-radius:10px;color:#fff;padding:11px 13px;font-size:.94rem;font-family:inherit}
+form.inq input:focus,form.inq select:focus,form.inq textarea:focus{outline:2px solid var(--amber);border-color:transparent}
+form.inq .full{grid-column:1/-1}
+.inq-actions{display:flex;gap:12px;flex-wrap:wrap;grid-column:1/-1;margin-top:4px}
+.form-note{grid-column:1/-1;font-size:.82rem;color:var(--muted-d)}
+
+/* footer */
+footer{background:var(--ink);color:var(--muted-d);padding:54px 0 30px;font-size:.92rem}
+footer .cols{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:32px;margin-bottom:34px}
+footer h4{color:#fff;margin-bottom:12px;font-size:1rem}
+footer ul{list-style:none}
+footer li{margin-bottom:7px}
+.demo-note{border-top:1px solid var(--line-d);padding-top:18px;font-size:.82rem;color:#6b7482;text-align:center}
+
+@media (max-width:900px){
+  .grid-3,.qual{grid-template-columns:repeat(2,1fr)}
+  .story,.partner{grid-template-columns:1fr}
+  footer .cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  nav.links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ink);flex-direction:column;padding:16px 20px;gap:14px;border-bottom:1px solid var(--line-d)}
+  nav.links.open{display:flex}
+  .menu-btn{display:block}
+  .nav .btn{display:none}
+  h1{font-size:2.15rem}
+  .hero .wrap{padding-top:52px;padding-bottom:52px}
+  .hero-stats{gap:22px}
+  section{padding:54px 0}
+  .grid-3,.qual{grid-template-columns:1fr}
+  .partner{padding:30px 22px}
+  form.inq{grid-template-columns:1fr}
+  footer .cols{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <a class="logo" href="#"><span class="mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13.5 2 5 14h5l-1.8 8L17 10.5h-5.2L13.5 2Z" fill="#0c0e12"/></svg></span>VOLTIQ</a>
+  <nav class="links" id="navLinks">
+    <a href="#products">Products</a><a href="#story">Our story</a><a href="#quality">Quality &amp; compliance</a><a href="#partners">Partners</a><a href="#contact">Contact</a>
+  </nav>
+  <a class="btn btn-amber" href="#partners">Become a distributor</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <span class="eyebrow">Consumer electronics · Est. 2019 · Shenzhen</span>
+  <h1>Power, <span class="hl">engineered</span> — not decorated.</h1>
+  <p class="lead">VOLTIQ designs GaN fast chargers, power banks and ANC audio that survive real life in Southeast Asia: humid, hot, and always on the move. Designed in Shenzhen, sold in 6 markets, backed by a 24-month warranty.</p>
+  <div class="hero-cta">
+    <a class="btn btn-amber" href="#products">Explore the range</a>
+    <a class="btn btn-line" href="#partners">Wholesale &amp; distribution</a>
+  </div>
+  <div class="hero-stats">
+    <div><b>6 markets</b>MY · SG · TH · VN · PH · ID</div>
+    <div><b>1.2M+ units</b>shipped since 2019</div>
+    <div><b>40+ SKUs</b>charging, power &amp; audio</div>
+    <div><b>24 months</b>warranty, local service partners</div>
+  </div>
+</div></div>
+
+<div class="trust"><div class="wrap">
+  <b>Certified &amp; listed:</b>
+  <span class="badge">CE</span><span class="badge">FCC</span><span class="badge">RoHS</span><span class="badge">SIRIM (MY)</span><span class="badge">IMDA (SG)</span><span class="badge">TISI (TH)</span>
+  <span>Official brand stores on Shopee Mall, LazMall and TikTok Shop.</span>
+</div></div>
+
+<section id="products"><div class="wrap">
+  <div class="sec-head"><div class="kicker">Product range</div>
+    <h2>Five lines. One standard: it has to last.</h2>
+    <p>Every VOLTIQ product is burn-in tested for 8 hours before it leaves the line, and rated for 100–240V with surge protection tuned for Southeast Asian grids.</p></div>
+  <div class="grid grid-3">
+    <div class="prod"><div class="art" style="background:linear-gradient(135deg,#f5b301,#ffcf4d)"><span class="tag">Best seller</span><svg width="76" height="76" viewBox="0 0 24 24" fill="none"><rect x="6" y="3" width="12" height="18" rx="2.5" fill="#0c0e12"/><path d="M13 6.5 9.4 13H12l-1 4.5L14.8 11H12l1-4.5Z" fill="#f5b301"/><path d="M9.5 21h5" stroke="#0c0e12" stroke-width="1.6"/></svg></div>
+      <div class="body"><div class="cat">GaN charging</div><h3>VoltCore 65W GaN Charger</h3>
+      <p>Two USB-C + one USB-A, folds flat, charges a laptop and two phones at full speed. GaN II with active temperature control.</p>
+      <div class="spec"><span class="msrp">$24.90 <small>MSRP</small></span><span>65W · 3 ports</span></div></div></div>
+    <div class="prod"><div class="art" style="background:linear-gradient(135deg,#232a38,#46536b)"><svg width="76" height="76" viewBox="0 0 24 24" fill="none"><rect x="3" y="9" width="18" height="8" rx="2" fill="#fff"/><rect x="6" y="12" width="3" height="2.4" rx="1" fill="#232a38"/><rect x="10.5" y="12" width="3" height="2.4" rx="1" fill="#232a38"/><rect x="15" y="12" width="3" height="2.4" rx="1" fill="#232a38"/><path d="M7 9V6.5A1.5 1.5 0 0 1 8.5 5h7A1.5 1.5 0 0 1 17 6.5V9" stroke="#fff" stroke-width="1.6"/></svg></div>
+      <div class="body"><div class="cat">Desktop power</div><h3>VoltStation 100W Charging Dock</h3>
+      <p>Four-port desktop station with a smart display that shows per-port wattage. One brick for the whole desk.</p>
+      <div class="spec"><span class="msrp">$42.90 <small>MSRP</small></span><span>100W · 4 ports</span></div></div></div>
+    <div class="prod"><div class="art" style="background:linear-gradient(135deg,#0e7c86,#39b5ae)"><svg width="76" height="76" viewBox="0 0 24 24" fill="none"><rect x="3" y="8" width="18" height="9" rx="4.5" fill="#fff"/><circle cx="8.5" cy="12.5" r="1.8" fill="#0e7c86"/><circle cx="15.5" cy="12.5" r="1.8" fill="#0e7c86"/></svg></div>
+      <div class="body"><div class="cat">Audio</div><h3>AirBeat Buds Pro</h3>
+      <p>Hybrid ANC earbuds tuned for voices and transit noise, 36-hour case, IPX5 for monsoon commutes.</p>
+      <div class="spec"><span class="msrp">$35.90 <small>MSRP</small></span><span>ANC · 36 h</span></div></div></div>
+    <div class="prod"><div class="art" style="background:linear-gradient(135deg,#5b7fb8,#87a8d8)"><svg width="76" height="76" viewBox="0 0 24 24" fill="none"><rect x="5" y="4" width="14" height="16" rx="3" fill="#fff"/><path d="M12.8 7 9.6 12.6h2.4l-1 4.4 3.4-5.8h-2.5l.9-4.2Z" fill="#5b7fb8"/><rect x="9" y="17" width="6" height="1.4" rx=".7" fill="#5b7fb8"/></svg></div>
+      <div class="body"><div class="cat">Power banks</div><h3>MagSnap 10,000mAh Power Bank</h3>
+      <p>Magnetic snap-on charging with a wired 22.5W fallback. Passes airline cabin rules in all 6 markets we serve.</p>
+      <div class="spec"><span class="msrp">$21.90 <small>MSRP</small></span><span>10,000mAh · 22.5W</span></div></div></div>
+    <div class="prod"><div class="art" style="background:linear-gradient(135deg,#37404f,#5a6677)"><svg width="76" height="76" viewBox="0 0 24 24" fill="none"><path d="M7 4v5.2A3.3 3.3 0 0 0 10.3 12.5h3.4A3.3 3.3 0 0 1 17 15.8V20" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><rect x="5" y="2.4" width="4" height="2.6" rx="1" fill="#fff"/><rect x="15" y="19" width="4" height="2.6" rx="1" fill="#fff"/></svg></div>
+      <div class="body"><div class="cat">Cables</div><h3>VoltLink 240W Braided Cable</h3>
+      <p>USB-C to USB-C, 240W rated, nylon-braided over a Kevlar core. Lab-tested to 30,000 bends — roughly ten years of daily use.</p>
+      <div class="spec"><span class="msrp">$8.90 <small>MSRP</small></span><span>240W · 1.8 m</span></div></div></div>
+    <div class="prod"><div class="art" style="background:linear-gradient(135deg,#e08a3c,#f2b25c)"><svg width="76" height="76" viewBox="0 0 24 24" fill="none"><path d="M4 17a8 8 0 0 1 16 0" stroke="#fff" stroke-width="2.4"/><rect x="2.6" y="15.5" width="4.4" height="6" rx="2" fill="#fff"/><rect x="17" y="15.5" width="4.4" height="6" rx="2" fill="#fff"/></svg></div>
+      <div class="body"><div class="cat">Audio</div><h3>AirBeat Over-Ear Studio</h3>
+      <p>Foldable over-ear headphones with memory-foam cushions and a detachable cable — built for long-haul flights and open offices.</p>
+      <div class="spec"><span class="msrp">$49.90 <small>MSRP</small></span><span>60 h · Bluetooth 5.3</span></div></div></div>
+  </div>
+</div></section>
+
+<section class="soft" id="story"><div class="wrap">
+  <div class="sec-head"><div class="kicker">Our story</div>
+    <h2>Started by engineers who kept replacing cheap chargers</h2></div>
+  <div class="story">
+    <div>
+      <p><b>VOLTIQ was founded in Shenzhen in 2019</b> by two hardware engineers from the power-supply industry. The idea was unglamorous: the chargers sold across Southeast Asia's marketplaces were failing in the heat — swollen batteries, dead ports, cables that lasted a season. Nobody was engineering for the climate people actually live in.</p>
+      <p>So we did. Every VOLTIQ design starts with three constraints: <b>heat, humidity, and unstable voltage</b>. Components are derated for 40°C ambient, boards are conformal-coated against moisture, and every charger carries surge protection that has saved more laptops than we can count.</p>
+      <p>Today VOLTIQ sells through official brand stores on Shopee Mall, LazMall and TikTok Shop in six markets, and through authorised distributors offline. We would rather grow one market properly than ten markets thinly.</p>
+    </div>
+    <div class="timeline">
+      <div><b>2019 — Founded in Shenzhen</b><span>First GaN charger ships; sold out its first marketplace run in 11 days.</span></div>
+      <div><b>2021 — Malaysia &amp; Singapore</b><span>SIRIM and IMDA certifications completed; first authorised distributors appointed.</span></div>
+      <div><b>2023 — Thailand, Vietnam, Philippines</b><span>Regional warranty network launched with local service partners in Bangkok, Ho Chi Minh City and Manila.</span></div>
+      <div><b>2025 — 1.2 million units</b><span>Indonesia launch; cumulative shipments pass 1.2M units with a return rate under 1.4%.</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="quality"><div class="wrap">
+  <div class="sec-head"><div class="kicker">Quality &amp; compliance</div>
+    <h2>The paperwork is in order — check it</h2>
+    <p>Marketplace brand programmes and serious distributors ask the same questions. Here are the answers, up front.</p></div>
+  <div class="qual">
+    <div class="qcard"><h3>Certifications</h3><ul>
+      <li>CE, FCC, RoHS — full range</li>
+      <li>SIRIM QAS (Malaysia) — chargers &amp; power banks</li>
+      <li>IMDA equipment registration (Singapore)</li>
+      <li>TISI (Thailand), QCVN (Vietnam) for applicable lines</li>
+      <li>UN38.3 test summaries for all battery products</li></ul></div>
+    <div class="qcard"><h3>Brand &amp; company</h3><ul>
+      <li>VOLTIQ™ trademark registered in CN, MY, SG, TH, VN</li>
+      <li>Operating company: Voltiq Electronics (Shenzhen) Co., Ltd.</li>
+      <li>Brand owner verification documents available to platform reviewers and partners on request</li>
+      <li>Official stores: Shopee Mall · LazMall · TikTok Shop (same brand handle across markets)</li></ul></div>
+    <div class="qcard"><h3>Testing &amp; warranty</h3><ul>
+      <li>8-hour burn-in on 100% of charging products</li>
+      <li>Batch sampling: drop, bend, salt-spray and thermal cycling</li>
+      <li>24-month warranty with local service partners in 6 markets</li>
+      <li>Published return rate: under 1.4% (2025, all markets)</li></ul></div>
+  </div>
+</div></section>
+
+<section id="partners" style="padding-top:0"><div class="wrap">
+  <div class="partner">
+    <div>
+      <h2>Wholesale &amp; distributor enquiries</h2>
+      <p>We appoint a small number of distributors per market and protect their territory. If you run an electronics retail chain, a marketplace flagship operation, or a regional distribution business, talk to us.</p>
+      <ul>
+        <li>Opening MOQ from 300 units per SKU</li>
+        <li>Tiered distributor pricing, marketing kit included</li>
+        <li>Territory protection for qualifying partners</li>
+        <li>Reply within 2 business days, in English or 中文</li>
+      </ul>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
+        <a class="btn btn-wa" id="waPartner" href="#" target="_blank" rel="noopener">WhatsApp our sales team</a>
+        <a class="btn btn-line" href="mailto:partners@voltiq.example">partners@voltiq.example</a>
+      </div>
+    </div>
+    <form class="inq" id="inqForm">
+      <div><label for="f-name">Your name</label><input id="f-name" type="text" placeholder="e.g. Daniel Tan" autocomplete="name"></div>
+      <div><label for="f-company">Company</label><input id="f-company" type="text" placeholder="e.g. Tan Brothers Distribution" autocomplete="organization"></div>
+      <div><label for="f-country">Market / country</label>
+        <select id="f-country"><option>Malaysia</option><option>Singapore</option><option>Thailand</option><option>Vietnam</option><option>Philippines</option><option>Indonesia</option><option>Other</option></select></div>
+      <div><label for="f-volume">Estimated monthly volume</label>
+        <select id="f-volume"><option>300 – 1,000 units</option><option>1,000 – 5,000 units</option><option>5,000 – 20,000 units</option><option>20,000+ units</option></select></div>
+      <div class="full"><label for="f-msg">What are you looking for?</label><textarea id="f-msg" rows="3" placeholder="Product lines you're interested in, your channels, your timeline…"></textarea></div>
+      <div class="inq-actions">
+        <button type="submit" class="btn btn-amber">Send enquiry via WhatsApp</button>
+      </div>
+      <p class="form-note">Submitting opens WhatsApp with your enquiry pre-filled — nothing is sent until you confirm there. Prefer email? partners@voltiq.example</p>
+    </form>
+  </div>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <div class="cols">
+    <div><h4>VOLTIQ</h4><p>Smart charging and audio, engineered in Shenzhen for Southeast Asia. Official brand website of Voltiq Electronics (Shenzhen) Co., Ltd.</p></div>
+    <div><h4>Head office</h4><ul><li>Suite 2108, Nanshan iPark (fictional address)</li><li>Nanshan District, Shenzhen, China</li><li>Mon – Sat: 9:00 – 18:00 (GMT+8)</li></ul></div>
+    <div><h4>Contact</h4><ul><li>Partners: partners@voltiq.example</li><li>Support: support@voltiq.example</li><li>WhatsApp: +86 755 0000 0000 (demo)</li><li>Press &amp; brand: brand@voltiq.example</li></ul></div>
+  </div>
+  <div class="demo-note">Demo website built by Atang Lab. VOLTIQ is a fictional brand; company details, figures and certifications shown are illustrative examples of a brand-site structure, not real claims.</div>
+</div></footer>
+
+<script>
+document.getElementById('menuBtn').addEventListener('click',function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+var WA='https://wa.me/8675500000000';
+document.getElementById('waPartner').setAttribute('href',WA+'?text='+encodeURIComponent("Hi VOLTIQ team, I'm interested in distribution / wholesale. Please send your distributor price list."));
+document.getElementById('inqForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var v=function(id){return document.getElementById(id).value.trim();};
+  var lines=["New distributor enquiry from the VOLTIQ website:",
+    "Name: "+(v('f-name')||'-'),
+    "Company: "+(v('f-company')||'-'),
+    "Market: "+v('f-country'),
+    "Estimated monthly volume: "+v('f-volume'),
+    "Message: "+(v('f-msg')||'-')];
+  window.open(WA+'?text='+encodeURIComponent(lines.join('\n')),'_blank');
+});
+</script>
+</body>
+</html>
