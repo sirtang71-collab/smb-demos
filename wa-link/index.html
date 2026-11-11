@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Link + QR Generator for Sellers — Free, Private, No Sign-up</title>
+<meta name="description" content="Create a wa.me click-to-chat link and QR code for your shop in seconds. Ready-made message templates in English, Bahasa Indonesia and Español for retail, clinics, restaurants and real estate. Your number never leaves your device.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">💬 WA Link Maker <span class="brand-sub">for sellers</span></div>
+    <div class="privacy-badge">🔒 100% local — nothing is uploaded</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Your WhatsApp order link, in 10 seconds</h1>
+    <p class="hero-sub">Customers tap the link (or scan the QR code) and land in a chat with you — with the first message already written. No app, no sign-up, no fee.</p>
+  </section>
+
+  <section class="card" id="maker">
+    <h2>1 · Your WhatsApp number</h2>
+    <div class="row">
+      <label class="field field-cc">
+        <span>Country</span>
+        <select id="countryCode">
+          <option value="62" selected>🇮🇩 Indonesia +62</option>
+          <option value="91">🇮🇳 India +91</option>
+          <option value="92">🇵🇰 Pakistan +92</option>
+          <option value="880">🇧🇩 Bangladesh +880</option>
+          <option value="234">🇳🇬 Nigeria +234</option>
+          <option value="254">🇰🇪 Kenya +254</option>
+          <option value="20">🇪🇬 Egypt +20</option>
+          <option value="63">🇵🇭 Philippines +63</option>
+          <option value="84">🇻🇳 Vietnam +84</option>
+          <option value="66">🇹🇭 Thailand +66</option>
+          <option value="60">🇲🇾 Malaysia +60</option>
+          <option value="65">🇸🇬 Singapore +65</option>
+          <option value="55">🇧🇷 Brazil +55</option>
+          <option value="52">🇲🇽 Mexico +52</option>
+          <option value="54">🇦🇷 Argentina +54</option>
+          <option value="57">🇨🇴 Colombia +57</option>
+          <option value="51">🇵🇪 Peru +51</option>
+          <option value="56">🇨🇱 Chile +56</option>
+          <option value="34">🇪🇸 Spain +34</option>
+          <option value="1">🇺🇸 USA / Canada +1</option>
+          <option value="44">🇬🇧 UK +44</option>
+          <option value="971">🇦🇪 UAE +971</option>
+          <option value="966">🇸🇦 Saudi Arabia +966</option>
+          <option value="90">🇹🇷 Türkiye +90</option>
+          <option value="86">🇨🇳 China +86</option>
+        </select>
+      </label>
+      <label class="field field-phone">
+        <span>WhatsApp number (without the country code)</span>
+        <input id="phone" type="tel" inputmode="numeric" autocomplete="off" placeholder="812 3456 7890">
+      </label>
+    </div>
+    <p class="hint">Type the number as customers dial it locally — spaces and dashes are fine, we clean them up.</p>
+
+    <h2>2 · The first message customers send you</h2>
+    <p class="hint">Start from a template, then make it yours:</p>
+    <div class="lang-tabs" role="tablist" aria-label="Template language">
+      <button type="button" class="lang-tab active" data-lang="en">English</button>
+      <button type="button" class="lang-tab" data-lang="id">Bahasa Indonesia</button>
+      <button type="button" class="lang-tab" data-lang="es">Español</button>
+    </div>
+    <div class="tpl-grid" id="tplGrid"></div>
+    <label class="field">
+      <span>Message</span>
+      <textarea id="message" rows="4" placeholder="Hi! I'd like to order…"></textarea>
+    </label>
+    <p class="hint"><span id="charCount">0</span> characters · Leave it empty if you just want a plain chat link.</p>
+
+    <h2>3 · Your link &amp; QR code</h2>
+    <div class="output-row">
+      <div class="link-box">
+        <label class="field">
+          <span>Your wa.me link</span>
+          <input id="linkOut" type="text" readonly value="">
+        </label>
+        <div class="btn-row">
+          <button type="button" id="copyBtn" class="btn btn-primary">📋 Copy link</button>
+          <a id="testLink" class="btn btn-ghost" href="#" target="_blank" rel="noopener">Open test chat ↗</a>
+        </div>
+        <p class="hint" id="linkStatus">Enter your number above — the link updates as you type.</p>
+      </div>
+      <div class="qr-box">
+        <canvas id="qrCanvas" width="264" height="264" aria-label="QR code for your WhatsApp link"></canvas>
+        <button type="button" id="qrDownload" class="btn btn-primary">⬇ Download QR (PNG)</button>
+        <p class="hint">Print it for your shop counter, packaging or flyers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card use-ideas">
+    <h2>Where sellers put this link</h2>
+    <ul class="cols">
+      <li>Instagram / TikTok / Facebook bio</li>
+      <li>Shopee, Tokopedia &amp; marketplace shop pages</li>
+      <li>Printed QR on receipts and packaging</li>
+      <li>Google Business profile</li>
+      <li>Your website's order button</li>
+      <li>Flyers, banners and shop windows</li>
+    </ul>
+  </section>
+
+  <section class="card services">
+    <h2>Need the next step?</h2>
+    <p class="services-sub">This free tool is made by <strong>Atang Lab</strong>. When a link is not enough, these are the two things sellers ask us for next:</p>
+    <div class="service-grid">
+      <a class="service-card" href="https://www.fiverr.com/atanglab/build-clinic-website-with-whatsapp-booking-and-reminders" target="_blank" rel="noopener">
+        <div class="service-title">🌐 A website that takes bookings for you</div>
+        <p>A fast bilingual website for your clinic, salon or shop — with WhatsApp booking built into every page, so customers book without calling.</p>
+        <span class="service-cta">See the website packages on Fiverr →</span>
+      </a>
+      <a class="service-card" href="http://www.fiverr.com/s/Bb83K0d" target="_blank" rel="noopener">
+        <div class="service-title">🤖 WhatsApp replies while you sleep</div>
+        <p>An auto-reply and order assistant for your WhatsApp: answers common questions, takes orders and reminds customers — even at 2 AM.</p>
+        <span class="service-cta">See the auto-reply service on Fiverr →</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>🔒 Your phone number and message are processed only in your browser, on this device. Nothing is uploaded, stored or tracked.</p>
+    <p class="foot-small">Free tool by Atang Lab · Not affiliated with WhatsApp LLC or Meta.</p>
+  </div>
+</footer>
+
+<script src="assets/vendor/qrcode.min.js"></script>
+<script src="assets/templates.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
