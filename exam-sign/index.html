@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Photo + Signature Studio — SSC Photo Signature Resize to Exact KB</title>
+<meta name="description" content="Free SSC photo signature resize tool: crop your exam photo and signature to the exact pixel size and exact KB window Indian application forms demand — SSC, UPSC, IBPS/bank, State PSC, passport 2×2. Signature is auto-cleaned to a pure white background. 100% in your browser — your photo and signature never leave your device.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>📝 Exam Photo + Signature Studio</h1>
+  <p class="tagline">Indian exam forms reject uploads that miss the pixel size <em>or</em> the KB window by a little. This studio resizes your <strong>photo and signature</strong> to the exact size and the <strong>exact KB range</strong> — and cleans your signature onto a pure white background.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">Presets: <strong>SSC photo 3.5×4.5 cm · 20–50 KB</strong> · <strong>SSC signature 4.0×2.0 cm · 10–20 KB</strong> · <strong>UPSC 300×300 px</strong> · <strong>IBPS photo 200×230 px · signature 140×60 px</strong> · <strong>Passport 2×2 in</strong>. KB windows are editable — always confirm against the current official notice for your exam.</p>
+</header>
+
+<main>
+  <section class="tool">
+    <h2>Part 1 · Your photo</h2>
+    <h3>1 · Choose the exam</h3>
+    <div id="ph-preset-list" class="preset-list"></div>
+    <div id="ph-custom-fields" class="custom-fields" hidden>
+      <label class="field">Width (px) <input type="number" id="ph-cu-w" min="10" max="4000" value="276"></label>
+      <label class="field">Height (px) <input type="number" id="ph-cu-h" min="10" max="4000" value="354"></label>
+    </div>
+    <p class="hint" id="ph-preset-note"></p>
+    <div class="kb-row">
+      <label class="field">Minimum KB <input type="number" id="ph-min" min="0" max="10240" value="20"> <span class="field-hint">(blank/0 = no minimum)</span></label>
+      <label class="field">Maximum KB <input type="number" id="ph-max" min="1" max="10240" value="50"></label>
+    </div>
+
+    <h3>2 · Add your photo</h3>
+    <label class="drop" id="ph-drop">
+      <input type="file" id="ph-file" accept="image/*">
+      <span>Tap to choose your photo, or drop it here</span>
+    </label>
+    <p class="file-name" id="ph-info"></p>
+    <label class="field">Zoom <input type="range" id="ph-zoom" min="1" max="3.5" step="0.01" value="1"></label>
+    <div class="stage-wrap" id="ph-stage-wrap">
+      <canvas id="ph-stage" width="360" height="360" class="stage"></canvas>
+      <p id="ph-stage-empty" class="stage-empty">Your photo will appear here. Drag to reposition.</p>
+    </div>
+
+    <h3>3 · Export inside the range</h3>
+    <button id="ph-btn" class="action" disabled>Export photo JPG in range</button>
+    <p class="status" id="ph-status"></p>
+    <div id="ph-result-wrap" hidden>
+      <img id="ph-result-img" class="result-img" alt="Exported exam photo">
+      <p class="result-info" id="ph-result-info"></p>
+      <a id="ph-download" class="download" download="exam-photo.jpg">⬇ Download exam-photo.jpg</a>
+    </div>
+  </section>
+
+  <section class="tool">
+    <h2>Part 2 · Your signature</h2>
+    <h3>1 · Choose the exam</h3>
+    <div id="sg-preset-list" class="preset-list"></div>
+    <div id="sg-custom-fields" class="custom-fields" hidden>
+      <label class="field">Width (px) <input type="number" id="sg-cu-w" min="10" max="4000" value="315"></label>
+      <label class="field">Height (px) <input type="number" id="sg-cu-h" min="10" max="4000" value="157"></label>
+    </div>
+    <p class="hint" id="sg-preset-note"></p>
+    <div class="kb-row">
+      <label class="field">Minimum KB <input type="number" id="sg-min" min="0" max="10240" value="10"> <span class="field-hint">(blank/0 = no minimum)</span></label>
+      <label class="field">Maximum KB <input type="number" id="sg-max" min="1" max="10240" value="20"></label>
+    </div>
+
+    <h3>2 · Add a photo of your signature</h3>
+    <p class="hint">Sign with a <strong>black pen on plain white paper</strong>, photograph it straight-on in good light. On export the cleanup is automatic: greys and shadows are normalised away so the paper becomes pure white and your ink stays dark.</p>
+    <label class="drop" id="sg-drop">
+      <input type="file" id="sg-file" accept="image/*">
+      <span>Tap to choose your signature photo, or drop it here</span>
+    </label>
+    <p class="file-name" id="sg-info"></p>
+    <label class="field">Zoom <input type="range" id="sg-zoom" min="1" max="3.5" step="0.01" value="1"></label>
+    <div class="stage-wrap" id="sg-stage-wrap">
+      <canvas id="sg-stage" width="360" height="180" class="stage"></canvas>
+      <p id="sg-stage-empty" class="stage-empty">Your signature will appear here. Drag to reposition.</p>
+    </div>
+
+    <h3>3 · Export inside the range</h3>
+    <button id="sg-btn" class="action" disabled>Export signature JPG in range</button>
+    <p class="status" id="sg-status"></p>
+    <div id="sg-result-wrap" hidden>
+      <img id="sg-result-img" class="result-img" alt="Exported cleaned signature">
+      <p class="result-info" id="sg-result-info"></p>
+      <a id="sg-download" class="download" download="exam-signature.jpg">⬇ Download exam-signature.jpg</a>
+    </div>
+  </section>
+
+  <section class="tool">
+    <h2>Part 3 · Combined sheet (photo + signature in one JPG)</h2>
+    <p class="hint">Some forms and print shops ask for one single image. This stacks your cropped photo on top and your cleaned signature below, on one white sheet, at the same pixel sizes as Parts 1 and 2. Add both images above first.</p>
+    <button id="cb-btn" class="action" disabled>Export combined sheet JPG</button>
+    <p class="status" id="cb-status"></p>
+    <div id="cb-result-wrap" hidden>
+      <img id="cb-result-img" class="result-img tall" alt="Combined photo and signature sheet">
+      <p class="result-info" id="cb-result-info"></p>
+      <a id="cb-download" class="download" download="exam-photo-and-signature.jpg">⬇ Download exam-photo-and-signature.jpg</a>
+    </div>
+    <p class="hint small">How the minimum KB is reached honestly: first JPEG quality is raised to the maximum that fits. If the file is still below the form's minimum, standard JPEG padding data is added — your picture itself is never altered, blurred or noised, and the export message tells you when padding was used. If a file would need absurd amounts of padding (a tiny thumbnail instead of a real photo), the tool refuses and tells you why.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your photo and signature never leave this device.</strong> Everything runs locally in your browser. No uploads, no accounts, no tracking.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a><br>
+    Need a website or WhatsApp automation built for you? <a href="https://www.fiverr.com/atanglab">Atang Lab on Fiverr</a></p>
+  </div>
+  <p class="small">Exam Photo + Signature Studio · Atang Lab · free · preset sizes and KB windows follow the commonly published exam guidance, checked 2026-11-12 — always verify against the current official notice for your exam; this tool sizes your files, it cannot guarantee a form accepts your application.</p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
