@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pakistan ID Photo Maker — NADRA CNIC Photo Size &amp; Passport Photo, Exact KB</title>
+<meta name="description" content="Free Pakistan ID photo maker: NADRA CNIC photo size 2×2 inch (600×600 px) kept under 100 KB, Pakistan passport photo at 350×467 px, or your own custom size — every export lands inside your exact KB window, on a white or light-blue background. 100% in your browser; your photo never leaves your device.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="backlink"><a href="https://sirtang71-collab.github.io/smb-demos/">← More free tools from Atang Lab</a></p>
+  <h1>🇵🇰 Pakistan ID Photo Maker</h1>
+  <p class="urdu" lang="ur" dir="rtl">شناختی کارڈ اور پاسپورٹ کی تصویر — درست سائز، درست KB، آپ کے اپنے براؤزر میں</p>
+  <p class="tagline">Make your CNIC or passport photo at the <strong>exact pixel size</strong> and inside the <strong>exact KB window</strong> the form asks for — no studio visit, no rejected upload.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">Commonly published specs, checked 2026-11-12: <strong>NADRA CNIC 2×2 in · 600×600 px · ≤100 KB</strong> · <strong>Pakistan Passport 2×2 in · 350×467 px</strong> · white background. Requirements change — <strong>always check the latest official notice</strong> for your application before you submit.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Choose your document</h2>
+    <div id="preset-list" class="preset-list"></div>
+    <div id="kb-fields" class="custom-fields" hidden>
+      <label class="field">Minimum KB <input type="number" id="kb-min" min="0" max="10240" value="0"> <span class="field-hint">(0 = no minimum)</span></label>
+      <label class="field">Maximum KB <input type="number" id="kb-max" min="1" max="10240" value="100"></label>
+      <p class="hint small kb-hint">This preset's KB window is editable — set it to whatever your current notice asks for.</p>
+    </div>
+    <div id="custom-fields" class="custom-fields" hidden>
+      <label class="field">Width (px) <input type="number" id="cu-w" min="10" max="4000" value="600"></label>
+      <label class="field">Height (px) <input type="number" id="cu-h" min="10" max="4000" value="600"></label>
+      <label class="field">Minimum KB <input type="number" id="cu-min" min="0" max="10240" value="0"> <span class="field-hint">(0 = no minimum)</span></label>
+      <label class="field">Maximum KB <input type="number" id="cu-max" min="1" max="10240" value="100"></label>
+    </div>
+    <p class="hint" id="preset-note"></p>
+
+    <h2>2 · Add your photo &amp; pick a background</h2>
+    <label class="drop">
+      <input type="file" id="pk-file" accept="image/*">
+      <span>Tap to choose a photo</span>
+    </label>
+    <p class="file-name" id="pk-info"></p>
+    <div class="bg-row">
+      <span class="bg-label">Background:</span>
+      <div id="bg-list" class="bg-list"></div>
+    </div>
+    <p class="hint small">The background colour fills the frame behind your photo — it shows through transparent parts of a PNG and any uncovered corner. This tool does not cut you out of the photo; for a full background replacement use a plain backdrop when you take the picture.</p>
+    <label class="field">Zoom <input type="range" id="pk-zoom" min="1" max="3.5" step="0.01" value="1"></label>
+    <div class="stage-wrap" id="stage-wrap">
+      <canvas id="pk-stage" width="360" height="360"></canvas>
+      <p id="pk-stage-empty" class="stage-empty">Your photo will appear here. Drag to reposition.</p>
+    </div>
+
+    <h2>3 · Export inside the range</h2>
+    <button id="pk-btn" class="action" disabled>Export JPG in range</button>
+    <p class="status" id="pk-status"></p>
+    <div id="pk-result-wrap" hidden>
+      <img id="pk-result-img" class="result-img" alt="Exported Pakistan ID photo">
+      <p class="result-info" id="pk-result-info"></p>
+      <a id="pk-download" class="download" download="pakistan-photo.jpg">⬇ Download pakistan-photo.jpg</a>
+    </div>
+    <p class="hint small">How the size is hit honestly: first JPEG quality is adjusted to the best-looking result that fits your window. If a minimum KB is set and the file is still below it, standard JPEG padding data is added — your picture itself is never altered, blurred or noised, and the tool tells you when padding was used. If a file would need absurd amounts of padding (a tiny thumbnail instead of a real photo), the tool refuses and explains why, instead of handing you a file that would be rejected anyway.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your photo never leaves this device.</strong> Everything runs locally in your browser. No uploads, no accounts, no tracking.</p>
+  <p class="small">Pakistan ID Photo Maker · Atang Lab · free · specs as commonly published, checked 2026-11-12 — always check the latest official notice; this tool sizes your file, it cannot guarantee an office accepts your application.</p>
+  <div class="card">
+    <p><strong>Atang Lab</strong> — free tools &amp; small-business services.</p>
+    <p>More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">sirtang71-collab.github.io/smb-demos</a></p>
+    <p>Need a website or WhatsApp automation for your business? <a href="https://www.fiverr.com/atanglab">Hire Atang Lab on Fiverr</a></p>
+  </div>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
