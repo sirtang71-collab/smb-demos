@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bangladesh ID Photo Maker — NID Photo Size, e-Passport Photo 2×2, Exact KB</title>
+<meta name="description" content="Make a Bangladesh ID photo at the exact size and exact KB your application demands: NID photo size Bangladesh 300×300 px under 100 KB, e-passport photo maker 2×2 inch (600×600 px), university & government job application photo 300×300 px. Free, 100% in your browser — your photo never leaves your device.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>🇧🇩 Bangladesh ID Photo Maker</h1>
+  <p class="tagline">Bangladesh applications reject photos that miss the pixel size <em>or</em> the file-size limit. This maker crops your photo to the <strong>exact pixels</strong> and lands the file <strong>inside the exact KB window</strong> — NID, e-Passport, admission and job applications.</p>
+  <p class="tagline" lang="bn">এনআইডি, ই-পাসপোর্ট ও চাকরির আবেদনের ছবি — সঠিক পিক্সেল আর সঠিক KB-তে।</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">Presets follow commonly published guidance: <strong>NID photo 300×300 px · white background · ≤100 KB</strong> · <strong>e-Passport 2×2 in = 600×600 px</strong> · <strong>University / govt job photo 300×300 px · ≤100 KB</strong>. Every KB window is editable — always check the latest official notice for your application.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Choose your application</h2>
+    <div id="preset-list" class="preset-list"></div>
+    <div id="custom-fields" class="custom-fields" hidden>
+      <label class="field">Width (px) <input type="number" id="cu-w" min="10" max="4000" value="300"></label>
+      <label class="field">Height (px) <input type="number" id="cu-h" min="10" max="4000" value="300"></label>
+    </div>
+    <p class="hint" id="preset-note"></p>
+    <div class="kb-row">
+      <label class="field">Minimum KB <input type="number" id="bd-min" min="0" max="10240" value=""> <span class="field-hint">(blank/0 = no minimum)</span></label>
+      <label class="field">Maximum KB <input type="number" id="bd-max" min="1" max="10240" value="100"></label>
+    </div>
+
+    <h2>2 · Background colour</h2>
+    <div class="bg-row">
+      <label class="bg-chip selected"><input type="radio" name="bd-bg" value="#ffffff" checked> <span class="swatch" style="background:#ffffff"></span> White</label>
+      <label class="bg-chip"><input type="radio" name="bd-bg" value="#a9c8ec"> <span class="swatch" style="background:#a9c8ec"></span> Light blue</label>
+    </div>
+    <p class="hint small">This fills the canvas behind your photo (it shows through transparent areas of PNG images). It does <strong>not</strong> cut out or replace the background inside the photo itself — if your notice demands a plain white backdrop, photograph yourself against one.</p>
+
+    <h2>3 · Add your photo</h2>
+    <label class="drop">
+      <input type="file" id="bd-file" accept="image/*">
+      <span>Tap to choose a photo, or drop it here</span>
+    </label>
+    <p class="file-name" id="bd-info"></p>
+    <label class="field">Zoom <input type="range" id="bd-zoom" min="1" max="3.5" step="0.01" value="1"></label>
+    <div class="stage-wrap" id="stage-wrap">
+      <canvas id="bd-stage" width="360" height="360" class="stage"></canvas>
+      <p id="bd-stage-empty" class="stage-empty">Your photo will appear here. Drag to reposition.</p>
+    </div>
+
+    <h2>4 · Export inside the range</h2>
+    <button id="bd-btn" class="action" disabled>Export JPG in range</button>
+    <p class="status" id="bd-status"></p>
+    <div id="bd-result-wrap" hidden>
+      <img id="bd-result-img" class="result-img" alt="Exported Bangladesh ID photo">
+      <p class="result-info" id="bd-result-info"></p>
+      <a id="bd-download" class="download" download="bd-photo.jpg">⬇ Download bd-photo.jpg</a>
+    </div>
+    <p class="hint small">How a minimum KB is reached honestly (when your notice sets one): first JPEG quality is raised to the maximum that fits. If the file is still below the minimum, standard JPEG padding data is added — your picture itself is never altered, blurred or noised, and the export message tells you when padding was used. If a file would need absurd amounts of padding (a tiny thumbnail instead of a real photo), the tool refuses and tells you why, instead of handing you a file the portal would reject.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your photo never leaves this device.</strong> Everything runs locally in your browser. No uploads, no accounts, no tracking.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a><br>
+    Need a website or WhatsApp automation built for you? <a href="https://www.fiverr.com/atanglab">Atang Lab on Fiverr</a></p>
+  </div>
+  <p class="small">Bangladesh ID Photo Maker · Atang Lab · free · preset sizes and KB windows follow commonly published guidance, checked 2026-11-12 — always verify against the latest official notice for your application; this tool sizes your file, it cannot guarantee an application is accepted.</p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
