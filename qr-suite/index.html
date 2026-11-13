@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Suite — Link, WiFi &amp; vCard QR Codes — Free, Private, No Sign-up</title>
+<meta name="description" content="Make QR codes for your shop link, WiFi password or contact card in seconds — plus batch mode for up to 12 links at once. Free, no sign-up, everything runs in your browser. English & Bahasa Indonesia.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔳</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1>🔳 <span data-i18n="h1">QR Suite</span></h1>
+  <p class="tagline" data-i18n="tagline">One QR code for your shop link, your WiFi, or your contact card — made in seconds, printed anywhere.</p>
+  <p class="privacy-badge" data-i18n="privacy_badge">🔒 Runs 100% in your browser. Your data is saved only on this device — nothing is uploaded, no account, no tracking.</p>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button type="button" id="lang-en" class="lang-btn active">EN</button>
+    <button type="button" id="lang-id" class="lang-btn">Bahasa Indonesia</button>
+  </div>
+</header>
+
+<main>
+  <section class="tool">
+    <h2 data-i18n="sec_make">1 · Make your QR code</h2>
+
+    <div class="tabs" role="tablist" aria-label="QR type">
+      <button type="button" class="tab active" data-mode="link" role="tab" aria-selected="true" data-i18n="tab_link">🔗 Link / Text</button>
+      <button type="button" class="tab" data-mode="wifi" role="tab" aria-selected="false" data-i18n="tab_wifi">📶 WiFi</button>
+      <button type="button" class="tab" data-mode="vcard" role="tab" aria-selected="false" data-i18n="tab_vcard">👤 Contact (vCard)</button>
+    </div>
+
+    <div id="panel-link" class="panel" role="tabpanel">
+      <label class="field"><span data-i18n="f_link">Link or text</span>
+        <input type="text" id="link-text" data-i18n-ph="ph_link" placeholder="e.g. https://shopee.co.id/your-shop" autocomplete="off"></label>
+      <p class="hint" data-i18n="hint_link">Any URL or plain text — buyers scan it and open it straight away.</p>
+    </div>
+
+    <div id="panel-wifi" class="panel" hidden role="tabpanel">
+      <div class="grid2">
+        <label class="field"><span data-i18n="f_ssid">WiFi name (SSID)</span>
+          <input type="text" id="wifi-ssid" data-i18n-ph="ph_ssid" placeholder="e.g. Toko Kopi WiFi" autocomplete="off"></label>
+        <label class="field"><span data-i18n="f_wifipass">Password</span>
+          <input type="text" id="wifi-pass" data-i18n-ph="ph_wifipass" placeholder="WiFi password" autocomplete="off"></label>
+        <label class="field"><span data-i18n="f_enc">Security</span>
+          <select id="wifi-enc">
+            <option value="WPA" selected>WPA / WPA2</option>
+            <option value="WEP">WEP</option>
+            <option value="nopass" data-i18n="enc_open">Open network (no password)</option>
+          </select></label>
+        <label class="field check"><input type="checkbox" id="wifi-hidden"> <span data-i18n="f_hidden">Hidden network</span></label>
+      </div>
+      <p class="hint" data-i18n="hint_wifi">Print it and stick it on the counter — customers join your WiFi by scanning, no typing.</p>
+    </div>
+
+    <div id="panel-vcard" class="panel" hidden role="tabpanel">
+      <div class="grid2">
+        <label class="field"><span data-i18n="f_name">Name</span>
+          <input type="text" id="vc-name" data-i18n-ph="ph_name" placeholder="e.g. Sari Wijaya" autocomplete="off"></label>
+        <label class="field"><span data-i18n="f_phone">Phone / WhatsApp</span>
+          <input type="text" id="vc-phone" placeholder="+62 812 3456 7890" autocomplete="off"></label>
+        <label class="field"><span data-i18n="f_email">Email</span>
+          <input type="text" id="vc-email" placeholder="you@shop.com" autocomplete="off"></label>
+        <label class="field"><span data-i18n="f_org">Shop / organisation</span>
+          <input type="text" id="vc-org" data-i18n-ph="ph_org" placeholder="e.g. Toko Kopi" autocomplete="off"></label>
+      </div>
+      <p class="hint" data-i18n="hint_vcard">Scanning saves your contact straight into the buyer's phone — no typing, no typos.</p>
+    </div>
+
+    <h2 data-i18n="sec_options">2 · Options</h2>
+    <div class="grid2">
+      <label class="field"><span data-i18n="f_size">Image size</span>
+        <select id="opt-size">
+          <option value="512" selected>512 × 512 px</option>
+          <option value="1024">1024 × 1024 px</option>
+        </select></label>
+      <label class="field"><span data-i18n="f_ec">Error correction</span>
+        <select id="opt-ec">
+          <option value="L">L — smallest code</option>
+          <option value="M" selected>M — balanced</option>
+          <option value="Q">Q — tougher</option>
+          <option value="H">H — survives damage / logos</option>
+        </select></label>
+      <label class="field"><span data-i18n="f_dark">Code colour</span>
+        <input type="color" id="opt-dark" value="#000000"></label>
+      <label class="field"><span data-i18n="f_light">Background colour</span>
+        <input type="color" id="opt-light" value="#ffffff"></label>
+    </div>
+    <p class="hint small" data-i18n="hint_ec">Higher error correction makes the code denser but still scannable when printed small or partly covered.</p>
+
+    <h2 data-i18n="sec_payload">3 · What the code contains</h2>
+    <textarea id="payload-out" rows="3" readonly aria-label="QR payload"></textarea>
+
+    <h2 data-i18n="sec_out">4 · Get your QR code</h2>
+    <div class="preview-wrap"><canvas id="qr-canvas" width="512" height="512"></canvas></div>
+    <div class="out-actions">
+      <button type="button" id="dl-png" class="action" data-i18n="btn_png">⬇ Download PNG</button>
+      <button type="button" id="clear-all" class="mini-btn danger" data-i18n="btn_clear">Start over</button>
+    </div>
+    <p class="status" id="status"></p>
+  </section>
+
+  <section class="tool">
+    <h2 data-i18n="sec_batch">Batch mode — up to 12 links at once</h2>
+    <label class="field"><span data-i18n="f_batch">One link per line</span>
+      <textarea id="batch-text" rows="5" data-i18n-ph="ph_batch" placeholder="https://your-shop.com/product-1&#10;https://your-shop.com/product-2&#10;…"></textarea></label>
+    <div class="out-actions">
+      <button type="button" id="batch-go" class="action secondary" data-i18n="btn_batch">Generate batch</button>
+    </div>
+    <p class="status" id="batch-status"></p>
+    <div id="batch-grid" class="batch-grid"></div>
+    <p class="hint small" data-i18n="hint_batch">Each code downloads on its own — handy for product labels, table cards or flyers. Batch codes are 256 × 256 px, error correction M.</p>
+  </section>
+
+  <section class="tool services">
+    <p class="services-sub"><strong>Atang Lab</strong> · <span data-i18n="svc_text">A QR code gets buyers to your shop — our WhatsApp auto-reply &amp; order assistant answers them, takes the order and sends the details while you sleep.</span>
+      <a href="http://www.fiverr.com/s/Bb83K0d" target="_blank" rel="noopener" data-i18n="svc_link">See the service on Fiverr →</a></p>
+  </section>
+</main>
+
+<footer>
+  <p><strong data-i18n="foot_strong">Your data never leaves this device.</strong> <span data-i18n="foot_text">Everything runs locally in your browser. No uploads, no accounts, no tracking.</span></p>
+  <p class="small">QR Suite · Atang Lab · free · <span data-i18n="foot_note">The preview is exactly what the PNG shows — same size, same code.</span></p>
+  <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a></p>
+</footer>
+
+<script src="assets/vendor/qrcode.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
