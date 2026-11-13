@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compress Images to a Target KB — Free, Private, No Sign-up</title>
+<meta name="description" content="Shrink your photos to exactly the KB size your form, marketplace or exam portal asks for — 100 KB, 50 KB, any target from 10 to 2000 KB. Free, no sign-up, images never leave your browser. English & Bahasa Indonesia.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗜️</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1>🗜️ <span data-i18n="h1">Compress Images to a Target KB</span></h1>
+  <p class="tagline" data-i18n="tagline">Your photo is 500 KB but the form wants 100 KB? Drop it in — get back a JPEG at (almost) exactly your target size.</p>
+  <p class="privacy-badge" data-i18n="privacy_badge">🔒 Runs 100% in your browser. Your images are never uploaded — nothing leaves this device, no account, no tracking.</p>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button type="button" id="lang-en" class="lang-btn active">EN</button>
+    <button type="button" id="lang-id" class="lang-btn">Bahasa Indonesia</button>
+  </div>
+</header>
+
+<main>
+  <section class="tool">
+    <h2 data-i18n="sec_files">1 · Your images</h2>
+    <label class="field"><span data-i18n="f_files">Choose images (JPG, PNG or WebP — as many as you like)</span>
+      <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" multiple>
+      <span class="drop-hint" data-i18n="hint_files">Tip: select several files at once — each one is compressed on its own.</span></label>
+    <p class="hint" id="file-count"></p>
+
+    <h2 data-i18n="sec_target">2 · Target size</h2>
+    <div class="grid2">
+      <label class="field"><span data-i18n="f_target">Target size (KB)</span>
+        <input type="number" id="target-kb" value="100" min="10" max="2000" step="1" inputmode="numeric">
+        <span class="drop-hint" data-i18n="hint_target">Between 10 and 2000 KB. Common asks: exam portals 20–50 KB, Shopee / Tokopedia listings under 100 KB, WhatsApp-friendly under 200 KB.</span></label>
+      <label class="field"><span data-i18n="f_output">Output format</span>
+        <input type="text" value="JPEG (.jpg) — every image comes back as a JPEG" readonly>
+        <span class="drop-hint" data-i18n="hint_output">PNG and WebP uploads are converted to JPEG, the format every portal accepts.</span></label>
+    </div>
+
+    <h2 data-i18n="sec_out">3 · Compress &amp; download</h2>
+    <div class="out-actions">
+      <button type="button" id="compress-btn" class="action" data-i18n="btn_compress" disabled>🗜️ Compress images</button>
+      <button type="button" id="download-all" class="action secondary" data-i18n="btn_all" disabled>⬇ Download all</button>
+      <button type="button" id="clear-all" class="mini-btn danger" data-i18n="btn_clear">Start over</button>
+    </div>
+    <p class="status" id="status"></p>
+
+    <div class="results-wrap" id="results-wrap" hidden>
+      <table class="results">
+        <thead><tr>
+          <th data-i18n="col_file">File</th>
+          <th class="num" data-i18n="col_orig">Original</th>
+          <th class="num" data-i18n="col_out">Compressed</th>
+          <th class="num" data-i18n="col_dims">Dimensions</th>
+          <th class="num" data-i18n="col_quality">Quality</th>
+          <th data-i18n="col_status">Result</th>
+          <th></th>
+        </tr></thead>
+        <tbody id="results-body"></tbody>
+      </table>
+    </div>
+    <p class="hint small" data-i18n="hint_how">How it works: the tool first tries JPEG quality — highest quality that still fits your target. Only if even the lowest quality is too big does it shrink the pixels (in 0.9× steps). A file already under your target is left exactly as it is, never padded up.</p>
+  </section>
+
+  <section class="tool services">
+    <p class="services-sub"><strong>Atang Lab</strong> · <span data-i18n="svc_text">Listing photos, exam uploads, shop banners — if your images keep getting rejected for size, our WhatsApp auto-reply &amp; order assistant can also take the whole listing job off your hands while you sleep.</span>
+      <a href="http://www.fiverr.com/s/Bb83K0d" target="_blank" rel="noopener" data-i18n="svc_link">See the service on Fiverr →</a></p>
+  </section>
+</main>
+
+<footer>
+  <p><strong data-i18n="foot_strong">Your data never leaves this device.</strong> <span data-i18n="foot_text">Everything runs locally in your browser. No uploads, no accounts, no tracking.</span></p>
+  <p class="small">Compress Images to a Target KB · Atang Lab · free · <span data-i18n="foot_note">Output is always JPEG; a file already under your target is returned unchanged.</span></p>
+  <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a></p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
