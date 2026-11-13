@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Loyalty Stamp Card Generator — Free, Private, No Sign-up</title>
+<meta name="description" content="Make a loyalty stamp card for your shop in under a minute — pick your stamps, reward and colour, download a 1080×1080 card image and share it on WhatsApp. Free, no sign-up — your data never leaves your browser. English & Bahasa Indonesia.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎫</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1>🎫 <span data-i18n="h1">WhatsApp Loyalty Stamp Card</span></h1>
+  <p class="tagline" data-i18n="tagline">A stamp card your customers actually keep — made in under a minute, shared on WhatsApp as a picture.</p>
+  <p class="privacy-badge" data-i18n="privacy_badge">🔒 Runs 100% in your browser. Your data is saved only on this device — nothing is uploaded, no account, no tracking.</p>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button type="button" id="lang-en" class="lang-btn active">EN</button>
+    <button type="button" id="lang-id" class="lang-btn">Bahasa Indonesia</button>
+  </div>
+</header>
+
+<main>
+  <section class="tool">
+    <h2 data-i18n="sec_card">1 · Your card</h2>
+    <div class="grid2">
+      <label class="field"><span data-i18n="f_shop">Shop name</span>
+        <input type="text" id="shop-name" data-i18n-ph="ph_shop" placeholder="e.g. Berkah Coffee" autocomplete="off"></label>
+      <label class="field"><span data-i18n="f_title">Card title</span>
+        <input type="text" id="card-title" data-i18n-ph="ph_title" placeholder="Loyalty Card" autocomplete="off"></label>
+      <label class="field"><span data-i18n="f_total">Total stamps</span>
+        <select id="total-stamps">
+          <option value="6">6 stamps</option>
+          <option value="8">8 stamps</option>
+          <option value="10" selected>10 stamps</option>
+          <option value="12">12 stamps</option>
+        </select></label>
+      <label class="field"><span data-i18n="f_reward">Reward text</span>
+        <input type="text" id="reward-text" data-i18n-ph="ph_reward" placeholder="e.g. 10th coffee FREE" autocomplete="off"></label>
+    </div>
+
+    <label class="field"><span data-i18n="f_earned">Stamps already earned</span>
+      <span class="earned-row">
+        <input type="range" id="earned" min="0" max="10" step="1" value="0">
+        <strong id="earned-label">0 / 10</strong>
+      </span></label>
+
+    <fieldset class="field swatch-field">
+      <legend data-i18n="f_accent">Accent colour</legend>
+      <span class="swatches" id="accent-swatches">
+        <label class="swatch" style="--sw:#1450a0"><input type="radio" name="accent" value="blue" checked><span class="dot" aria-hidden="true"></span>Blue</label>
+        <label class="swatch" style="--sw:#177245"><input type="radio" name="accent" value="green"><span class="dot" aria-hidden="true"></span>Green</label>
+        <label class="swatch" style="--sw:#6d28d9"><input type="radio" name="accent" value="purple"><span class="dot" aria-hidden="true"></span>Purple</label>
+        <label class="swatch" style="--sw:#b3122e"><input type="radio" name="accent" value="red"><span class="dot" aria-hidden="true"></span>Red</label>
+      </span>
+    </fieldset>
+
+    <label class="field"><span data-i18n="f_wa">WhatsApp number (optional — for the Share button)</span>
+      <input type="text" id="wa-number" placeholder="08xx xxxx xxxx" autocomplete="off"></label>
+
+    <h2 data-i18n="sec_out">2 · Get your card</h2>
+    <div class="out-actions">
+      <button type="button" id="dl-png" class="action" data-i18n="btn_png">⬇ Download card (PNG)</button>
+      <button type="button" id="share-wa" class="action secondary" data-i18n="btn_wa">💬 Share on WhatsApp</button>
+      <button type="button" id="clear-all" class="mini-btn danger" data-i18n="btn_clear">Start over</button>
+    </div>
+    <p class="status" id="status"></p>
+
+    <h3 data-i18n="sec_preview">Preview</h3>
+    <div class="preview-wrap"><canvas id="preview" width="1080" height="1080"></canvas></div>
+    <p class="hint small" data-i18n="hint_local">Everything you type is stored only in this browser (local storage) so it is still here when you come back. Nothing is sent to a server.</p>
+  </section>
+
+  <section class="tool services">
+    <p class="services-sub"><strong>Atang Lab</strong> · <span data-i18n="svc_text">A stamp card brings customers back — but only if someone answers them when they message. Our WhatsApp auto-reply &amp; order assistant answers buyers, takes orders and sends the details while you sleep.</span>
+      <a href="http://www.fiverr.com/s/Bb83K0d" target="_blank" rel="noopener" data-i18n="svc_link">See the service on Fiverr →</a></p>
+  </section>
+</main>
+
+<footer>
+  <p><strong data-i18n="foot_strong">Your data never leaves this device.</strong> <span data-i18n="foot_text">Everything runs locally in your browser. No uploads, no accounts, no tracking.</span></p>
+  <p class="small">WhatsApp Loyalty Stamp Card Generator · Atang Lab · free · <span data-i18n="foot_note">The preview is exactly what the PNG shows — a 1080 × 1080 square card, ready for WhatsApp.</span></p>
+  <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a></p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
