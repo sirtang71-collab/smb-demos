@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23221c15%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 fill=%22%23e19a2f%22 font-family=%22Georgia%22 font-weight=%22bold%22>B</text></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Bistro — Scan & Order</title>
+<meta name="description" content="Demo Bistro (demo): scan the table QR, order in English, 繁體中文, 简体中文 or ไทย. Prices in THB. A QR table-ordering demo by Atang Lab.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <div>
+    <a class="logo" href="#">Demo <em>Bistro</em></a>
+    <div class="tagline" id="tagline">Scan · Order · We cook</div>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="en" class="active">EN</button><button type="button" data-lang="tzh">繁中</button><button type="button" data-lang="szh">简中</button><button type="button" data-lang="th">ไทย</button>
+    </div>
+    <a class="merchant-link" id="merchantLink" href="merchant.html">Merchant view</a>
+  </div>
+</div></header>
+
+<div class="tablebar"><div class="wrap">
+  <label for="tableSel" id="tableLabel">Your table</label>
+  <select id="tableSel"></select>
+  <span class="hint" id="tableHint"></span>
+</div></div>
+
+<main class="wrap" id="menuRoot"></main>
+
+<div class="success wrap" id="successBox">
+  <div class="big"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5 9.5 18 20 6.5"/></svg></div>
+  <h2 id="placedH">Order placed!</h2>
+  <div><span id="orderNoLabel">Order number</span><div class="no" id="orderNo">DB-001</div></div>
+  <p id="kitchenNote">Sent to the kitchen (demo). Pay at the counter after your meal.</p>
+  <button class="place-btn" id="againBtn" type="button">Start a new order</button>
+</div>
+
+<section class="qr-sec"><div class="wrap">
+  <div class="qr-card">
+    <canvas id="qrCanvas" width="220" height="220" aria-label="QR code for this ordering page"></canvas>
+    <div>
+      <h3 id="qrTitle">Print this QR for your tables</h3>
+      <p id="qrNote">One QR per table: print it, set the table number in the link (?table=3), and guests order from their own phone.</p>
+      <p class="url" id="qrUrl"></p>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="demo-note" id="footerNote">Demo by Atang Lab — Demo Bistro is a fictional restaurant; prices in THB are illustrative. Demo orders stay in this browser (localStorage).</div>
+</div></footer>
+
+<div class="cartbar" id="cartbar"><div class="wrap">
+  <div class="info"><b id="cartCount">0</b> <span id="cartItemsLabel">items</span> · <b id="cartTotal">฿0</b></div>
+  <button class="view" id="viewCartBtn" type="button" disabled>Your order</button>
+</div></div>
+
+<div class="panel" id="panel"><div class="sheet">
+  <h2 id="panelTitle">Your order</h2>
+  <div class="tline" id="panelTable"></div>
+  <div id="panelLines"></div>
+  <div class="total-row"><span id="panelTotalLabel">Total</span><span id="panelTotal">฿0</span></div>
+  <button class="place-btn" id="placeBtn" type="button">Place order</button>
+  <button class="close-btn" id="closePanelBtn" type="button">×</button>
+</div></div>
+
+<script src="assets/vendor/qrcode.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
