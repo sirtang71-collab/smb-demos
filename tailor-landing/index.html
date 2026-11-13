@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232b3a55%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 text-anchor=%22middle%22 fill=%22%23e8b34b%22 font-family=%22Georgia%22 font-weight=%22bold%22>H</text></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoi An Silk House — Custom Tailor in Hoi An, Ready in 24 Hours</title>
+<meta name="description" content="Hoi An Silk House (demo): custom suits, dresses and shirts made in Hoi An's Old Town, ready in 24 hours. From-prices in USD and VND. Enquire on WhatsApp or Zalo.">
+<style>
+:root{
+  --indigo:#2b3a55; --indigo-dark:#1d2940; --indigo-deep:#141e30;
+  --ochre:#c8842a; --ochre-soft:#e8b34b; --cream:#faf3e3; --paper:#fffdf6;
+  --ink:#2a2f38; --muted:#76705f; --line:#eadfc6;
+  --wa:#25d366; --wa-dark:#1eb85a; --zalo:#0068ff; --zalo-dark:#0053cc;
+  --radius:14px; --shadow:0 12px 30px rgba(29,41,64,.15);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* top bar */
+.topbar{background:var(--indigo-deep);color:#cfd6e4;font-size:.86rem}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:7px;padding-bottom:7px;flex-wrap:wrap}
+.topbar b{color:#fff}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,253,246,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:14px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.22rem;color:var(--indigo-dark);font-family:Georgia,"Times New Roman",serif}
+.logo .mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--indigo),var(--indigo-dark));display:flex;align-items:center;justify-content:center}
+nav.links{display:flex;gap:24px;font-weight:600;font-size:.94rem}
+nav.links a{color:var(--muted)}
+nav.links a:hover{color:var(--indigo)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.lang-switch{display:flex;border:1.5px solid var(--indigo);border-radius:999px;overflow:hidden}
+.lang-switch button{border:0;background:#fff;color:var(--indigo-dark);font-weight:700;font-size:.83rem;padding:6px 14px;cursor:pointer}
+.lang-switch button.active{background:var(--indigo);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:11px 22px;font-weight:700;font-size:.95rem;transition:.2s;border:0;cursor:pointer}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 6px 18px rgba(37,211,102,.32)}
+.btn-wa:hover{background:var(--wa-dark)}
+.btn-zalo{background:var(--zalo);color:#fff;box-shadow:0 6px 18px rgba(0,104,255,.3)}
+.btn-zalo:hover{background:var(--zalo-dark)}
+.btn-ghost{background:#fff;color:var(--indigo-dark);border:1.5px solid var(--indigo)}
+.btn-ghost:hover{background:var(--cream)}
+.menu-btn{display:none;background:none;border:0;font-size:1.5rem;color:var(--indigo-dark);cursor:pointer}
+
+/* hero */
+.hero{background:radial-gradient(900px 460px at 88% -10%,rgba(200,132,42,.4) 0%,transparent 55%),linear-gradient(130deg,var(--indigo-deep) 0%,var(--indigo-dark) 55%,var(--indigo) 100%);color:var(--cream);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:56px}
+.eyebrow{display:inline-block;border:1px solid rgba(232,179,75,.65);color:var(--ochre-soft);font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+h1{font-size:2.6rem;line-height:1.18;font-family:Georgia,"Times New Roman",serif;font-weight:700}
+h1 .hl{color:var(--ochre-soft)}
+.hero p.lead{color:#d6dce8;font-size:1.1rem;margin:18px 0 28px;max-width:33rem}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-points{display:flex;gap:22px;margin-top:30px;flex-wrap:wrap}
+.hero-points div{font-size:.9rem;color:#aeb9cc}
+.hero-points b{display:block;font-size:1.22rem;color:#fff}
+.hero-card{background:var(--paper);color:var(--ink);border-radius:22px;box-shadow:var(--shadow);padding:26px}
+.hero-card h3{font-size:1.05rem;margin-bottom:4px}
+.hero-card p{color:var(--muted);font-size:.92rem;margin-bottom:6px}
+.slot{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-top:12px;font-size:.92rem;gap:10px}
+.slot b{color:var(--indigo-dark)}
+.slot .p{font-weight:800;color:var(--indigo-dark);white-space:nowrap}
+.slot span.tag{background:#f7ead0;color:#8a5a12;font-weight:700;font-size:.75rem;padding:3px 10px;border-radius:999px;white-space:nowrap}
+
+/* sections */
+section{padding:72px 0}
+section.soft{background:var(--cream)}
+.sec-head{max-width:640px;margin-bottom:38px}
+.sec-head h2{font-size:2rem;line-height:1.25;margin-bottom:10px;font-family:Georgia,"Times New Roman",serif}
+.sec-head p{color:var(--muted)}
+.kicker{color:var(--ochre);font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;margin-bottom:10px}
+
+/* services */
+.grid{display:grid;gap:20px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.2s}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.card .icon{width:52px;height:52px;border-radius:14px;background:#f3ecda;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.card h3{font-size:1.07rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.94rem;margin-bottom:14px}
+.price{font-weight:800;color:var(--indigo-dark)}
+.price small{color:var(--muted);font-weight:600}
+.note{color:var(--muted);font-size:.88rem;margin-top:14px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;position:relative}
+.step .n{width:38px;height:38px;border-radius:50%;background:var(--ochre);color:#fff;font-weight:800;font-size:1.05rem;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.step h3{font-size:1.07rem;margin-bottom:8px}
+.step p{color:var(--muted);font-size:.94rem}
+.step .time{display:inline-block;margin-top:12px;background:#f7ead0;color:#8a5a12;font-weight:700;font-size:.78rem;padding:3px 11px;border-radius:999px}
+
+/* form */
+.form-band{background:linear-gradient(135deg,var(--indigo-dark),var(--indigo));border-radius:24px;color:#e6ebf4;padding:44px;display:grid;grid-template-columns:.9fr 1.1fr;gap:34px}
+.form-band h2{color:#fff;font-size:1.9rem;line-height:1.3;margin-bottom:12px;font-family:Georgia,"Times New Roman",serif}
+.form-band p{color:#c3cede;max-width:28rem}
+form{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:24px}
+label{display:block;font-size:.85rem;font-weight:700;margin:0 0 6px;color:#dbe2ee}
+input,select,textarea{width:100%;border:1px solid rgba(255,255,255,.3);background:#fff;color:var(--ink);border-radius:10px;padding:11px 13px;font-size:.96rem;font-family:inherit;margin-bottom:16px}
+textarea{resize:vertical;min-height:84px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-btns{display:flex;gap:12px;flex-wrap:wrap}
+.form-btns .btn{flex:1;min-width:180px}
+.form-hint{font-size:.83rem;color:#9fb0c9;margin-top:14px}
+
+/* footer */
+footer{background:var(--indigo-deep);color:#9fb0c9;padding:52px 0 30px;font-size:.92rem}
+footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px;margin-bottom:34px}
+footer h4{color:#fff;margin-bottom:12px;font-size:1rem}
+footer ul{list-style:none}
+footer li{margin-bottom:7px}
+.demo-note{border-top:1px solid rgba(255,255,255,.13);padding-top:18px;font-size:.82rem;color:#6e7f9e;text-align:center}
+
+/* floating WA */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(37,211,102,.45)}
+.wa-float:hover{background:var(--wa-dark)}
+
+@media (max-width:900px){
+  .grid-3,.steps{grid-template-columns:repeat(2,1fr)}
+  .hero .wrap{grid-template-columns:1fr}
+  .form-band{grid-template-columns:1fr;padding:32px}
+  footer .cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  nav.links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 20px;gap:14px;border-bottom:1px solid var(--line)}
+  nav.links.open{display:flex}
+  .menu-btn{display:block}
+  .nav .q-btn{display:none}
+  h1{font-size:2rem}
+  .hero .wrap{padding-top:40px;padding-bottom:48px}
+  .hero-points{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  section{padding:52px 0}
+  .grid-3,.steps{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  footer .cols{grid-template-columns:1fr}
+  .topbar .wrap{justify-content:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div><span data-i18n="top.addr">Tran Phu Street, Old Town, Hoi An</span> · <b data-i18n="top.open">Open today 8:00 – 21:00</b></div>
+  <div><span data-i18n="top.rush">Rush orders in 24h</span> · Zalo: 0900 000 000</div>
+</div></div>
+
+<header><div class="wrap nav">
+  <a class="logo" href="#"><span class="mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8b34b" stroke-width="1.7"><circle cx="6" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/><path d="M8.2 7.5 20 19M8.2 16.5 20 5"/></svg></span>Hoi An Silk House</a>
+  <nav class="links" id="navLinks">
+    <a href="#services" data-i18n="nav.services">Services</a><a href="#how" data-i18n="nav.how">How it works</a><a href="#enquire" data-i18n="nav.enquire">Enquire</a><a href="#visit" data-i18n="nav.visit">Visit us</a>
+  </nav>
+  <div class="nav-right">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button id="langEn" class="active" type="button">EN</button><button id="langZh" type="button">中文</button>
+    </div>
+    <a class="btn btn-wa q-btn" href="#enquire" data-i18n="nav.getquote">Get a quote</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow" data-i18n="hero.eyebrow">Old Town · Hoi An</span>
+    <h1><span data-i18n="hero.h1a">A suit made for you,</span><br><span class="hl" data-i18n="hero.h1b">ready tomorrow.</span></h1>
+    <p class="lead" data-i18n="hero.lead">Three generations of tailors in Hoi An's Old Town. Pick your fabric in the morning, try it on in the afternoon, and fly home with a suit that actually fits — most orders ready in 24 hours.</p>
+    <div class="hero-cta">
+      <a class="btn btn-wa" href="#enquire"><span data-i18n="hero.cta.enquire">Enquire on WhatsApp / Zalo</span></a>
+      <a class="btn btn-ghost" href="#services" data-i18n="hero.cta.prices">See services &amp; prices</a>
+    </div>
+    <div class="hero-points">
+      <div><b>4.9 ★</b><span data-i18n="hero.p1">from 860+ traveller reviews</span></div>
+      <div><b>24h</b><span data-i18n="hero.p2">standard turnaround</span></div>
+      <div><b data-i18n="hero.p3b">Free fittings</b><span data-i18n="hero.p3">until it fits perfectly</span></div>
+    </div>
+  </div>
+  <div class="hero-card">
+    <h3 data-i18n="hero.card.h">From-prices, no surprises</h3>
+    <p data-i18n="hero.card.p">Final quote depends on fabric — confirmed in writing before we cut anything.</p>
+    <div class="slot"><span><b data-i18n="s1.name">Two-piece suit</b></span><span class="p">$120 · ₫3,000,000</span><span class="tag" data-i18n="tag.from">from</span></div>
+    <div class="slot"><span><b data-i18n="s2.name">Dress (silk / linen)</b></span><span class="p">$45 · ₫1,100,000</span><span class="tag" data-i18n="tag.from">from</span></div>
+    <div class="slot"><span><b data-i18n="s5.name">Ao dai (traditional)</b></span><span class="p">$55 · ₫1,350,000</span><span class="tag" data-i18n="tag.local">Local favourite</span></div>
+    <div class="slot"><span><b data-i18n="s3.name">Shirt / blouse</b></span><span class="p">$25 · ₫600,000</span><span class="tag" data-i18n="tag.from">from</span></div>
+  </div>
+</div></div>
+
+<section id="services"><div class="wrap">
+  <div class="sec-head"><div class="kicker" data-i18n="svc.kicker">Services &amp; from-prices</div>
+    <h2 data-i18n="svc.h">Made to measure, priced before we cut</h2>
+    <p data-i18n="svc.p">Every price below includes measuring, fittings and finishing. You only pay the balance when you are happy with the fit.</p></div>
+  <div class="grid grid-3">
+    <div class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2b3a55" stroke-width="1.8"><path d="M8 4 4 7l2 3 2-1v11h8V9l2 1 2-3-4-3a4 4 0 0 1-8 0Z"/></svg></div>
+      <h3 data-i18n="s1.name">Two-piece suit</h3><p data-i18n="s1.desc">Jacket and trousers in wool blends, linen or cashmere-mix. Half-canvas construction, your choice of lining.</p><div class="price">$120 <small>· ₫3,000,000 · <span data-i18n="svc.24h">24h available</span></small></div></div>
+    <div class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2b3a55" stroke-width="1.8"><path d="M9 3h6l1 5 3 13H5L8 8l1-5Z"/><path d="M9 3a3 3 0 0 0 6 0"/></svg></div>
+      <h3 data-i18n="s2.name">Dress (silk / linen)</h3><p data-i18n="s2.desc">Day dresses, evening gowns and copies of your favourite piece — bring a photo or the garment itself.</p><div class="price">$45 <small>· ₫1,100,000 · <span data-i18n="svc.24h">24h available</span></small></div></div>
+    <div class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2b3a55" stroke-width="1.8"><path d="M8 4 4 6.5V11l2-.8V20h12v-9.8l2 .8V6.5L16 4a4 4 0 0 1-8 0Z"/></svg></div>
+      <h3 data-i18n="s3.name">Shirt / blouse</h3><p data-i18n="s3.desc">Cotton, linen or silk shirts made to your measurements — order three or more and save 10%.</p><div class="price">$25 <small>· ₫600,000</small></div></div>
+    <div class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2b3a55" stroke-width="1.8"><path d="M7 3h10l-1 18h-3V8H11v13H8L7 3Z"/></svg></div>
+      <h3 data-i18n="s4.name">Trousers &amp; skirts</h3><p data-i18n="s4.desc">Tailored trousers, shorts and skirts with your choice of waist, taper and length.</p><div class="price">$30 <small>· ₫750,000</small></div></div>
+    <div class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2b3a55" stroke-width="1.8"><path d="M12 3v18M6 6c2-1.6 4-2.4 6-2.4S16 4.4 18 6c-2 1.6-4 2.4-6 2.4S8 7.6 6 6ZM6 15c2-1.6 4-2.4 6-2.4s4 .8 6 2.4c-2 1.6-4 2.4-6 2.4s-4-.8-6-2.4Z"/></svg></div>
+      <h3 data-i18n="s5.name">Ao dai (traditional)</h3><p data-i18n="s5.desc">Vietnam's traditional long dress, made in Hoi An silk with hand-finished seams. A keepsake that fits.</p><div class="price">$55 <small>· ₫1,350,000</small></div></div>
+    <div class="card"><div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2b3a55" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5 11 15l4.5-5.5"/></svg></div>
+      <h3 data-i18n="s6.name">Copies &amp; alterations</h3><p data-i18n="s6.desc">Love a garment you own? We copy it in new fabric — or alter anything to fit better, from $10.</p><div class="price">$10 <small>· ₫250,000 · <span data-i18n="svc.alter">alterations from</span></small></div></div>
+  </div>
+  <p class="note" data-i18n="svc.note">Prices are from-prices in USD and Vietnamese Dong (VND, approximate). Fabric choice sets the final quote — always confirmed in writing before cutting. We keep your measurements on file for easy re-orders from home.</p>
+</div></section>
+
+<section class="soft" id="how"><div class="wrap">
+  <div class="sec-head"><div class="kicker" data-i18n="how.kicker">How it works</div>
+    <h2 data-i18n="how.h">Three steps, about 24 hours</h2>
+    <p data-i18n="how.p">Short on time in Hoi An? This is the rhythm we run every day — tell us your departure date when you enquire.</p></div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3 data-i18n="how.s1h">Choose &amp; measure</h3><p data-i18n="how.s1p">Visit the shop (or send your measurements by WhatsApp), pick a fabric from 400+ bolts, and confirm a written quote. Small deposit only.</p><span class="time" data-i18n="how.s1t">About 30 minutes</span></div>
+    <div class="step"><div class="n">2</div><h3 data-i18n="how.s2h">First fitting</h3><p data-i18n="how.s2p">Try the basted garment the same evening or next morning. We pin, adjust and re-check every line with you in the mirror.</p><span class="time" data-i18n="how.s2t">Same day / next morning</span></div>
+    <div class="step"><div class="n">3</div><h3 data-i18n="how.s3h">Final fitting &amp; 24h delivery</h3><p data-i18n="how.s3p">Final fitting, finishing and pressing. Collect in store or get free delivery to your Hoi An hotel — most orders done within 24 hours of measuring.</p><span class="time" data-i18n="how.s3t">Ready in ~24 hours</span></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0" id="enquire"><div class="wrap">
+  <div class="form-band">
+    <div>
+      <h2 data-i18n="form.h">Start with a message — quote within the hour</h2>
+      <p data-i18n="form.p">Fill in what you know and tap a button: the form writes the message for you and opens it in WhatsApp or Zalo. No account, no email, no waiting on a web form.</p>
+      <p style="margin-top:16px" data-i18n="form.p2">Leaving Hoi An soon? Put your departure date in the form — we will tell you honestly if 24h is possible.</p>
+    </div>
+    <form id="enquiryForm">
+      <label for="fName" data-i18n="form.name">Your name</label>
+      <input id="fName" type="text" autocomplete="name" placeholder="e.g. Alex Morgan">
+      <div class="frow">
+        <div>
+          <label for="fItem" data-i18n="form.item">What would you like made?</label>
+          <select id="fItem">
+            <option value="Two-piece suit" data-i18n="s1.name">Two-piece suit</option>
+            <option value="Dress" data-i18n="s2.name">Dress (silk / linen)</option>
+            <option value="Shirt / blouse" data-i18n="s3.name">Shirt / blouse</option>
+            <option value="Trousers / skirt" data-i18n="s4.name">Trousers &amp; skirts</option>
+            <option value="Ao dai" data-i18n="s5.name">Ao dai (traditional)</option>
+            <option value="Copy / alteration" data-i18n="s6.name">Copies &amp; alterations</option>
+            <option value="Something else" data-i18n="form.other">Something else</option>
+          </select>
+        </div>
+        <div>
+          <label for="fDate" data-i18n="form.date">Fitting / departure date</label>
+          <input id="fDate" type="date">
+        </div>
+      </div>
+      <label for="fMsg" data-i18n="form.msg">Anything we should know? (fabric, size, deadline)</label>
+      <textarea id="fMsg" placeholder="e.g. Navy linen, wedding on Saturday, I leave Hoi An on Friday evening"></textarea>
+      <div class="form-btns">
+        <button type="button" class="btn btn-wa" id="sendWa" data-i18n="form.wa">Send via WhatsApp</button>
+        <button type="button" class="btn btn-zalo" id="sendZalo" data-i18n="form.zalo">Send via Zalo</button>
+      </div>
+      <p class="form-hint" data-i18n="form.hint">WhatsApp opens with your message pre-filled. Zalo opens our chat — your enquiry text is copied so you can paste it in one tap.</p>
+    </form>
+  </div>
+</div></section>
+
+<section style="padding-top:0" id="visit"><div class="wrap">
+  <div class="sec-head" style="margin-bottom:20px"><div class="kicker" data-i18n="visit.kicker">Visit us</div>
+    <h2 data-i18n="visit.h">In the Old Town, under the lanterns</h2>
+    <p data-i18n="visit.p">Tran Phu Street, Old Town, Hoi An (demo address). Open every day 8:00 – 21:00. Hotel pick-up for measuring available within the Old Town — just ask on WhatsApp.</p></div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div><h4>Hoi An Silk House</h4><p data-i18n="foot.about">Family tailors in Hoi An's Old Town for three generations. Suits, dresses and ao dai made to measure in about 24 hours.</p></div>
+    <div><h4 data-i18n="foot.hours.h">Opening hours</h4><ul><li data-i18n="foot.h1">Every day: 8:00 – 21:00</li><li data-i18n="foot.h2">Fittings until 20:30</li><li data-i18n="foot.h3">Rush orders: ask on Zalo</li></ul></div>
+    <div><h4 data-i18n="foot.contact.h">Contact</h4><ul><li data-i18n="foot.c1">Tran Phu St, Old Town, Hoi An (demo)</li><li>WhatsApp: +84 90 000 0000</li><li>Zalo: 0900 000 000</li><li>hello@hoiansilk.example</li></ul></div>
+  </div>
+  <div class="demo-note">Demo by Atang Lab — demo website built by Atang Lab. Hoi An Silk House is a fictional business; names, prices and contact details are illustrative only.</div>
+</div></footer>
+
+<a class="wa-float" href="https://wa.me/84900000000?text=Hi%20Hoi%20An%20Silk%20House%2C%20I%27d%20like%20a%20quote%20for%20tailoring." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.2 1.6 1.9 1.1.9 2 1.2 2.3 1.3.3.1.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2Z"/></svg></a>
+
+<script>
+var SHOP_PHONE_INTL = '84900000000'; /* demo number */
+var I18N = {
+  en: {
+    "top.addr":"Tran Phu Street, Old Town, Hoi An","top.open":"Open today 8:00 – 21:00","top.rush":"Rush orders in 24h",
+    "nav.services":"Services","nav.how":"How it works","nav.enquire":"Enquire","nav.visit":"Visit us","nav.getquote":"Get a quote",
+    "hero.eyebrow":"Old Town · Hoi An","hero.h1a":"A suit made for you,","hero.h1b":"ready tomorrow.",
+    "hero.lead":"Three generations of tailors in Hoi An's Old Town. Pick your fabric in the morning, try it on in the afternoon, and fly home with a suit that actually fits — most orders ready in 24 hours.",
+    "hero.cta.enquire":"Enquire on WhatsApp / Zalo","hero.cta.prices":"See services & prices",
+    "hero.p1":"from 860+ traveller reviews","hero.p2":"standard turnaround","hero.p3b":"Free fittings","hero.p3":"until it fits perfectly",
+    "hero.card.h":"From-prices, no surprises","hero.card.p":"Final quote depends on fabric — confirmed in writing before we cut anything.",
+    "tag.from":"from","tag.local":"Local favourite",
+    "s1.name":"Two-piece suit","s2.name":"Dress (silk / linen)","s3.name":"Shirt / blouse","s4.name":"Trousers & skirts","s5.name":"Ao dai (traditional)","s6.name":"Copies & alterations",
+    "s1.desc":"Jacket and trousers in wool blends, linen or cashmere-mix. Half-canvas construction, your choice of lining.",
+    "s2.desc":"Day dresses, evening gowns and copies of your favourite piece — bring a photo or the garment itself.",
+    "s3.desc":"Cotton, linen or silk shirts made to your measurements — order three or more and save 10%.",
+    "s4.desc":"Tailored trousers, shorts and skirts with your choice of waist, taper and length.",
+    "s5.desc":"Vietnam's traditional long dress, made in Hoi An silk with hand-finished seams. A keepsake that fits.",
+    "s6.desc":"Love a garment you own? We copy it in new fabric — or alter anything to fit better, from $10.",
+    "svc.kicker":"Services & from-prices","svc.h":"Made to measure, priced before we cut","svc.p":"Every price below includes measuring, fittings and finishing. You only pay the balance when you are happy with the fit.",
+    "svc.24h":"24h available","svc.alter":"alterations from",
+    "svc.note":"Prices are from-prices in USD and Vietnamese Dong (VND, approximate). Fabric choice sets the final quote — always confirmed in writing before cutting. We keep your measurements on file for easy re-orders from home.",
+    "how.kicker":"How it works","how.h":"Three steps, about 24 hours","how.p":"Short on time in Hoi An? This is the rhythm we run every day — tell us your departure date when you enquire.",
+    "how.s1h":"Choose & measure","how.s1p":"Visit the shop (or send your measurements by WhatsApp), pick a fabric from 400+ bolts, and confirm a written quote. Small deposit only.",
+    "how.s1t":"About 30 minutes",
+    "how.s2h":"First fitting","how.s2p":"Try the basted garment the same evening or next morning. We pin, adjust and re-check every line with you in the mirror.",
+    "how.s2t":"Same day / next morning",
+    "how.s3h":"Final fitting & 24h delivery","how.s3p":"Final fitting, finishing and pressing. Collect in store or get free delivery to your Hoi An hotel — most orders done within 24 hours of measuring.",
+    "how.s3t":"Ready in ~24 hours",
+    "form.h":"Start with a message — quote within the hour","form.p":"Fill in what you know and tap a button: the form writes the message for you and opens it in WhatsApp or Zalo. No account, no email, no waiting on a web form.",
+    "form.p2":"Leaving Hoi An soon? Put your departure date in the form — we will tell you honestly if 24h is possible.",
+    "form.name":"Your name","form.item":"What would you like made?","form.other":"Something else","form.date":"Fitting / departure date","form.msg":"Anything we should know? (fabric, size, deadline)",
+    "form.wa":"Send via WhatsApp","form.zalo":"Send via Zalo",
+    "form.hint":"WhatsApp opens with your message pre-filled. Zalo opens our chat — your enquiry text is copied so you can paste it in one tap.",
+    "visit.kicker":"Visit us","visit.h":"In the Old Town, under the lanterns","visit.p":"Tran Phu Street, Old Town, Hoi An (demo address). Open every day 8:00 – 21:00. Hotel pick-up for measuring available within the Old Town — just ask on WhatsApp.",
+    "foot.about":"Family tailors in Hoi An's Old Town for three generations. Suits, dresses and ao dai made to measure in about 24 hours.",
+    "foot.hours.h":"Opening hours","foot.h1":"Every day: 8:00 – 21:00","foot.h2":"Fittings until 20:30","foot.h3":"Rush orders: ask on Zalo",
+    "foot.contact.h":"Contact","foot.c1":"Tran Phu St, Old Town, Hoi An (demo)"
+  },
+  zh: {
+    "top.addr":"会安古城陈富街","top.open":"今日营业 8:00 – 21:00","top.rush":"加急 24 小时取货",
+    "nav.services":"服务项目","nav.how":"定制流程","nav.enquire":"在线咨询","nav.visit":"到店指南","nav.getquote":"获取报价",
+    "hero.eyebrow":"古城 · 会安","hero.h1a":"为您量身定做的西装，","hero.h1b":"明天就能取。",
+    "hero.lead":"会安古城三代裁缝世家。早上选面料，下午试衣，带着真正合身的衣服飞回家——大多数订单 24 小时内完成。",
+    "hero.cta.enquire":"用 WhatsApp / Zalo 咨询","hero.cta.prices":"查看服务与价格",
+    "hero.p1":"来自 860+ 条旅客评价","hero.p2":"标准交付时间","hero.p3b":"免费试衣修改","hero.p3":"改到完全合身为止",
+    "hero.card.h":"起价透明，没有惊吓","hero.card.p":"最终价格取决于面料——动剪刀之前书面确认。",
+    "tag.from":"起","tag.local":"本地人气",
+    "s1.name":"两件套西装","s2.name":"连衣裙（真丝 / 亚麻）","s3.name":"衬衫 / 女式衬衫","s4.name":"长裤与裙子","s5.name":"奥黛（越南传统服饰）","s6.name":"仿制与修改",
+    "s1.desc":"羊毛混纺、亚麻或羊绒混纺的西装与西裤。半毛衬工艺，里布自选。",
+    "s2.desc":"日常连衣裙、晚礼服，或仿制您最喜欢的那一件——带照片或实物来都可以。",
+    "s3.desc":"按您的尺寸定做棉、亚麻或真丝衬衫——订三件以上享 9 折。",
+    "s4.desc":"定制长裤、短裤与裙子，腰围、裤型与长度都由您定。",
+    "s5.desc":"越南传统长裙，用会安真丝手工收边。一件真正合身的纪念品。",
+    "s6.desc":"喜欢自己的一件衣服？我们用新面料仿制一件——或修改任何衣服让它更合身，10 美元起。",
+    "svc.kicker":"服务与起价","svc.h":"量身定做，动工前先定价","svc.p":"以下价格包含量体、试衣与整烫收尾。试穿满意后才付尾款。",
+    "svc.24h":"可 24 小时交付","svc.alter":"修改起价",
+    "svc.note":"价格为美元与越南盾起价（越南盾为约数）。面料决定最终报价——裁剪前一律书面确认。我们会保存您的尺寸档案，方便您回国后再次下单。",
+    "how.kicker":"定制流程","how.h":"三步，约 24 小时","how.p":"在会安时间不多？这就是我们每天的节奏——咨询时请告诉我们您的离开日期。",
+    "how.s1h":"选料与量体","how.s1p":"到店（或通过 WhatsApp 发送尺寸），从 400 多匹面料中挑选，并书面确认报价。只需付小额定金。",
+    "how.s1t":"约 30 分钟",
+    "how.s2h":"第一次试衣","how.s2p":"当晚或次日早上试穿半成品。我们和您一起对着镜子别针、调整、逐条线确认。",
+    "how.s2t":"当天 / 次日早上",
+    "how.s3h":"最终试衣与 24 小时交付","how.s3p":"最终试衣、收尾与熨烫。可到店自取，或免费送到您在会安的酒店——大多数量体后 24 小时内完成。",
+    "how.s3t":"约 24 小时取货",
+    "form.h":"先发一条消息——一小时内报价","form.p":"填好您知道的信息，点一个按钮：表单会替您写好消息，并在 WhatsApp 或 Zalo 中打开。不用注册、不用邮箱、不用等网页表单回复。",
+    "form.p2":"快要离开会安了？把离开日期填进表单——24 小时来不来得及，我们如实告诉您。",
+    "form.name":"您的姓名","form.item":"您想做什么？","form.other":"其他","form.date":"试衣 / 离开日期","form.msg":"还有什么要告诉我们的？（面料、尺码、截止时间）",
+    "form.wa":"通过 WhatsApp 发送","form.zalo":"通过 Zalo 发送",
+    "form.hint":"WhatsApp 会带着写好的消息打开。Zalo 会打开我们的聊天——咨询文本已自动复制，粘贴即可发送。",
+    "visit.kicker":"到店指南","visit.h":"在古城的灯笼下找到我们","visit.p":"会安古城陈富街（演示地址）。每天 8:00 – 21:00 营业。古城范围内可上门到酒店量体——在 WhatsApp 上说一声即可。",
+    "foot.about":"会安古城三代裁缝世家。西装、连衣裙与奥黛，约 24 小时量身定做。",
+    "foot.hours.h":"营业时间","foot.h1":"每天：8:00 – 21:00","foot.h2":"试衣至 20:30","foot.h3":"加急订单：请在 Zalo 上问",
+    "foot.contact.h":"联系方式","foot.c1":"会安古城陈富街（演示）"
+  }
+};
+var curLang = 'en';
+function setLang(l){
+  curLang = l;
+  var d = I18N[l];
+  var nodes = document.querySelectorAll('[data-i18n]');
+  for(var i=0;i<nodes.length;i++){
+    var k = nodes[i].getAttribute('data-i18n');
+    if(d[k] !== undefined) nodes[i].textContent = d[k];
+  }
+  document.documentElement.lang = (l === 'zh') ? 'zh-CN' : 'en';
+  document.getElementById('langEn').classList.toggle('active', l === 'en');
+  document.getElementById('langZh').classList.toggle('active', l === 'zh');
+}
+function buildMessage(){
+  var name = document.getElementById('fName').value.trim();
+  var itemSel = document.getElementById('fItem');
+  var item = itemSel.options[itemSel.selectedIndex].textContent;
+  var itemVal = itemSel.value;
+  var date = document.getElementById('fDate').value;
+  var msg = document.getElementById('fMsg').value.trim();
+  var L = (curLang === 'zh')
+    ? { hi:'您好 Hoi An Silk House，我想咨询定制。', name:'姓名：', item:'想做的：', date:'日期：', note:'备注：', itemVal:itemVal }
+    : { hi:'Hi Hoi An Silk House, I would like a tailoring quote.', name:'Name: ', item:'Item: ', date:'Date: ', note:'Notes: ', itemVal:itemVal };
+  var lines = [L.hi];
+  if(name) lines.push(L.name + name);
+  lines.push(L.item + item);
+  if(date) lines.push(L.date + date);
+  if(msg) lines.push(L.note + msg);
+  return lines.join('\n');
+}
+document.getElementById('sendWa').addEventListener('click', function(){
+  var text = buildMessage();
+  window.open('https://wa.me/' + SHOP_PHONE_INTL + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+});
+document.getElementById('sendZalo').addEventListener('click', function(){
+  var text = buildMessage();
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).catch(function(){});
+  }
+  window.open('https://zalo.me/' + SHOP_PHONE_INTL, '_blank', 'noopener');
+});
+document.getElementById('langEn').addEventListener('click', function(){ setLang('en'); });
+document.getElementById('langZh').addEventListener('click', function(){ setLang('zh'); });
+document.getElementById('menuBtn').addEventListener('click', function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+</script>
+</body>
+</html>
