@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Làm Ảnh Thẻ Online — Ảnh 3×4, 4×6, Hồ Sơ Xin Việc, Đúng KB</title>
+<meta name="description" content="Làm ảnh thẻ đúng kích thước và đúng dung lượng KB: ảnh 3×4 hồ sơ xin việc, ảnh 4×6 hộ chiếu, ảnh online 354×472 px 10–200 KB, ảnh 2×3 và visa EU 3.5×4.5 — kèm trang in 10×15 cm. Miễn phí, xử lý 100% trên thiết bị của bạn — ảnh không rời khỏi máy.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>🇻🇳 Làm Ảnh Thẻ Online</h1>
+  <p class="tagline">Hồ sơ bị trả lại khi ảnh sai kích thước <em>hoặc</em> sai dung lượng. Công cụ này cắt ảnh của bạn đúng <strong>từng pixel</strong> và đưa file vào đúng <strong>khoảng KB yêu cầu</strong> — ảnh 3×4 hồ sơ xin việc, ảnh 4×6 hộ chiếu, ảnh nộp online và visa EU.</p>
+  <p class="privacy-badge">🔒 Xử lý 100% trên thiết bị của bạn. Không tải lên, không máy chủ, không theo dõi.</p>
+  <p class="spec-strip">Kích thước ở 300 DPI: <strong>3×4 cm = 354×472 px</strong> · <strong>4×6 cm = 472×709 px</strong> · <strong>Online 354×472 px · 10–200 KB</strong> · <strong>2×3 cm = 236×354 px</strong> · <strong>Visa EU 3.5×4.5 cm = 413×531 px</strong>. Mọi khoảng KB đều chỉnh được — luôn kiểm tra thông báo mới nhất của nơi bạn nộp hồ sơ.</p>
+  <p class="hint small" style="margin-top:10px"><strong>Lưu ý CCCD:</strong> làm CCCD không cần tự chuẩn bị ảnh — cơ quan công an chụp ảnh trực tiếp tại chỗ. Công cụ này không có mẫu CCCD.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Chọn loại ảnh <span class="small" style="font-weight:normal">(Choose your photo type)</span></h2>
+    <div id="preset-list" class="preset-list"></div>
+    <div id="custom-fields" class="custom-fields" hidden>
+      <label class="field">Chiều rộng (px) <input type="number" id="cu-w" min="10" max="4000" value="354"></label>
+      <label class="field">Chiều cao (px) <input type="number" id="cu-h" min="10" max="4000" value="472"></label>
+    </div>
+    <p class="hint" id="preset-note"></p>
+    <div class="kb-row">
+      <label class="field">KB tối thiểu <input type="number" id="vn-min" min="0" max="10240" value=""> <span class="field-hint">(để trống/0 = không giới hạn dưới)</span></label>
+      <label class="field">KB tối đa <input type="number" id="vn-max" min="1" max="10240" value="500"></label>
+    </div>
+
+    <h2>2 · Màu nền <span class="small" style="font-weight:normal">(Background colour)</span></h2>
+    <div class="bg-row">
+      <label class="bg-chip selected"><input type="radio" name="vn-bg" value="#ffffff" checked> <span class="swatch" style="background:#ffffff"></span> Trắng (White)</label>
+      <label class="bg-chip"><input type="radio" name="vn-bg" value="#a9c8ec"> <span class="swatch" style="background:#a9c8ec"></span> Xanh nhạt (Light blue)</label>
+    </div>
+    <p class="hint small">Màu này tô nền sau ảnh của bạn (hiện qua vùng trong suốt của ảnh PNG). Công cụ <strong>không</strong> tách nền hay thay nền trong ảnh — nếu nơi nộp yêu cầu nền trắng, hãy chụp trước nền trắng. Tránh mặc áo trắng khi chụp nền trắng, áo xanh khi chụp nền xanh.</p>
+
+    <h2>3 · Thêm ảnh của bạn <span class="small" style="font-weight:normal">(Add your photo)</span></h2>
+    <label class="drop">
+      <input type="file" id="vn-file" accept="image/*">
+      <span>Chạm để chọn ảnh, hoặc kéo thả vào đây</span>
+    </label>
+    <p class="file-name" id="vn-info"></p>
+    <label class="field">Phóng to (Zoom) <input type="range" id="vn-zoom" min="1" max="3.5" step="0.01" value="1"></label>
+    <div class="stage-wrap" id="stage-wrap">
+      <canvas id="vn-stage" width="360" height="480" class="stage"></canvas>
+      <p id="vn-stage-empty" class="stage-empty">Ảnh của bạn sẽ hiện ở đây. Kéo để di chuyển.</p>
+    </div>
+
+    <h2>4 · Xuất ảnh đúng khoảng KB <span class="small" style="font-weight:normal">(Export single photo)</span></h2>
+    <button id="vn-btn" class="action" disabled>Xuất ảnh JPG đúng khoảng</button>
+    <p class="status" id="vn-status"></p>
+    <div id="vn-result-wrap" hidden>
+      <img id="vn-result-img" class="result-img" alt="Ảnh thẻ đã xuất">
+      <p class="result-info" id="vn-result-info"></p>
+      <a id="vn-download" class="download" download="vn-photo.jpg">⬇ Tải vn-photo.jpg</a>
+    </div>
+    <p class="hint small">Cách đạt KB tối thiểu một cách trung thực (khi nơi nộp có quy định): đầu tiên tăng chất lượng JPEG lên mức cao nhất vẫn vừa giới hạn. Nếu file vẫn dưới mức tối thiểu, công cụ thêm dữ liệu padding chuẩn của JPEG — hình ảnh không hề thay đổi, không mờ, không nhiễu — và thông báo sẽ nói rõ khi đã dùng padding. Nếu cần padding quá nhiều (ảnh gốc quá nhỏ), công cụ từ chối thay vì đưa bạn một file sẽ bị trả lại.</p>
+
+    <h2>5 · Trang in — nhiều ảnh để cắt <span class="small" style="font-weight:normal">(Print sheet)</span></h2>
+    <p class="hint" id="vn-sheet-info">Thêm ảnh trước — trang in xếp ảnh đã chọn lên một tờ 10×15 cm (1181×1772 px ở 300 DPI), có đường cắt đứt nét. In ở tỉ lệ 100% (không vừa trang).</p>
+    <button id="vn-sheet-btn" class="action" disabled>Tải trang in 10×15 cm</button>
+    <p class="status" id="vn-sheet-status"></p>
+    <a id="vn-sheet-download" class="download" hidden>⬇ Tải trang in</a>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Ảnh của bạn không rời khỏi thiết bị này.</strong> Mọi xử lý chạy ngay trên trình duyệt. Không tải lên, không tài khoản, không theo dõi.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a><br>
+    Need a website or WhatsApp automation built for you? <a href="https://www.fiverr.com/atanglab">Atang Lab on Fiverr</a></p>
+  </div>
+  <p class="small">Làm Ảnh Thẻ Online · Atang Lab · miễn phí · kích thước theo các nguồn công khai, kiểm tra 2026-11-14 — luôn kiểm tra thông báo mới nhất của nơi bạn nộp hồ sơ; công cụ chỉ chỉnh kích thước file, không đảm bảo hồ sơ được chấp nhận. Khoảng 10–200 KB của mẫu Online là ví dụ đăng ký thi IIG, không phải chuẩn chung toàn quốc.</p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "53752d8780f846229f08f670717a9afc"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
