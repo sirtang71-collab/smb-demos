@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indonesia Job Photo Maker — Pas Foto 3×4, 4×6, 1-inch & 2-inch, Print Sheet</title>
+<meta name="description" content="Make an Indonesian job application photo (pas foto lamaran kerja) at the exact size and exact KB: 1-inch 25×35 mm, 2-inch 35×49 mm, pas foto 3×4 cm and 4×6 cm — plus a 4×6-inch print sheet with copies to cut out. Free, 100% in your browser — your photo never leaves your device.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>🇮🇩 Indonesia Job Photo Maker — Pas Foto Lamaran Kerja</h1>
+  <p class="tagline">Job portals reject photos that miss the pixel size <em>or</em> the file-size limit, and print shops charge per sheet. This maker crops your photo to the <strong>exact pixels</strong>, lands the file <strong>inside the exact KB window</strong>, and tiles it onto a <strong>4×6-inch print sheet</strong> — 1-inch, 2-inch, pas foto 3×4 and 4×6.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">Sizes at 300 DPI: <strong>1-inch 25×35 mm = 295×413 px</strong> · <strong>2-inch 35×49 mm = 413×579 px</strong> · <strong>Pas foto 3×4 cm = 354×472 px</strong> · <strong>Pas foto 4×6 cm = 472×709 px</strong>. Every KB window is editable — always check the latest notice from the employer or portal you are applying to.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Choose your photo size</h2>
+    <div id="preset-list" class="preset-list"></div>
+    <div id="custom-fields" class="custom-fields" hidden>
+      <label class="field">Width (px) <input type="number" id="cu-w" min="10" max="4000" value="354"></label>
+      <label class="field">Height (px) <input type="number" id="cu-h" min="10" max="4000" value="472"></label>
+    </div>
+    <p class="hint" id="preset-note"></p>
+    <div class="kb-row">
+      <label class="field">Minimum KB <input type="number" id="rp-min" min="0" max="10240" value=""> <span class="field-hint">(blank/0 = no minimum)</span></label>
+      <label class="field">Maximum KB <input type="number" id="rp-max" min="1" max="10240" value="200"></label>
+    </div>
+
+    <h2>2 · Background colour</h2>
+    <div class="bg-row">
+      <label class="bg-chip selected"><input type="radio" name="rp-bg" value="#ffffff" checked> <span class="swatch" style="background:#ffffff"></span> White</label>
+      <label class="bg-chip"><input type="radio" name="rp-bg" value="#ed1c24"> <span class="swatch" style="background:#ed1c24"></span> Red</label>
+      <label class="bg-chip"><input type="radio" name="rp-bg" value="#2b5ea7"> <span class="swatch" style="background:#2b5ea7"></span> Blue</label>
+    </div>
+    <p class="hint small">Indonesian convention: pas foto traditionally uses a <strong>red</strong> background for people born in an odd year and <strong>blue</strong> for an even year — check your employer's notice, some ask for white instead. This fills the canvas behind your photo (it shows through transparent areas of PNG images). It does <strong>not</strong> cut out or replace the background inside the photo itself — if your notice demands a plain backdrop, photograph yourself against one.</p>
+
+    <h2>3 · Add your photo</h2>
+    <label class="drop">
+      <input type="file" id="rp-file" accept="image/*">
+      <span>Tap to choose a photo, or drop it here</span>
+    </label>
+    <p class="file-name" id="rp-info"></p>
+    <label class="field">Zoom <input type="range" id="rp-zoom" min="1" max="3.5" step="0.01" value="1"></label>
+    <div class="stage-wrap" id="stage-wrap">
+      <canvas id="rp-stage" width="360" height="480" class="stage"></canvas>
+      <p id="rp-stage-empty" class="stage-empty">Your photo will appear here. Drag to reposition.</p>
+    </div>
+
+    <h2>4 · Export single photo</h2>
+    <button id="rp-btn" class="action" disabled>Export JPG in range</button>
+    <p class="status" id="rp-status"></p>
+    <div id="rp-result-wrap" hidden>
+      <img id="rp-result-img" class="result-img" alt="Exported Indonesia job photo">
+      <p class="result-info" id="rp-result-info"></p>
+      <a id="rp-download" class="download" download="rp-photo.jpg">⬇ Download rp-photo.jpg</a>
+    </div>
+    <p class="hint small">How a minimum KB is reached honestly (when your notice sets one): first JPEG quality is raised to the maximum that fits. If the file is still below the minimum, standard JPEG padding data is added — your picture itself is never altered, blurred or noised, and the export message tells you when padding was used. If a file would need absurd amounts of padding (a tiny thumbnail instead of a real photo), the tool refuses and tells you why, instead of handing you a file the portal would reject.</p>
+
+    <h2>5 · Print sheet — copies to cut out</h2>
+    <p class="hint" id="rp-sheet-info">Add a photo first — the sheet tiles the selected size onto one 4×6-inch page (1800×1200 px at 300 DPI), with dashed cut lines. Print at 100% scale (no fit-to-page).</p>
+    <button id="rp-sheet-btn" class="action" disabled>Download 4×6 print sheet</button>
+    <p class="status" id="rp-sheet-status"></p>
+    <a id="rp-sheet-download" class="download" hidden>⬇ Download print sheet</a>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your photo never leaves this device.</strong> Everything runs locally in your browser. No uploads, no accounts, no tracking.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a><br>
+    Need a website or WhatsApp automation built for you? <a href="https://www.fiverr.com/atanglab">Atang Lab on Fiverr</a></p>
+  </div>
+  <p class="small">Indonesia Job Photo Maker · Atang Lab · free · sizes are mm at 300 DPI; the 200 KB cap is a common portal figure, not an official standard — always verify against the latest notice from your employer or portal; this tool sizes your file, it cannot guarantee an application is accepted.</p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
