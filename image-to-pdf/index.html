@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image to PDF — Combine Photos &amp; Scans into One PDF (Free, Offline)</title>
+<meta name="description" content="Turn ID photos and document scans into a single A4 PDF for exam and job applications — one image per page, portrait or landscape, fit or fill. Free, 100% processed on your device, nothing is uploaded.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>🖼️ Image to PDF</h1>
+  <p class="tagline">Exam and job packets want <strong>one PDF</strong>, not five loose photos. Drop in your ID photo and document scans — this tool lays each image on its own <strong>A4 page</strong> and hands you a single PDF to submit.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">Page size <strong>A4 (595.28 × 841.89 pt)</strong> · <strong>1 image per page</strong> · JPEG embedded directly, PNG re-encoded as JPEG on a white page · output file <strong>images-to-pdf.pdf</strong>.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Add your images <span class="small" style="font-weight:normal">(ID photo + scans)</span></h2>
+    <label class="drop" id="drop-zone">
+      <input type="file" id="pdf-files" accept="image/*" multiple>
+      <span>Tap to choose images, or drag &amp; drop them here</span>
+    </label>
+    <p class="file-name" id="pdf-info">No images yet — add at least one to build your PDF.</p>
+    <ol id="pdf-list" class="img-list"></ol>
+
+    <h2>2 · Page setup</h2>
+    <div class="opt-row">
+      <fieldset class="opt-group">
+        <legend>Orientation</legend>
+        <label class="bg-chip selected"><input type="radio" name="pdf-orient" value="portrait" checked> Portrait (A4)</label>
+        <label class="bg-chip"><input type="radio" name="pdf-orient" value="landscape"> Landscape (A4)</label>
+      </fieldset>
+      <fieldset class="opt-group">
+        <legend>Fit</legend>
+        <label class="bg-chip selected"><input type="radio" name="pdf-fit" value="fit" checked> Fit whole image (36 pt margins)</label>
+        <label class="bg-chip"><input type="radio" name="pdf-fit" value="fill"> Fill page (crop overflow)</label>
+      </fieldset>
+    </div>
+    <label class="field check-field"><input type="checkbox" id="pdf-numbers"> Add page numbers (off by default)</label>
+
+    <h2>3 · Download your PDF</h2>
+    <button id="pdf-btn" class="action" disabled>Download PDF</button>
+    <p class="status" id="pdf-status"></p>
+    <div id="pdf-result-wrap" hidden>
+      <p class="result-info" id="pdf-result-info"></p>
+      <a id="pdf-download" class="download" download="images-to-pdf.pdf">⬇ Download images-to-pdf.pdf</a>
+    </div>
+    <p class="hint small">What happens to your images: JPEGs go into the PDF exactly as they are. PNGs (and other formats) are drawn onto a white page and re-encoded as JPEG at quality 0.92 first — transparent areas become white, which is what application portals expect. Nothing leaves your browser at any point.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your images never leave this device.</strong> All processing runs right in your browser. No upload, no account, no tracking.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a><br>
+    Need a website or WhatsApp automation built for you? <a href="https://www.fiverr.com/atanglab">Atang Lab on Fiverr</a></p>
+  </div>
+  <p class="small">Image to PDF · Atang Lab · free · A4 pages per the ISO 216 standard (210 × 297 mm = 595.28 × 841.89 pt) — always check the latest notice from the place you submit to; this tool only assembles the PDF, it does not guarantee an application is accepted.</p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "53752d8780f846229f08f670717a9afc"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
