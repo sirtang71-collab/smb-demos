@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ทำรูปติดบัตรออนไลน์ — รูป 1 นิ้ว, 1.5 นิ้ว, 2 นิ้ว, วีซ่าไทย, ตรงขนาดพิกเซลและ KB</title>
+<meta name="description" content="ทำรูปติดบัตรให้ตรงขนาดและตรงขนาดไฟล์ KB: รูป 1 นิ้ว, รูป 1.5 นิ้วสำหรับใบอนุญาตทำงาน, รูป 2 นิ้ว, รูปหนังสือเดินทาง/วีซ่า 3.5×4.5 ซม. และวีซ่าไทย 2×2 นิ้ว — พร้อมแผ่นพิมพ์ 10×15 ซม. ฟรี ประมวลผล 100% บนอุปกรณ์ของคุณ — รูปไม่ออกจากเครื่อง">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>🇹🇭 ทำรูปติดบัตรออนไลน์</h1>
+  <p class="tagline">ใบสมัครถูกตีกลับเมื่อรูปผิดขนาด <em>หรือ</em> ผิดขนาดไฟล์ เครื่องมือนี้ตัดรูปของคุณให้ตรง <strong>ทุกพิกเซล</strong> และปรับไฟล์ให้อยู่ใน <strong>ช่วง KB ที่ต้องการ</strong> — รูป 1 นิ้ว, รูป 1.5 นิ้วสำหรับใบอนุญาตทำงาน, รูป 2 นิ้ว, รูปหนังสือเดินทาง/วีซ่า และวีซ่าไทยสำหรับสถานกงสุลสหรัฐฯ</p>
+  <p class="privacy-badge">🔒 ประมวลผล 100% บนอุปกรณ์ของคุณ ไม่มีการอัปโหลด ไม่มีเซิร์ฟเวอร์ ไม่มีการติดตาม</p>
+  <p class="spec-strip">ขนาดที่ 300 DPI: <strong>1 นิ้ว 2.5×3 ซม. = 295×354 px</strong> · <strong>1.5 นิ้ว 3×4 ซม. = 354×472 px</strong> · <strong>2 นิ้ว 4×6 ซม. = 472×709 px</strong> · <strong>หนังสือเดินทาง/วีซ่า 3.5×4.5 ซม. = 413×531 px</strong> · <strong>วีซ่าไทย (สหรัฐฯ) 2×2 นิ้ว = 600×600 px</strong> ช่วง KB ทั้งหมดปรับได้ — ตรวจสอบประกาศล่าสุดของหน่วยงานที่คุณยื่นเสมอ</p>
+  <p class="hint small" style="margin-top:10px;color:#dbe7f7"><strong>หมายเหตุ:</strong> หนังสือเดินทางและบัตรประจำตัวประชาชนของไทยถ่ายรูปที่สำนักงานโดยเจ้าหน้าที่ — ไม่ต้องเตรียมรูปไปเอง เครื่องมือนี้ไม่มีแบบบัตรประชาชน แต่มีขนาด 3.5×4.5 ซม. สำหรับยื่นวีซ่าออนไลน์และยื่นที่สถานทูตจากต่างประเทศ</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · เลือกขนาดรูป <span class="small" style="font-weight:normal">(Choose your photo type)</span></h2>
+    <div id="preset-list" class="preset-list"></div>
+    <div id="custom-fields" class="custom-fields" hidden>
+      <label class="field">ความกว้าง (px) <input type="number" id="cu-w" min="10" max="4000" value="354"></label>
+      <label class="field">ความสูง (px) <input type="number" id="cu-h" min="10" max="4000" value="472"></label>
+    </div>
+    <p class="hint" id="preset-note"></p>
+    <div class="kb-row">
+      <label class="field">KB ต่ำสุด <input type="number" id="th-min" min="0" max="10240" value=""> <span class="field-hint">(เว้นว่าง/0 = ไม่จำกัดขั้นต่ำ)</span></label>
+      <label class="field">KB สูงสุด <input type="number" id="th-max" min="1" max="10240" value="500"></label>
+    </div>
+
+    <h2>2 · สีพื้นหลัง <span class="small" style="font-weight:normal">(Background colour)</span></h2>
+    <div class="bg-row">
+      <label class="bg-chip selected"><input type="radio" name="th-bg" value="#ffffff" checked> <span class="swatch" style="background:#ffffff"></span> ขาว (White)</label>
+      <label class="bg-chip"><input type="radio" name="th-bg" value="#a9c8ec"> <span class="swatch" style="background:#a9c8ec"></span> ฟ้าอ่อน (Light blue)</label>
+    </div>
+    <p class="hint small">สีนี้จะเติมเป็นพื้นหลังของรูปของคุณ (จะเห็นผ่านบริเวณโปร่งใสของรูป PNG) เครื่องมือนี้ <strong>ไม่</strong> ตัดพื้นหลังหรือเปลี่ยนพื้นหลังในรูป — ถ้าหน่วยงานที่ยื่นต้องการพื้นหลังสีขาว ให้ถ่ายหน้าพื้นหลังสีขาวไว้ก่อน หลีกเลี่ยงเสื้อสีขาวเมื่อถ่ายพื้นหลังสีขาว และเสื้อสีฟ้าเมื่อถ่ายพื้นหลังสีฟ้า</p>
+
+    <h2>3 · เพิ่มรูปของคุณ <span class="small" style="font-weight:normal">(Add your photo)</span></h2>
+    <label class="drop">
+      <input type="file" id="th-file" accept="image/*">
+      <span>แตะเพื่อเลือกรูป หรือลากรูปมาวางที่นี่</span>
+    </label>
+    <p class="file-name" id="th-info"></p>
+    <label class="field">ขยาย (Zoom) <input type="range" id="th-zoom" min="1" max="3.5" step="0.01" value="1"></label>
+    <div class="stage-wrap" id="stage-wrap">
+      <canvas id="th-stage" width="360" height="480" class="stage"></canvas>
+      <p id="th-stage-empty" class="stage-empty">รูปของคุณจะแสดงที่นี่ ลากเพื่อเลื่อนรูป</p>
+    </div>
+
+    <h2>4 · ส่งออกรูปตามช่วง KB <span class="small" style="font-weight:normal">(Export single photo)</span></h2>
+    <button id="th-btn" class="action" disabled>ส่งออกรูป JPG ตามช่วงที่กำหนด</button>
+    <p class="status" id="th-status"></p>
+    <div id="th-result-wrap" hidden>
+      <img id="th-result-img" class="result-img" alt="รูปติดบัตรที่ส่งออกแล้ว">
+      <p class="result-info" id="th-result-info"></p>
+      <a id="th-download" class="download" download="th-photo.jpg">⬇ ดาวน์โหลด th-photo.jpg</a>
+    </div>
+    <p class="hint small">วิธีทำให้ถึง KB ต่ำสุดอย่างตรงไปตรงมา (เมื่อหน่วยงานที่ยื่นกำหนดไว้): อันดับแรกเพิ่มคุณภาพ JPEG ให้สูงที่สุดเท่าที่จะไม่เกินขีดจำกัด ถ้าไฟล์ยังต่ำกว่าขั้นต่ำ เครื่องมือจะเพิ่มข้อมูล padding มาตรฐานของ JPEG — รูปภาพไม่เปลี่ยนแปลง ไม่เบลอ ไม่มีสัญญาณรบกวน — และข้อความจะบอกชัดเจนเมื่อใช้ padding แล้ว ถ้าต้องใช้ padding มากเกินไป (รูปต้นฉบับเล็กเกินไป) เครื่องมือจะปฏิเสธแทนที่จะให้ไฟล์ที่ถูกตีกลับ</p>
+
+    <h2>5 · แผ่นพิมพ์ — หลายรูปสำหรับตัด <span class="small" style="font-weight:normal">(Print sheet)</span></h2>
+    <p class="hint" id="th-sheet-info">เพิ่มรูปก่อน — แผ่นพิมพ์จะจัดรูปขนาดที่เลือกไว้บนกระดาษ 10×15 ซม. (1181×1772 px ที่ 300 DPI) พร้อมเส้นตัดประ พิมพ์ที่ขนาด 100% (ไม่ย่อให้พอดีหน้า)</p>
+    <button id="th-sheet-btn" class="action" disabled>ดาวน์โหลดแผ่นพิมพ์ 10×15 ซม.</button>
+    <p class="status" id="th-sheet-status"></p>
+    <a id="th-sheet-download" class="download" hidden>⬇ ดาวน์โหลดแผ่นพิมพ์</a>
+  </section>
+</main>
+
+<footer>
+  <p><strong>รูปของคุณไม่ออกจากอุปกรณ์นี้</strong> ทุกขั้นตอนทำงานในเบราว์เซอร์ของคุณ ไม่มีการอัปโหลด ไม่มีบัญชี ไม่มีการติดตาม</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a><br>
+    Need a website or WhatsApp automation built for you? <a href="https://www.fiverr.com/atanglab">Atang Lab on Fiverr</a></p>
+  </div>
+  <p class="small">ทำรูปติดบัตรออนไลน์ · Atang Lab · ฟรี · ขนาดตามแหล่งข้อมูลสาธารณะ ตรวจสอบ 2026-11-15 — ตรวจสอบประกาศล่าสุดของหน่วยงานที่คุณยื่นเสมอ เครื่องมือนี้ปรับขนาดไฟล์เท่านั้น ไม่รับประกันว่าใบสมัครจะผ่าน ขนาด 1 นิ้วและ 2 นิ้วไม่มีมาตรฐานกลางของทางการ — ตัวเลขในที่นี้คือขนาดที่ใช้กันทั่วไป แหล่งข้อมูลระบุไว้ต่างกัน (1 นิ้ว: 2.5×3 หรือ 2.5×3.25 ซม. / 2 นิ้ว: 4×6 หรือ 4×5.23 ซม.) วัดช่องติดรูปในแบบฟอร์มหรือสอบถามหน่วยงานก่อนยื่น</p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "53752d8780f846229f08f670717a9afc"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
