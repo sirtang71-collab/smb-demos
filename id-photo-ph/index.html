@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philippines ID Photo Maker — 2×2, 1×1, Passport 3.5×4.5 cm, Exact KB</title>
+<meta name="description" content="Make a Philippines ID photo at the exact size and file size: 2×2 in e-Visa/visa and NBI photo (600×600 px), 1×1 in ID photo (300×300 px), Philippine passport 3.5×4.5 cm (413×531 px) — plus a 10×15 cm print sheet. Free, 100% processed on your device — your photo never leaves your machine.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>🇵🇭 Philippines ID Photo Maker</h1>
+  <p class="tagline">Forms get returned when your photo is the wrong size <em>or</em> the wrong file size. This tool crops your photo to the <strong>exact pixel size</strong> and lands the file inside the <strong>KB window your form asks for</strong> — 2×2 in for e-Visa, visa and NBI, 1×1 in for IDs, and 3.5×4.5 cm for the Philippine passport.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">Sizes at 300 DPI: <strong>2×2 in = 600×600 px · ≤240 KB (visa)</strong> · <strong>1×1 in = 300×300 px</strong> · <strong>Passport 3.5×4.5 cm = 413×531 px</strong>. KB limits other than the visa 2×2 are editable defaults — always check the latest notice from the office you are applying to.</p>
+  <p class="hint small" style="margin-top:10px"><strong>Philippine passport — read first:</strong> if you apply in the Philippines, do <strong>not</strong> bring a photo — the DFA captures your portrait on site during your appointment. The passport preset here is only for overseas / consulate applications that still ask for printed photos. <strong>Background:</strong> the current DFA ePassport spec is plain <strong>white</strong>; older guides asked for royal blue — that spec is superseded, so use white unless your consulate still asks for blue. <strong>No separate work-permit size:</strong> no distinct published work-permit photo size was found — notices ask for 2×2 or passport size, so use those presets.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Choose your photo type</h2>
+    <div id="preset-list" class="preset-list"></div>
+    <div id="custom-fields" class="custom-fields" hidden>
+      <label class="field">Width (px) <input type="number" id="cu-w" min="10" max="4000" value="600"></label>
+      <label class="field">Height (px) <input type="number" id="cu-h" min="10" max="4000" value="600"></label>
+    </div>
+    <p class="hint" id="preset-note"></p>
+    <div class="kb-row">
+      <label class="field">Min KB <input type="number" id="ph-min" min="0" max="10240" value=""> <span class="field-hint">(blank/0 = no lower limit)</span></label>
+      <label class="field">Max KB <input type="number" id="ph-max" min="1" max="10240" value="500"></label>
+    </div>
+
+    <h2>2 · Background colour</h2>
+    <div class="bg-row">
+      <label class="bg-chip selected"><input type="radio" name="ph-bg" value="#ffffff" checked> <span class="swatch" style="background:#ffffff"></span> White</label>
+      <label class="bg-chip"><input type="radio" name="ph-bg" value="#0038a8"> <span class="swatch" style="background:#0038a8"></span> Royal blue (older passport spec only)</label>
+    </div>
+    <p class="hint small">This colour fills the background behind your photo (it shows through transparent areas of a PNG). This tool does <strong>not</strong> cut out or replace the background inside your photo — if the office wants a white background, take the photo against a white background first. Avoid wearing white against a white background, or blue against a blue one. Royal blue is here only because some consulates still follow the older DFA passport spec; the current DFA ePassport spec is white.</p>
+
+    <h2>3 · Add your photo</h2>
+    <label class="drop">
+      <input type="file" id="ph-file" accept="image/*">
+      <span>Tap to choose a photo, or drag and drop it here</span>
+    </label>
+    <p class="file-name" id="ph-info"></p>
+    <label class="field">Zoom <input type="range" id="ph-zoom" min="1" max="3.5" step="0.01" value="1"></label>
+    <div class="stage-wrap" id="stage-wrap">
+      <canvas id="ph-stage" width="360" height="360" class="stage"></canvas>
+      <p id="ph-stage-empty" class="stage-empty">Your photo will appear here. Drag to move it.</p>
+    </div>
+
+    <h2>4 · Export one photo in the right KB window</h2>
+    <button id="ph-btn" class="action" disabled>Export JPG in range</button>
+    <p class="status" id="ph-status"></p>
+    <div id="ph-result-wrap" hidden>
+      <img id="ph-result-img" class="result-img" alt="Exported ID photo">
+      <p class="result-info" id="ph-result-info"></p>
+      <a id="ph-download" class="download" download="ph-photo.jpg">⬇ Download ph-photo.jpg</a>
+    </div>
+    <p class="hint small">How the minimum KB is reached honestly (when the office sets one): first the JPEG quality is raised to the highest level that still fits the limit. If the file is still under the minimum, the tool adds standard JPEG padding data — the picture does not change at all, no blur, no noise — and the message will say so when padding was used. If too much padding would be needed (your original is too small), the tool refuses instead of handing you a file that would be rejected.</p>
+
+    <h2>5 · Print sheet — several photos to cut out</h2>
+    <p class="hint" id="ph-sheet-info">Add a photo first — the sheet tiles the selected size onto one 10×15 cm page (1181×1772 px at 300 DPI), with dashed cut lines. Print at 100% scale (no fit-to-page).</p>
+    <button id="ph-sheet-btn" class="action" disabled>Download 10×15 cm print sheet</button>
+    <p class="status" id="ph-sheet-status"></p>
+    <a id="ph-sheet-download" class="download" hidden>⬇ Download print sheet</a>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your photo never leaves this device.</strong> All processing runs right in your browser. No upload, no account, no tracking.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a><br>
+    Need a website or WhatsApp automation built for you? <a href="https://www.fiverr.com/atanglab">Atang Lab on Fiverr</a></p>
+  </div>
+  <p class="small">Philippines ID Photo Maker · Atang Lab · free · sizes from public sources, checked 2026-11-15 — always check the latest notice from the office you are applying to; this tool only fixes the file size, it does not guarantee your application will be accepted. The 240 KB cap on the visa 2×2 preset follows Visafoto's published Philippines visa 2×2 spec; the e-Visa portal itself publishes no KB limit. The passport preset follows the current DFA ePassport spec (white background); the DFA captures the photo on site for applications inside the Philippines.</p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "53752d8780f846229f08f670717a9afc"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
