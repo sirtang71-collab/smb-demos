@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Background Colour Changer — White / Blue / Red ID Background (Free, Offline)</title>
+<meta name="description" content="Change your ID photo background to white, standard ID blue (#438EDB) or red in one click — the colour most passport and exam forms ask for. Free, 100% processed on your device, nothing is uploaded.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>🎨 Photo Background Colour Changer</h1>
+  <p class="tagline">Your form wants a <strong>white</strong>, <strong>blue</strong> or <strong>red</strong> background — your photo has the wrong one. One click swaps it, right in your browser.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">White <strong>#FFFFFF</strong> · Blue <strong>#438EDB</strong> (standard ID blue) · Red <strong>#FF0000</strong> · output is the <strong>same pixel size</strong> as your photo · PNG or JPG download.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Add your photo</h2>
+    <label class="drop" id="drop-zone">
+      <input type="file" id="bg-file" accept="image/*">
+      <span>Tap to choose a photo, or drag &amp; drop it here</span>
+    </label>
+    <p class="file-name" id="bg-info">No photo yet — add one to change its background.</p>
+
+    <div class="preview-grid" id="preview-grid" hidden>
+      <div class="preview-pane">
+        <h3>Before</h3>
+        <canvas id="canvas-before"></canvas>
+        <p class="cap" id="cap-before"></p>
+      </div>
+      <div class="preview-pane">
+        <h3>After</h3>
+        <canvas id="canvas-after"></canvas>
+        <p class="cap" id="cap-after"></p>
+      </div>
+    </div>
+
+    <h2>2 · Pick the new background</h2>
+    <div class="colour-row" id="colour-row">
+      <button type="button" class="colour-btn" id="btn-white" data-colour="white" disabled><span class="swatch white"></span>White <span class="hex">#FFFFFF</span></button>
+      <button type="button" class="colour-btn" id="btn-blue" data-colour="blue" disabled><span class="swatch blue"></span>Blue <span class="hex">#438EDB</span></button>
+      <button type="button" class="colour-btn" id="btn-red" data-colour="red" disabled><span class="swatch red"></span>Red <span class="hex">#FF0000</span></button>
+    </div>
+    <label class="field">Background tolerance
+      <input type="range" id="bg-tolerance" min="8" max="80" step="1" value="32">
+      <output id="bg-tolerance-out">32</output>
+    </label>
+    <p class="hint small">Tolerance is how different a pixel may be from the background and still count as background. Raise it if patches of the old background survive; lower it if the edges of hair or clothes start changing colour.</p>
+
+    <h2>3 · Download your photo</h2>
+    <p class="status" id="bg-status"></p>
+    <div id="bg-result-wrap" hidden>
+      <p class="result-info" id="bg-result-info"></p>
+      <a id="bg-download-png" class="download" download="photo-bg-white.png">⬇ Download PNG</a>
+      <a id="bg-download-jpg" class="download jpg" download="photo-bg-white.jpg">⬇ Download JPG</a>
+    </div>
+    <p class="hint small">Honest limit: this works best on the solid or near-solid backgrounds typical of ID photos. A busy background (trees, crowds, patterned wallpaper) may leave a fringe around hair and shoulders — check the After preview before you download. The output keeps your photo's original pixel size; always check the latest notice from the place you submit to.</p>
+    <p class="hint small related">Need the exact size too? Make the photo first with our <a href="../id-photo/">ID &amp; Passport Photo Maker</a> (10 countries, exact pixels), then change its background here — or the other way round. Also: <a href="../id-photo-th/">Thailand ID Photo</a> · <a href="../id-photo-ph/">Philippines ID Photo</a> · <a href="../id-photo-vn/">Vietnam ID Photo</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your photo never leaves this device.</strong> All processing runs right in your browser. No upload, no account, no tracking.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a><br>
+    Need a website or WhatsApp automation built for you? <a href="https://www.fiverr.com/atanglab">Atang Lab on Fiverr</a></p>
+  </div>
+  <p class="small">Photo Background Colour Changer · Atang Lab · free · Blue #438EDB is the standard ID-photo blue used by the ID photo series on this site; white #FFFFFF and red #FF0000 are the other two colours most forms ask for. This tool only changes the background colour — it does not guarantee an application is accepted.</p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

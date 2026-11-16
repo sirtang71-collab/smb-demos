@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Business Card — vCard QR Code &amp; wa.me Chat Link (Free, Offline)</title>
+<meta name="description" content="Make a WhatsApp business card in seconds: type your name, phone and one-line intro — get a scannable vCard QR code, a downloadable .vcf contact file and a wa.me direct-chat link. Free, 100% processed on your device, nothing is uploaded.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>💬 WhatsApp Business Card</h1>
+  <p class="tagline">Buyers scan once and your contact lands straight in their phone — plus a <strong>wa.me link</strong> that opens a WhatsApp chat with you in one tap. No typing, no typos.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">vCard <strong>3.0</strong> (CRLF) · QR code <strong>512 × 512 px</strong>, error correction <strong>M</strong>, 4-module quiet zone · contact file <strong>.vcf</strong> · chat link <strong>wa.me/&lt;digits&gt;</strong>.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Your details</h2>
+    <label class="field">Full name
+      <input type="text" id="bc-name" placeholder="e.g. Sari Wijaya" autocomplete="name">
+    </label>
+    <label class="field">Phone / WhatsApp <span class="small" style="font-weight:normal">(with country code)</span>
+      <input type="tel" id="bc-phone" placeholder="e.g. +62 812 3456 7890" autocomplete="tel">
+    </label>
+    <p class="hint small">Digits only after the country code — spaces, dashes and brackets are stripped automatically. The chat link uses the digits without the +.</p>
+    <label class="field">One-line intro
+      <input type="text" id="bc-intro" placeholder="e.g. Handmade batik, ships across Indonesia" maxlength="120">
+    </label>
+    <label class="field">Shop / company <span class="small" style="font-weight:normal">(optional)</span>
+      <input type="text" id="bc-org" placeholder="e.g. Toko Kopi">
+    </label>
+
+    <h2>2 · Live preview</h2>
+    <div class="preview-wrap">
+      <canvas id="bc-canvas" width="512" height="512" aria-label="QR code preview"></canvas>
+    </div>
+    <p class="result-info" id="bc-result-info"></p>
+    <p class="status" id="bc-status"></p>
+
+    <h2>3 · What the code contains</h2>
+    <textarea id="bc-vcard" readonly rows="8" aria-label="vCard text"></textarea>
+    <div class="btn-row">
+      <button id="bc-copy-vcf" class="action secondary" disabled>📋 Copy vCard text</button>
+      <button id="bc-clear" class="action secondary">Start over</button>
+    </div>
+
+    <h2>4 · Get your card</h2>
+    <div class="btn-row">
+      <button id="bc-dl-png" class="action" disabled>⬇ Download QR code (PNG)</button>
+      <button id="bc-dl-vcf" class="action" disabled>⬇ Download contact (.vcf)</button>
+    </div>
+    <p class="hint">Chat link: <code id="bc-wa-link"></code></p>
+    <p><a id="bc-wa-btn" class="download wa-btn" href="https://wa.me/" target="_blank" rel="noopener" hidden>💬 Chat on WhatsApp</a></p>
+    <p class="hint small">Print the QR code on your shop counter, flyer or packaging — buyers scan it and save your contact, or tap the chat link to message you directly. Nothing leaves your browser at any point.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your details never leave this device.</strong> All processing runs right in your browser. No upload, no account, no tracking.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a><br>
+    Need a website or WhatsApp automation built for you? <a href="https://www.fiverr.com/atanglab">Atang Lab on Fiverr</a></p>
+  </div>
+  <p class="small">WhatsApp Business Card · Atang Lab · free · vCard 3.0 per RFC 2426 — the QR code encodes the vCard text exactly as shown; always test-scan once before you print.</p>
+</footer>
+
+<script src="assets/vendor/qrcode.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

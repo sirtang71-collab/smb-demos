@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF Merge — Combine Multiple PDFs into One (Free, Offline)</title>
+<meta name="description" content="Merge several PDFs into a single file in the order you choose — exam forms, invoices, scanned packets. Free, 100% processed on your device, nothing is uploaded.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>📄 PDF Merge</h1>
+  <p class="tagline">Exam packets and invoice sets want <strong>one PDF</strong>, not five loose files. Drop in your PDFs, drag them into order — this tool stitches them into a single file, <strong>page order exactly as listed</strong>.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">Up to <strong>20 files</strong> · up to <strong>200 pages</strong> total · up to <strong>20 MB per file</strong> (50 MB total) · page size &amp; rotation kept from each file · output file <strong>merged.pdf</strong>.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Add your PDFs</h2>
+    <label class="drop" id="drop-zone">
+      <input type="file" id="pdf-files" accept="application/pdf,.pdf" multiple>
+      <span>Tap to choose PDFs, or drag &amp; drop them here</span>
+    </label>
+    <p class="file-name" id="pdf-info">No PDFs yet — add at least one to merge.</p>
+    <ol id="pdf-list" class="img-list"></ol>
+
+    <h2>2 · Merge &amp; download</h2>
+    <p class="hint">Pages come out in the order listed above — use ↑ ↓ to reorder, ✕ to drop a file. Each page keeps its original size and rotation.</p>
+    <button id="pdf-btn" class="action" disabled>Merge PDFs</button>
+    <p class="status" id="pdf-status"></p>
+    <div id="pdf-result-wrap" hidden>
+      <p class="result-info" id="pdf-result-info"></p>
+      <a id="pdf-download" class="download" download="merged.pdf">⬇ Download merged.pdf</a>
+    </div>
+    <p class="hint small">What this tool does with your files: it reads each PDF in your browser, copies its pages into one new PDF, and hands you the result — nothing leaves your device at any point. Password-protected (encrypted) PDFs cannot be merged; remove the password first and try again. A few very old or unusually compressed PDFs may be refused with a clear message instead of producing a broken file.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your files never leave this device.</strong> All processing runs right in your browser. No upload, no account, no tracking.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a><br>
+    Need a website or WhatsApp automation built for you? <a href="https://www.fiverr.com/atanglab">Atang Lab on Fiverr</a></p>
+  </div>
+  <p class="small">PDF Merge · Atang Lab · free · merges PDF 1.0–1.7 files with classic cross-reference tables, cross-reference streams and object streams; encrypted PDFs are refused. This tool only assembles the PDF, it does not guarantee an application is accepted — always check the latest notice from the place you submit to.</p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
