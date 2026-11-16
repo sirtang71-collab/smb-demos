@@ -31,6 +31,9 @@ main { max-width: 820px; margin: 0 auto; padding: 14px 14px 30px; }
 .tool h3 { margin: 18px 0 8px; font-size: 1.05rem; }
 .hint { color: #48525e; font-size: .93rem; margin: 4px 0 14px; }
 .hint.small { font-size: .85rem; }
+.services { padding: 14px 18px; }
+.services-sub { margin: 0; font-size: .93rem; color: #48525e; }
+.services-sub a { color: #1450a0; font-weight: 600; }
 
 .drop {
   display: block; border: 2px dashed #1450a0; border-radius: 12px;
