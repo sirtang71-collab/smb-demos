@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF Split — Split a PDF by Page Ranges (Free, Offline)</title>
+<meta name="description" content="Split one PDF into separate files by page ranges, every N pages, or single pages — exam packets, scanned forms, invoice sets. Free, 100% processed on your device, nothing is uploaded.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>✂️ PDF Split</h1>
+  <p class="tagline">One big PDF, several small jobs. Pull out the pages you need — a chapter, one form, every other page — and this tool hands each part back as its own PDF, <strong>page size and rotation kept exactly</strong>.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">One PDF · up to <strong>200 pages</strong> · up to <strong>20 MB</strong> · page size &amp; rotation kept from the original · each part downloads as its own file (<strong>split-part-1.pdf</strong>, …).</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Add your PDF</h2>
+    <label class="drop" id="drop-zone">
+      <input type="file" id="pdf-file" accept="application/pdf,.pdf">
+      <span>Tap to choose a PDF, or drag &amp; drop it here</span>
+    </label>
+    <p class="file-name" id="pdf-info">No PDF yet — add one PDF to split.</p>
+    <ol id="pdf-list" class="img-list"></ol>
+
+    <h2>2 · How to split it</h2>
+    <fieldset class="opt-group">
+      <legend>Split mode</legend>
+      <label class="bg-chip selected"><input type="radio" name="split-mode" value="ranges" checked> Page ranges</label>
+      <label class="bg-chip"><input type="radio" name="split-mode" value="everyn"> Every N pages</label>
+      <label class="bg-chip"><input type="radio" name="split-mode" value="single"> Single pages</label>
+    </fieldset>
+
+    <div id="mode-ranges-row">
+      <label class="field">Page ranges
+        <input type="text" id="pdf-ranges" class="text-input" placeholder="e.g. 1-3, 5, 7-9" value="1-3, 5, 7-9">
+      </label>
+      <p class="hint">One file per range: “1-3, 5, 7-9” makes three files — pages 1–3, page 5, and pages 7–9. Page numbers start at 1.</p>
+    </div>
+
+    <div id="mode-everyn-row" hidden>
+      <label class="field">Split every
+        <input type="number" id="pdf-every-n" class="num-input" min="1" value="2"> page(s)
+      </label>
+      <p class="hint">Chops the file into equal chunks — every 2 pages makes one file per pair (the last file takes whatever is left).</p>
+    </div>
+
+    <div id="mode-single-row" hidden>
+      <label class="field">Pages to pull out
+        <input type="text" id="pdf-single" class="text-input" placeholder="e.g. 1, 3, 5" value="1, 3, 5">
+      </label>
+      <p class="hint">Each page becomes its own file, named after its page number — “1, 3, 5” makes split-page-1.pdf, split-page-3.pdf and split-page-5.pdf. Ranges work too: “2-4” pulls out pages 2, 3 and 4 separately.</p>
+    </div>
+
+    <button id="pdf-btn" class="action" disabled>Split PDF</button>
+    <p class="status" id="pdf-status"></p>
+    <div id="pdf-result-wrap" hidden>
+      <p class="result-info" id="pdf-result-info"></p>
+      <ol id="pdf-result-list" class="img-list"></ol>
+      <button id="pdf-download-all" class="action" type="button">⬇ Download all parts</button>
+    </div>
+    <p class="hint small">What this tool does with your file: it reads your PDF in your browser, copies the pages you picked into new PDFs, and hands you the results — nothing leaves your device at any point. Password-protected (encrypted) PDFs cannot be split; remove the password first and try again. A few very old or unusually compressed PDFs may be refused with a clear message instead of producing a broken file.</p>
+  </section>
+
+  <section class="tool services">
+    <p class="services-sub"><strong>Atang Lab</strong> · One split at a time is fine — until the paperwork piles up. Sellers: hand us your documents in bulk — invoice sets, listing packs, application packets — and we assemble, name and organise them for you, alongside our WhatsApp auto-reply &amp; order assistant that answers buyers while you sleep.
+      <a href="http://www.fiverr.com/s/Bb83K0d" target="_blank" rel="noopener">See the service on Fiverr →</a></p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your files never leave this device.</strong> All processing runs right in your browser. No upload, no account, no tracking.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a></p>
+  </div>
+  <p class="small">PDF Split · Atang Lab · free · splits PDF 1.0–1.7 files with classic cross-reference tables, cross-reference streams and object streams; encrypted PDFs are refused. This tool only splits the PDF, it does not guarantee an application is accepted — always check the latest notice from the place you submit to.</p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/split.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
