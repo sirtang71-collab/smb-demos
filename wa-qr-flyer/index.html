@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Order Flyer — QR Code Card for Sellers (Free, Offline)</title>
+<meta name="description" content="Make a WhatsApp order flyer in seconds: type your shop name, product and price, add a prefilled inquiry message — get a scannable QR code on a printable 1080×1350 card buyers can scan to order. Free, 100% processed on your device, nothing is uploaded.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>📱 WhatsApp Order Flyer</h1>
+  <p class="tagline">Buyers scan the QR code and land straight in your WhatsApp chat with the order message already typed — no typing, no typos, no lost orders.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">Card <strong>1080 × 1350 px</strong> (portrait, WhatsApp status / print) · QR code error correction <strong>M</strong>, 4-module quiet zone · link <strong>wa.me/&lt;digits&gt;?text=&lt;message&gt;</strong> · optional product photo.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Your flyer</h2>
+    <label class="field">Shop name
+      <input type="text" id="fl-shop" placeholder="e.g. Toko Kopi Berkah" autocomplete="off">
+    </label>
+    <label class="field">Product name
+      <input type="text" id="fl-product" placeholder="e.g. Kopi Gula Aren 250g" autocomplete="off">
+    </label>
+    <div class="price-row">
+      <label class="field price-field">Price
+        <input type="text" id="fl-price" placeholder="e.g. 25.000" inputmode="decimal" autocomplete="off">
+      </label>
+      <label class="field currency-field">Currency
+        <select id="fl-currency">
+          <option value="IDR" selected>IDR (Rp)</option>
+          <option value="USD">USD ($)</option>
+          <option value="MYR">MYR (RM)</option>
+          <option value="SGD">SGD (S$)</option>
+          <option value="PHP">PHP (₱)</option>
+          <option value="INR">INR (₹)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="GBP">GBP (£)</option>
+        </select>
+      </label>
+    </div>
+    <label class="field">WhatsApp number <span class="small" style="font-weight:normal">(with country code)</span>
+      <input type="tel" id="fl-phone" placeholder="e.g. +62 812 3456 7890" autocomplete="tel">
+    </label>
+    <p class="hint small">Digits only after the country code — spaces, dashes and brackets are stripped automatically.</p>
+    <label class="field">Prefilled inquiry message <span class="small" style="font-weight:normal">(optional — leave empty for the automatic message)</span>
+      <textarea id="fl-message" rows="3" placeholder="e.g. Hi! I want to order Kopi Gula Aren 250g (Rp 25.000). Is it still available?"></textarea>
+    </label>
+    <p class="hint small">The buyer taps the QR code and this exact message is already typed in their WhatsApp chat. Leave it empty and the tool builds one from your shop, product and price.</p>
+
+    <label class="field">Product photo <span class="small" style="font-weight:normal">(optional — drawn onto the card)</span>
+      <span class="drop"><input type="file" id="fl-photo" accept="image/*">📷 Choose a product photo (JPG / PNG)</span>
+    </label>
+    <p class="file-name" id="fl-photo-name"></p>
+
+    <fieldset class="opt-group">
+      <legend>Card colour</legend>
+      <label class="bg-chip selected"><input type="radio" name="accent" value="green" checked> 🟢 Green</label>
+      <label class="bg-chip"><input type="radio" name="accent" value="blue"> 🔵 Blue</label>
+      <label class="bg-chip"><input type="radio" name="accent" value="purple"> 🟣 Purple</label>
+      <label class="bg-chip"><input type="radio" name="accent" value="red"> 🔴 Red</label>
+    </fieldset>
+
+    <h2>2 · Live preview</h2>
+    <div class="preview-wrap">
+      <canvas id="fl-preview" width="1080" height="1350" aria-label="Flyer preview"></canvas>
+    </div>
+    <p class="result-info" id="fl-result-info"></p>
+    <p class="status" id="fl-status"></p>
+
+    <h2>3 · Get your flyer</h2>
+    <div class="btn-row">
+      <button id="fl-dl-png" class="action" disabled>⬇ Download flyer (PNG, 1080×1350)</button>
+      <button id="fl-copy-link" class="action secondary" disabled>📋 Copy WhatsApp link</button>
+      <button id="fl-clear" class="action secondary">Start over</button>
+    </div>
+    <p class="hint">WhatsApp link: <code id="fl-wa-link"></code></p>
+    <p><a id="fl-wa-btn" class="download wa-btn" href="https://wa.me/" target="_blank" rel="noopener" hidden>💬 Chat on WhatsApp</a></p>
+    <p class="hint small">Share the PNG as a WhatsApp status, in a group, or print it for your shop counter — buyers scan it and the order message is ready to send. The small wa.me/&lt;number&gt; line under the QR code is a fallback if the code ever fails to scan. Nothing leaves your browser at any point.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your details never leave this device.</strong> All processing runs right in your browser. No upload, no account, no tracking.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a><br>
+    Need a website or WhatsApp automation built for you? <a href="https://www.fiverr.com/atanglab">Atang Lab on Fiverr</a></p>
+  </div>
+  <p class="small">WhatsApp Order Flyer · Atang Lab · free · the QR code encodes the wa.me link exactly as shown; always test-scan once before you print.</p>
+</footer>
+
+<script src="assets/vendor/qrcode.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
