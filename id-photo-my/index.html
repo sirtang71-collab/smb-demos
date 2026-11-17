@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malaysia ID Photo Maker — Passport &amp; MyKad 35×50 mm, Exact KB</title>
+<meta name="description" content="Make a Malaysia ID photo at the exact size and file size: Malaysian passport and MyKad 35×50 mm (413×591 px at 300 DPI), white background for the passport, light-blue for MyKad — plus a 10×15 cm print sheet. Free, 100% processed on your device — your photo never leaves your machine.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>🇲🇾 Malaysia ID Photo Maker</h1>
+  <p class="tagline">Forms get returned when your photo is the wrong size <em>or</em> the wrong file size. This tool crops your photo to the <strong>exact pixel size</strong> and lands the file inside the <strong>KB window your form asks for</strong> — Malaysian passport and MyKad, both 35×50 mm (413×591 px at 300 DPI).</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">Sizes at 300 DPI: <strong>Passport 35×50 mm = 413×591 px · 100–1000 KB (portal)</strong> · <strong>MyKad 35×50 mm = 413×591 px · light-blue background</strong>. KB limits other than the passport portal window are editable defaults — always check the latest notice from the office you are applying to.</p>
+  <p class="hint small" style="margin-top:10px"><strong>Malaysian passport — read first:</strong> if you apply inside Malaysia, do <strong>not</strong> bring a photo — Jabatan Imigresen Malaysia (JIM) captures your portrait on site (Facial Live Capture). A printed 35×50 mm photo is only specified for children under 4 and for overseas / mission applications. <strong>MyKad:</strong> JPN likewise takes the photo on site for new cards and renewals — this preset is for replacement / printed use where a photo is still asked for. <strong>Background:</strong> the current passport spec is plain <strong>white</strong>; blue is still the norm for MyKad, although JPN accepts white at most counters now.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Choose your photo type <span class="small" style="font-weight:normal">(Pilih jenis foto)</span></h2>
+    <div id="preset-list" class="preset-list"></div>
+    <div id="custom-fields" class="custom-fields" hidden>
+      <label class="field">Width (px) <input type="number" id="cu-w" min="10" max="4000" value="413"></label>
+      <label class="field">Height (px) <input type="number" id="cu-h" min="10" max="4000" value="591"></label>
+    </div>
+    <p class="hint" id="preset-note"></p>
+    <div class="kb-row">
+      <label class="field">Min KB <input type="number" id="my-min" min="0" max="10240" value=""> <span class="field-hint">(blank/0 = no lower limit)</span></label>
+      <label class="field">Max KB <input type="number" id="my-max" min="1" max="10240" value="500"></label>
+    </div>
+
+    <h2>2 · Background colour <span class="small" style="font-weight:normal">(Warna latar belakang)</span></h2>
+    <div class="bg-row">
+      <label class="bg-chip selected"><input type="radio" name="my-bg" value="#ffffff" checked> <span class="swatch" style="background:#ffffff"></span> White</label>
+      <label class="bg-chip"><input type="radio" name="my-bg" value="#a9c8ec"> <span class="swatch" style="background:#a9c8ec"></span> Light blue (MyKad)</label>
+    </div>
+    <p class="hint small">This colour fills the background behind your photo (it shows through transparent areas of a PNG). This tool does <strong>not</strong> cut out or replace the background inside your photo — if the office wants a white background, take the photo against a white background first. Avoid wearing white against a white background, or blue against a blue one. Selecting a preset sets its usual background automatically (white for the passport, light blue for MyKad) — you can still change it here. The exact light-blue shade for MyKad is not specified by JPN; use the shade your counter asks for.</p>
+
+    <h2>3 · Add your photo <span class="small" style="font-weight:normal">(Muat naik foto)</span></h2>
+    <label class="drop">
+      <input type="file" id="my-file" accept="image/*">
+      <span>Tap to choose a photo, or drag and drop it here</span>
+    </label>
+    <p class="file-name" id="my-info"></p>
+    <label class="field">Zoom <input type="range" id="my-zoom" min="1" max="3.5" step="0.01" value="1"></label>
+    <div class="stage-wrap" id="stage-wrap">
+      <canvas id="my-stage" width="360" height="360" class="stage"></canvas>
+      <p id="my-stage-empty" class="stage-empty">Your photo will appear here. Drag to move it.</p>
+    </div>
+
+    <h2>4 · Export one photo in the right KB window <span class="small" style="font-weight:normal">(Eksport foto)</span></h2>
+    <button id="my-btn" class="action" disabled>Export JPG in range</button>
+    <p class="status" id="my-status"></p>
+    <div id="my-result-wrap" hidden>
+      <img id="my-result-img" class="result-img" alt="Exported ID photo">
+      <p class="result-info" id="my-result-info"></p>
+      <a id="my-download" class="download" download="my-photo.jpg">⬇ Download my-photo.jpg</a>
+    </div>
+    <p class="hint small">How the minimum KB is reached honestly (when the office sets one): first the JPEG quality is raised to the highest level that still fits the limit. If the file is still under the minimum, the tool adds standard JPEG padding data — the picture does not change at all, no blur, no noise — and the message will say so when padding was used. If too much padding would be needed (your original is too small), the tool refuses instead of handing you a file that would be rejected.</p>
+
+    <h2>5 · Print sheet — several photos to cut out <span class="small" style="font-weight:normal">(Helaian cetakan)</span></h2>
+    <p class="hint" id="my-sheet-info">Add a photo first — the sheet tiles the selected size onto one 10×15 cm page (1181×1772 px at 300 DPI), with dashed cut lines. Print at 100% scale (no fit-to-page).</p>
+    <button id="my-sheet-btn" class="action" disabled>Download 10×15 cm print sheet</button>
+    <p class="status" id="my-sheet-status"></p>
+    <a id="my-sheet-download" class="download" hidden>⬇ Download print sheet</a>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your photo never leaves this device.</strong> All processing runs right in your browser. No upload, no account, no tracking.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a><br>
+    Need a website or WhatsApp automation built for you? <a href="https://www.fiverr.com/atanglab">Atang Lab on Fiverr</a></p>
+  </div>
+  <p class="small">Malaysia ID Photo Maker · Atang Lab · free · sizes from public sources, checked 2026-11-17 — always check the latest notice from the office you are applying to; this tool only fixes the file size, it does not guarantee your application will be accepted. The passport preset follows the Jabatan Imigresen Malaysia spec (35×50 mm, white background, head 25–30 mm); the 100 KB–1 MB portal window follows the MyOnline Pasport portal as cross-checked by examidphoto.com, and a 2023 JIM guide said 100–300 KB. MyKad uses the same 35×50 mm frame; blue is still the norm for MyKad, white is accepted at most JPN counters. Related tools: <a href="https://sirtang71-collab.github.io/smb-demos/id-photo-ph/">Philippines ID Photo Maker</a> · <a href="https://sirtang71-collab.github.io/smb-demos/id-photo-th/">Thailand ID Photo Maker</a> · <a href="https://sirtang71-collab.github.io/smb-demos/id-photo-vn/">Vietnam ID Photo Maker</a></p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
