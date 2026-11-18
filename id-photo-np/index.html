@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nepal Lok Sewa Photo &amp; Signature Maker — 350×450 px, Exact KB</title>
+<meta name="description" content="Make a Nepal Lok Sewa (PSC) photo at the exact size and file size: 350×450 px, 20–50 KB — plus a signature strip (350×100 px, 10–50 KB) that is never rejected for being too small. Free, 100% processed on your device — your photo never leaves your machine.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>🇳🇵 Nepal Lok Sewa Photo &amp; Signature Maker</h1>
+  <p class="tagline">Lok Sewa forms get returned when your photo is the wrong size <em>or</em> the wrong file size — and a signature can be rejected for being <em>too small</em> in KB. This tool crops your photo to the <strong>exact pixel size</strong>, lands both files inside their <strong>KB windows</strong>, and guarantees the signature reaches its minimum.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">Lok Sewa (PSC) online form: photo <strong>350×450 px · 20–50 KB</strong> · signature strip <strong>350×100 px · 10–50 KB</strong> · JPG, white background. Nepal passport photo <strong>35×45 mm = 413×531 px @300 DPI · ≤200 KB</strong>. Limits differ between vacancy notices — the fields stay editable, always check your notice.</p>
+  <p class="hint small" style="margin-top:10px"><strong>Read first — a signature too small will be rejected:</strong> a thin signature on clean white paper compresses to 2–3 KB, below the portal's minimum. This tool fixes that honestly: if the signature file is under its minimum, it adds standard JPEG padding data — the picture does not change at all, no blur, no noise — and the message will say so when padding was used. A signature in capital letters will not be accepted; sign in your normal handwriting, black ink on white paper.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>Photo — 1 · Choose your photo type</h2>
+    <div id="np-preset-list" class="preset-list"></div>
+    <div id="np-custom-fields" class="custom-fields" hidden>
+      <label class="field">Width (px) <input type="number" id="np-cu-w" min="10" max="4000" value="350"></label>
+      <label class="field">Height (px) <input type="number" id="np-cu-h" min="10" max="4000" value="450"></label>
+    </div>
+    <p class="hint" id="np-preset-note"></p>
+    <div class="kb-row">
+      <label class="field">Min KB <input type="number" id="np-min" min="0" max="10240" value="20"> <span class="field-hint">(blank/0 = no lower limit)</span></label>
+      <label class="field">Max KB <input type="number" id="np-max" min="1" max="10240" value="50"></label>
+    </div>
+    <p class="hint small">Background is plain white: the canvas is filled white behind your photo (it shows through transparent areas of a PNG). This tool does <strong>not</strong> cut out or replace the background inside your photo — if the notice wants a white background, take the photo against a white background first.</p>
+
+    <h2>Photo — 2 · Add your photo</h2>
+    <label class="drop" id="np-drop">
+      <input type="file" id="np-file" accept="image/*">
+      <span>Tap to choose a photo, or drag and drop it here</span>
+    </label>
+    <p class="file-name" id="np-info"></p>
+    <label class="field">Zoom <input type="range" id="np-zoom" min="1" max="3.5" step="0.01" value="1"></label>
+    <div class="stage-wrap" id="np-stage-wrap">
+      <canvas id="np-stage" width="360" height="360" class="stage"></canvas>
+      <p id="np-stage-empty" class="stage-empty">Your photo will appear here. Drag to move it.</p>
+    </div>
+
+    <h2>Photo — 3 · Export your photo in the right KB window</h2>
+    <button id="np-btn" class="action" disabled>Export photo JPG in range</button>
+    <p class="status" id="np-status"></p>
+    <div id="np-result-wrap" hidden>
+      <img id="np-result-img" class="result-img tall" alt="Exported Lok Sewa photo">
+      <p class="result-info" id="np-result-info"></p>
+      <a id="np-download" class="download" download="nepal-photo.jpg">⬇ Download nepal-photo.jpg</a>
+    </div>
+    <p class="hint small">How the minimum KB is reached honestly (when the notice sets one): first the JPEG quality is raised to the highest level that still fits the limit. If the file is still under the minimum, the tool adds standard JPEG padding data — the picture does not change at all — and the message will say so when padding was used. If too much padding would be needed (your original is too small), the tool refuses instead of handing you a file that would be rejected.</p>
+  </section>
+
+  <section class="tool active">
+    <h2>Signature — 1 · Signature strip size &amp; KB window</h2>
+    <p class="hint" id="sg-note"></p>
+    <div class="kb-row">
+      <label class="field">Width (px) <input type="number" id="sg-w" min="10" max="4000" value="350"></label>
+      <label class="field">Height (px) <input type="number" id="sg-h" min="10" max="4000" value="100"></label>
+      <label class="field">Min KB <input type="number" id="sg-min" min="0" max="10240" value="10"> <span class="field-hint">(the floor this tool guarantees)</span></label>
+      <label class="field">Max KB <input type="number" id="sg-max" min="1" max="10240" value="50"></label>
+    </div>
+    <p class="hint small">Crop tight around the signature — no big white margins. A wide, short strip (about 350×100 px) is what the portal expects; a tall or square crop of a signature looks wrong on the admit card. Scan or photograph at a decent resolution: a 100×30 px thumbnail cannot be stretched into a clean 350×100 px strip.</p>
+
+    <h2>Signature — 2 · Add your signature image</h2>
+    <label class="drop" id="sg-drop">
+      <input type="file" id="sg-file" accept="image/*">
+      <span>Tap to choose a signature image, or drag and drop it here</span>
+    </label>
+    <p class="file-name" id="sg-info"></p>
+    <label class="field">Zoom <input type="range" id="sg-zoom" min="1" max="3.5" step="0.01" value="1"></label>
+    <div class="stage-wrap" id="sg-stage-wrap">
+      <canvas id="sg-stage" width="360" height="103" class="stage"></canvas>
+      <p id="sg-stage-empty" class="stage-empty">Your signature will appear here. Drag to move it.</p>
+    </div>
+
+    <h2>Signature — 3 · Export your signature strip</h2>
+    <button id="sg-btn" class="action" disabled>Export signature JPG in range</button>
+    <p class="status" id="sg-status"></p>
+    <div id="sg-result-wrap" hidden>
+      <img id="sg-result-img" class="result-img" alt="Exported signature strip">
+      <p class="result-info" id="sg-result-info"></p>
+      <a id="sg-download" class="download" download="nepal-signature.jpg">⬇ Download nepal-signature.jpg</a>
+    </div>
+    <p class="hint small">Why a signature file can be too small: JPEG compresses flat white paper to almost nothing, so a clean signature scan is often 2–3 KB — under the portal minimum, and the upload is rejected. This tool guarantees the minimum: quality is raised first, then standard JPEG padding tops the file up to the floor. The padding is comment data the decoder ignores — your signature pixels are byte-identical, and the status message tells you exactly how much padding was added.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your photo and signature never leave this device.</strong> All processing runs right in your browser. No upload, no account, no tracking.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a><br>
+    Need a website or WhatsApp automation built for you? <a href="https://www.fiverr.com/atanglab">Atang Lab on Fiverr</a></p>
+  </div>
+  <p class="small">Nepal Lok Sewa Photo &amp; Signature Maker · Atang Lab · free · sizes from public sources, checked 2026-11-18 — always check the latest notice from the vacancy you are applying to; this tool only fixes the file size, it does not guarantee your application will be accepted. The Lok Sewa photo (around 350×450 px, JPG, about 10–50 KB) and signature strip (around 350×150 px, JPG, about 5–50 KB) follow the most commonly quoted Lok Sewa guides; some notices allow up to 200 KB, so the fields stay editable. The Nepal passport preset follows the 35×45 mm (413×531 px @300 DPI) printed size. Related tools: <a href="https://sirtang71-collab.github.io/smb-demos/id-photo/">ID Photo Maker</a> · <a href="https://sirtang71-collab.github.io/smb-demos/id-photo-ph/">Philippines ID Photo Maker</a> · <a href="https://sirtang71-collab.github.io/smb-demos/id-photo-th/">Thailand ID Photo Maker</a> · <a href="https://sirtang71-collab.github.io/smb-demos/id-photo-vn/">Vietnam ID Photo Maker</a> · <a href="https://sirtang71-collab.github.io/smb-demos/id-photo-my/">Malaysia ID Photo Maker</a> · <a href="https://sirtang71-collab.github.io/smb-demos/id-photo-bd/">Bangladesh ID Photo Maker</a> · <a href="https://sirtang71-collab.github.io/smb-demos/id-photo-pk/">Pakistan ID Photo Maker</a> · <a href="https://sirtang71-collab.github.io/smb-demos/id-photo-ng/">Nigeria ID Photo Maker</a></p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
