@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compress PDF to KB — Shrink a Scanned PDF to 100/200/500 KB (Free, Offline)</title>
+<meta name="description" content="Compress a scanned PDF down to the exact file size your form asks for — 100 KB, 200 KB, 300 KB, 500 KB or 1 MB. Your PDF's images are recompressed on your device; page count and page size stay the same. Free, nothing is uploaded.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>🗜️ Compress PDF to KB</h1>
+  <p class="tagline">Your scanned certificate is 4 MB and the form only takes 200 KB. This tool recompresses the images inside your PDF until the file lands <strong>at or under the size you pick</strong> — <strong>page count and page size stay exactly the same</strong>.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">One PDF · up to <strong>200 pages</strong> · up to <strong>20 MB</strong> · target <strong>100 KB – 1 MB</strong> (or your own KB number) · output is always <strong>≤ your target</strong> — or the tool tells you it cannot get there instead of handing you an over-size file.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Add your PDF</h2>
+    <label class="drop" id="drop-zone">
+      <input type="file" id="pdf-file" accept="application/pdf,.pdf">
+      <span>Tap to choose a PDF, or drag &amp; drop it here</span>
+    </label>
+    <p class="file-name" id="pdf-info">No PDF yet — add one scanned (image) PDF to compress.</p>
+    <ol id="pdf-list" class="img-list"></ol>
+
+    <h2>2 · Target size</h2>
+    <fieldset class="opt-group">
+      <legend>Compress to</legend>
+      <label class="bg-chip"><input type="radio" name="target-preset" value="100"> 100 KB</label>
+      <label class="bg-chip selected"><input type="radio" name="target-preset" value="200" checked> 200 KB</label>
+      <label class="bg-chip"><input type="radio" name="target-preset" value="300"> 300 KB</label>
+      <label class="bg-chip"><input type="radio" name="target-preset" value="500"> 500 KB</label>
+      <label class="bg-chip"><input type="radio" name="target-preset" value="1024"> 1 MB</label>
+      <label class="bg-chip"><input type="radio" name="target-preset" value="custom"> Custom</label>
+    </fieldset>
+    <div id="custom-row" hidden>
+      <label class="field">Custom target (KB)
+        <input type="number" id="pdf-custom-kb" class="num-input" min="10" max="10240" value="200"> KB
+      </label>
+    </div>
+    <p class="hint">Pick the limit your form asks for. The tool lowers image quality and resolution step by step (300 → 50 DPI) until the file fits — and refuses, with the smallest size it could reach, if your target is too small for this PDF.</p>
+
+    <button id="pdf-btn" class="action" disabled>Compress PDF</button>
+    <p class="status" id="pdf-status"></p>
+    <div id="pdf-result-wrap" hidden>
+      <p class="result-info" id="pdf-result-info"></p>
+      <table id="pdf-result-table" class="result-table">
+        <thead><tr><th>Page</th><th>Image</th><th>Before</th><th>After</th></tr></thead>
+        <tbody id="pdf-result-body"></tbody>
+      </table>
+      <a id="pdf-download" class="download" download="compressed.pdf">⬇ Download compressed PDF</a>
+    </div>
+    <p class="hint small">What this tool does with your file: it reads your PDF in your browser, recompresses the embedded images (JPEG images are re-encoded; other image data is decoded and re-encoded as JPEG), and rebuilds the PDF with the same pages and page sizes — nothing leaves your device at any point. Password-protected (encrypted) PDFs cannot be compressed; remove the password first and try again. Text-only PDFs have no images to shrink and will be refused with a clear message — they are already as small as they can be. A few very old or unusually compressed PDFs may be refused with a clear message instead of producing a broken file.</p>
+  </section>
+
+  <section class="tool services">
+    <p class="services-sub"><strong>Atang Lab</strong> · One form at a time is fine — until the paperwork piles up. Sellers: hand us your documents in bulk — invoice sets, listing packs, application packets — and we assemble, name and organise them for you, alongside our WhatsApp auto-reply &amp; order assistant that answers buyers while you sleep.
+      <a href="http://www.fiverr.com/s/Bb83K0d" target="_blank" rel="noopener">See the service on Fiverr →</a></p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your files never leave this device.</strong> All processing runs right in your browser. No upload, no account, no tracking.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a></p>
+  </div>
+  <p class="small">Compress PDF to KB · Atang Lab · free · compresses scanned/image PDFs by recompressing embedded images (DCTDecode/JPEG and FlateDecode); encrypted PDFs are refused. This tool only shrinks the file, it does not guarantee an application is accepted — always check the latest notice from the place you submit to.</p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/compress.js"></script>
+<script src="js/jpeg.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
