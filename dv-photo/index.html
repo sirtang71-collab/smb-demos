@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>US DV Lottery Photo Maker — 600×600, ≤240 KB, Free</title>
+<meta name="description" content="Make a US Diversity Visa (DV) lottery photo at the exact spec: 600×600 px square JPEG, 240 KB or less, head 50–69% of the frame, plain white background. Free, 100% processed on your device — your photo never leaves your machine. Crop, resize and re-encode only: no background change, no retouching, no AI edits.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="toplink"><a href="https://sirtang71-collab.github.io/smb-demos/">← Atang Lab — all free tools</a></p>
+  <h1>🇺🇸 US DV Lottery Photo Maker</h1>
+  <p class="tagline">The DV entry system rejects the file itself when the photo is the wrong size <em>or</em> the wrong file size. This tool crops your photo to <strong>exactly 600×600 px</strong>, saves it as a <strong>JPEG of 240 KB or less</strong>, and walks you through the head-size and background checks — with a plain white or off-white background, head 50–69% of the frame.</p>
+  <p class="privacy-badge">🔒 100% processed on your device. No upload, no server, no tracking.</p>
+  <p class="spec-strip">Digital photo: <strong>exactly 600×600 px · square · colour JPEG · ≤240 KB</strong> · head 50–69% of frame height (chin to crown) · eyes 56–69% up from the bottom · plain white or off-white background · taken within the last 6 months · no glasses.</p>
+  <p class="warn-box"><strong>⚠️ Read first — US 2026 rule:</strong> the State Department does <strong>not</strong> accept photos altered with computer software, phone apps, filters or AI — including <strong>replacing or whitening the background, skin smoothing, lighting changes and AI sharpening</strong>. A manipulated photo may make you ineligible. This tool only <strong>crops, resizes and re-encodes</strong> — the same three things the Department's own free photo tool does. It does <strong>not</strong> change your background and does <strong>not</strong> retouch your face. Take the photo against a plain white or off-white wall, in daylight, facing the camera.</p>
+</header>
+
+<main>
+  <section class="tool active">
+    <h2>1 · Add your photo</h2>
+    <label class="drop">
+      <input type="file" id="dv-file" accept="image/*">
+      <span>Tap to choose a photo, or drag and drop it here</span>
+    </label>
+    <p class="file-name" id="dv-info"></p>
+    <p class="hint small">Use the original full-size photo from your camera or phone — not a thumbnail, screenshot or chat-app copy. The photo must be recent (within the last 6 months) and must not be the photo from a previous year's entry.</p>
+
+    <h2>2 · Position your head — drag &amp; zoom</h2>
+    <label class="field">Zoom <input type="range" id="dv-zoom" min="1" max="3.5" step="0.01" value="1"></label>
+    <div class="stage-wrap" id="stage-wrap">
+      <canvas id="dv-stage" width="360" height="360" class="stage"></canvas>
+      <p id="dv-stage-empty" class="stage-empty">Your photo will appear here. Drag to move it.</p>
+    </div>
+    <p class="guide-legend"><span class="swatch-outer">┄ red box = biggest allowed head (69%)</span> · <span class="swatch-inner">┄ green box = smallest allowed head (50%)</span> · <span class="swatch-eye">blue band = where the eyes must fall (56–69% up from the bottom)</span><br>Your head must fill the green box and stay inside the red box: the crown sits in the band between the two boxes at the top, the chin in the band between them at the bottom.</p>
+
+    <h3>Measure the head (in the 600 px frame)</h3>
+    <p class="hint">Read the positions off the preview above — 0 is the top edge of the frame, 600 is the bottom. The tool does the maths; you confirm it looks right.</p>
+    <div class="measure-row">
+      <label class="field">Top of head / crown (px) <input type="number" id="dv-crown" min="0" max="600" placeholder="e.g. 93"></label>
+      <label class="field">Chin (px) <input type="number" id="dv-chin" min="0" max="600" placeholder="e.g. 507"></label>
+    </div>
+    <p class="readout" id="dv-head-readout">Enter the crown and chin to check the head size (must be 50–69% of the 600 px frame).</p>
+    <div class="measure-row">
+      <label class="field">Eye line (px) <input type="number" id="dv-eye" min="0" max="600" placeholder="e.g. 220"></label>
+    </div>
+    <p class="readout" id="dv-eye-readout">Enter the eye line to check the eye height (must be 56–69% up from the bottom of the frame).</p>
+    <p class="hint small"><strong>How to eyeball it:</strong> the head, chin to crown including the hair, should take up about half to two-thirds of the picture — a little more than half, a little less than three-quarters. If the head nearly touches the top and bottom edges, it is too big; if there is a lot of empty space above the head and below the shoulders, it is too small. Eyes sit a little above the middle of the frame.</p>
+
+    <h2>3 · Export — exactly 600×600, ≤240 KB</h2>
+    <button id="dv-btn" class="action" disabled>Export DV photo (600×600 JPEG)</button>
+    <p class="status" id="dv-status"></p>
+    <div id="dv-result-wrap" hidden>
+      <img id="dv-result-img" class="result-img" alt="Exported DV photo">
+      <p class="result-info" id="dv-result-info"></p>
+      <a id="dv-download" class="download" download="dv-photo.jpg">⬇ Download dv-photo.jpg</a>
+    </div>
+    <p class="hint small">How the 240 KB ceiling is reached honestly: the photo is encoded at the highest JPEG quality that still fits under 240,000 bytes. Nothing is added or removed from the picture — no padding, no filters, no retouching. If even the lowest quality is over the ceiling (very noisy originals), the tool refuses instead of handing you a file the entry system would reject.</p>
+
+    <h2>4 · Self-check — tick every box before you submit</h2>
+    <p class="hint" id="dv-check-count"></p>
+    <ul class="checklist">
+      <li><input type="checkbox" id="chk-size" disabled><label for="chk-size"><span class="ck-title">Size is exactly 600 × 600 px</span><span class="ck-detail">The entry system accepts only this size. <span class="ck-auto">(auto — ticks after a successful export)</span></span></label></li>
+      <li><input type="checkbox" id="chk-bytes" disabled><label for="chk-bytes"><span class="ck-title">File is 240 KB or less</span><span class="ck-detail">Checked against the conservative 240,000-byte ceiling, so it passes whether the portal counts a KB as 1,000 or 1,024 bytes. <span class="ck-auto">(auto — ticks after a successful export)</span></span></label></li>
+      <li><input type="checkbox" id="chk-jpeg" disabled><label for="chk-jpeg"><span class="ck-title">Format is JPEG</span><span class="ck-detail">A genuine JPEG file, not a renamed PNG. <span class="ck-auto">(auto — ticks after a successful export)</span></span></label></li>
+      <li><input type="checkbox" id="chk-square" disabled><label for="chk-square"><span class="ck-title">Square — height equals width</span><span class="ck-detail">600 × 600 is square by definition. <span class="ck-auto">(auto — ticks after a successful export)</span></span></label></li>
+      <li><input type="checkbox" id="chk-head"><label for="chk-head"><span class="ck-title">Head is 50–69% of the frame height</span><span class="ck-detail">Chin to crown, hair included. Use the measurement in step 2 and the guide boxes on the preview. <span class="ck-auto">(auto — ticks when your measured head is in range)</span></span></label></li>
+      <li><input type="checkbox" id="chk-eyes"><label for="chk-eyes"><span class="ck-title">Eyes are 56–69% up from the bottom</span><span class="ck-detail">Measured from the bottom edge to the eye line. <span class="ck-auto">(auto — ticks when your measured eye line is in range)</span></span></label></li>
+      <li><input type="checkbox" id="chk-bg"><label for="chk-bg"><span class="ck-title">Plain white or off-white background, no shadows, no objects</span><span class="ck-detail" id="dv-bg-readout">Add a photo first — the tool samples the four corners and tells you whether they read as white. A corner check is only a hint: confirm the whole background by eye.</span></label></li>
+      <li><input type="checkbox" id="chk-recent"><label for="chk-recent"><span class="ck-title">Taken within the last 6 months, not reused from a previous entry</span><span class="ck-detail">The entry system screens for duplicate photos across years.</span></label></li>
+      <li><input type="checkbox" id="chk-glasses"><label for="chk-glasses"><span class="ck-title">No glasses, neutral expression, both eyes open, facing the camera</span><span class="ck-detail">Everyday clothes, no uniform; religious headwear worn daily is allowed if it does not cover the hairline or cast shadows on the face.</span></label></li>
+      <li><input type="checkbox" id="chk-noedit"><label for="chk-noedit"><span class="ck-title">Not edited, filtered, retouched or AI-altered in any way</span><span class="ck-detail">No background change, no skin smoothing, no lighting fix, no AI sharpening — only the crop, resize and re-encode this tool did. If you edited the photo anywhere else, retake it instead.</span></label></li>
+    </ul>
+    <p class="hint small"><strong>This checklist does not guarantee acceptance.</strong> It checks the file rules and the measurements you enter; the State Department makes the final decision on whether a photo is acceptable, and the instructions can change between program years — always confirm the instructions for your entry year on the official DV pages (travel.state.gov, dvprogram.state.gov) before you submit. Entries are accepted only at dvprogram.state.gov.</p>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Your photo never leaves this device.</strong> All processing runs right in your browser. No upload, no account, no tracking.</p>
+  <div class="lab-card">
+    <p class="lab-name">Atang Lab</p>
+    <p class="small">Free browser tools for exam forms, sellers and small businesses — plus done-for-you website &amp; WhatsApp automation services.</p>
+    <p class="small">More free tools: <a href="https://sirtang71-collab.github.io/smb-demos/">Atang Lab — free tools &amp; services</a><br>
+    Need a website or WhatsApp automation built for you? <a href="https://www.fiverr.com/atanglab">Atang Lab on Fiverr</a></p>
+  </div>
+  <p class="small">US DV Lottery Photo Maker · Atang Lab · free · spec from the U.S. Department of State Diversity Visa instructions, checked 2026-11-18 — always check the instructions for your entry year; this tool only fixes the file and measures what you enter, it does not guarantee your entry will be accepted. Related tools: <a href="https://sirtang71-collab.github.io/smb-demos/id-photo-my/">Malaysia ID Photo Maker</a> · <a href="https://sirtang71-collab.github.io/smb-demos/id-photo-ph/">Philippines ID Photo Maker</a></p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
